@@ -3,6 +3,3 @@
 *.bak
 *.orig
 *~
-.project
-.pydevproject
-*.DS_Store
