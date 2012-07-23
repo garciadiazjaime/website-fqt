@@ -2,8 +2,9 @@
 
 ## Template App Information
 Product: Django  
-Version: 1.8.4
+Version: 1.4  
 Source:  https://github.com/django/django.git  
+Commit:  2591fb8d4c0246f68b79554976c012039df75359
 
 ## Maintenance
 This folder contains a diff file that includes the changes made to the
