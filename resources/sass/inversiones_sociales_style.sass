@@ -1,0 +1,463 @@
+#wrapper.inversiones_sociales
+	@include background-image(radial-gradient(50% 100%, #3dbecb 10px, #0e6e8a 100%))
+
+#paypal_wrapper
+	color: 575757
+	font: 16px montserrat_regular, Verdana, sans-serif
+	margin: 0 -36px 70px
+
+	hr
+		background: url(../media/blue_circle_pattern_top.png) repeat-x
+		border: none
+		display: block
+		height: 10px
+		margin: 0
+		
+	hr.bottom
+		background-image: url(../media/blue_circle_pattern_bottom.png)
+	
+	p, div div
+		display: inline-block
+		vertical-align: top
+	
+	p
+		margin: 0
+	
+	.first
+		background: url(../media/sprite_inversiones.png) right -1262px no-repeat
+		margin: 0 30px 0 0
+		overflow: hidden
+		padding: 0 170px 0 0
+		position: relative
+		width: 200px
+		
+		span.hidden
+			background: url(../media/sprite_inversiones.png) 0 -1122px no-repeat
+			display: block
+			height: 50px
+			line-height: 5000em
+			overflow: hidden
+			position: absolute
+			right: 40px
+			top: 0
+			width: 110px
+		
+	.second
+		background: url(../media/sprite_inversiones.png) right -1262px no-repeat
+		margin: 0 30px 0 0
+		padding: 0 60px 0 0
+		width: 180px
+		
+	.third
+		padding: 0
+		text-transform: uppercase
+		width: 230px
+		
+	a.shadow_button
+		background: url(../media/sprite_inversiones.png) 0 -1453px no-repeat	
+		color: #50dcdf
+		display: block
+		height: 23px
+		padding: 25px 0
+		text-align: center
+		width: 220px
+		
+		&:hover
+			color: lighten(#50dcdf, 15)
+	
+	div
+		background: #50dcdf
+		padding: 25px 47px
+		width: 930px
+
+#toner_count
+	p
+		color: black
+		font: 58px montserrat_bold, Verdana, sans-serif
+		margin: 0
+		padding: 0 14px
+		text-align: right
+	span
+		display: inline-block
+		padding: 120px 0
+		text-align: center
+		width: 45px
+		
+.slider_inversiones
+	list-style-type: none
+	margin: 20px -40px 50px
+	overflow: hidden
+	position: relative
+	
+	ul
+		background: #ffffff
+		height: 250px
+		margin: 0
+		padding: 20px 35px 0
+		text-align: left
+	
+	li
+		display: inline-block
+		height: 116px
+		overflow: hidden
+		vertical-align: top
+		width: 135px
+		
+		&:hover
+			a
+				background-color: rgba(255,255,255, .3)
+		
+			@include transition(background 0.3s)
+	
+	a
+		background-color: transparent
+		display: block
+		height: 100%
+		line-height: 50000em
+		opacity: 1
+			
+		
+
+	.prev, .next
+		background: url(../media/inversionistas_soc/inversionistas_navegacion.png) left 0 no-repeat
+		display: block
+		height: 30px
+		line-height: 5000em
+		margin: -15px 0 0
+		overflow: hidden
+		position: absolute
+		top: 50%
+		width: 31px
+		
+	.prev
+		left: 10px
+		
+		&:hover
+			background-position: left -76px
+		
+	.next
+		background-position: right 0
+		right: 10px
+		
+		&:hover
+			background-position: right -76px
+		
+.slider_texture
+	background: url(../media/background_texture.png) repeat
+	height: 260px
+	opacity: .2
+	left: 0
+	padding: 10px 0 0
+	pointer-events: none
+	position: absolute
+	top: 0
+	position: absolute
+	width: 100%
+	
+	
+#slider_empresas
+			
+	li
+		background: url(../media/inversionistas_soc/sprite_empresas_toner.jpg)
+	 
+	#em_industrias_electricas
+		background-position: 0 0
+	
+	#em_victory_enterprises
+		background-position: 0 -117px
+		
+	#em_wtc
+		background-position: 0 -234px
+	
+	#em_galber
+		background-position: 0 -351px
+	
+	#em_aim
+		background-position: 0 -468px
+	
+	#em_aba
+		background-position: 0 -585px
+	
+	#em_amex_upholstery
+		background-position: 0 -702px
+	
+	#em_arris
+		background-position: 0 -819px
+	
+	#em_autosplice
+		background-position: 0 -936px
+	
+	#em_cafe_pedrin
+		background-position: 0 -1053px
+	
+	#em_caramelos
+		background-position: 0 -1170px
+	
+	#em_clayton
+		background-position: 0 -1287px
+		
+	#em_conalep
+		background-position: 0 -1404px
+	
+	#em_cdt
+		background-position: 0 -1521px
+	
+
+#slider_aliados
+
+	li
+		background: url(../media/inversionistas_soc/sprite_aliados.jpg)
+		
+	#al_baja_sky
+		background-position: 0 0
+
+	#al_us_consulate
+		background-position: 0 -117px
+
+	#al_el_trompo
+		background-position: 0 -234px
+
+	#al_fide
+		background-position: 0 -351px
+
+	#al_fundacion_ninez
+		background-position: 0 -468px
+
+	#al_gob_bc
+		background-position: 0 -585px
+
+	#al_telecomunicaciones
+		background-position: 0 -702px
+
+	#al_simpatt
+		background-position: 0 -819px
+
+	#al_cam_helen_keller
+		background-position: 0 -928px
+
+	#al_faltas
+		background-position: 0 -1044px	
+	
+		
+#slider_universidades
+	li
+		background: url(../media/inversionistas_soc/sprite_universidades.jpg)
+		
+	#uni_cecyt
+		background-position: 0 0
+
+	#uni_xochicalco
+		background-position: 0 -117px
+
+	#uni_utt
+		background-position: 0 -234px
+
+	#uni_upn
+		background-position: 0 -351px
+
+	#uni_ibero
+		background-position: 0 -468px
+
+	#uni_uabc
+		background-position: 0 -585px
+
+	#uni_unidep
+		background-position: 0 -702px
+
+	#uni_cut
+		background-position: 0 -811px
+
+	#uni_faltas
+		background-position: 0 -928px
+		
+#slider_inversionistas
+	li
+		background: url(../media/inversionistas_soc/sprite_inversionistas_sociales.jpg)
+		
+	#inv_gob_bc
+		background-position: 0 0
+
+	#inv_papeles_graficos
+		background-position: 0 -116px
+
+	#inv_faltas
+		background-position: 0 -234px
+		
+		
+#slider_especie
+	li
+		background: url(../media/inversionistas_soc/sprite_especie.jpg)
+		
+		
+	#esp_club_infantil
+		background-position: 0 0
+
+	#esp_hola_californias
+		background-position: 0 -117px
+
+	#esp_ecoideas_panasonic
+		background-position: 0 -232px
+
+	#esp_faltas
+		background-position: 0 -351px
+		
+#aqua_background
+	background: url(../media/background_inversiones.png) top center no-repeat
+	color: #ffffff	
+	position: relative
+
+	hr
+		border: none
+		border-bottom: 1px dashed #ffffff
+		
+	ol	
+		padding: 0 0 0 23px
+		
+		li
+			margin: 0 0 20px
+				
+		
+#title_count
+	font-size: 22px
+	margin: 80px 0 0 
+	
+#toner_count	
+	background: url(../media/sprite_inversiones.png) top center no-repeat
+	display: block
+	height: 323px
+	margin: 20px 0 40px
+	width: 344px
+	
+.dashed_bullet
+	list-style-type: none
+	margin: 0
+	padding: 0
+	
+	li
+		text-indent: -5px
+		margin: 0 0 20px 10px
+	
+	li:before
+		content: "-"
+		position: relative
+		left: -5px
+
+.beneficios, h4.beneficios.sideoverflow, .aportacion, h4.aportacion.sideoverflow
+	background: url(../media/sprite_inversiones.png) left -532px no-repeat
+	margin-bottom: -6px
+	min-height: 50px
+	padding-left: 40px
+	
+.aportacion, h4.aportacion.sideoverflow
+	background-position: left -788px
+
+#empresas_participantes
+	color: #50dcdf
+	font-size: 26px
+	text-transform: none
+
+#underwater_nature
+	background: url(../media/background_inversiones_nature.png) top center no-repeat
+	height: 229px
+	margin: 0 0 -40px
+	position: relative
+	z-index: 5
+
+.light_gray, .dark_gray
+	background: #676767 url(../media/background_texture.png) repeat
+	color: #ffffff
+	padding: 50px 0 0
+	
+	.gradient_line
+		margin: 0 0 -14px
+	
+.dark_gray
+	background: #4b4b4b url(../media/background_texture_dark_bck.png) repeat
+	padding: 50px 0
+	
+.inversiones_sociales
+	#content
+		background: url(../media/background_texture.png) repeat
+
+	.benefit_wrapper
+		padding: 0 0 0 40px
+
+	h1
+		display: none
+	
+	h2
+		background: url(../media/pleca_header_aqua.png) left top no-repeat
+		color: #ffffff
+		font: 20px montserrat_regular, Verdana, sans-serif
+		height: 25px
+		margin: 0 0 5px -80px
+		padding: 10px 110px 25px 95px
+		width: 300px
+	
+			
+	h3
+		border-bottom: 1px dashed #ffffff
+		color: #ffffff
+		font-size: 38px
+		margin: 0 0 15px
+		padding:  0 0 10px
+		
+		.small_text
+			display: block
+			font-size: 28px
+	
+	
+			
+	h4
+		color: #ffffff
+		font: 25px montserrat_regular, Verdana, sans-serif
+		letter-spacing: .03em
+		margin: 40px 0 10px
+		text-transform: none
+		
+		
+	h1.sideoverflow, h2.sideoverflow, h3.sideoverflow, h4.sideoverflow, h5.sideoverflow
+		margin-left: -40px
+		margin-right: -40px
+		padding-left: 40px
+		padding-right: 40px
+		
+	.half.no_padding_bottom
+		padding-bottom: 0
+		
+	h4.negative_margin_top
+		margin-top: -30px
+		
+	.dark_gray
+		h2
+			background-image: url(../media/pleca_header.png)
+			color: #626262
+			margin-bottom: 70px
+	
+		h3
+			color: #4dd3d6
+			font-size: 18px
+			letter-spacing: .03em
+			margin-left: -40px
+			margin-right: -40px
+			padding: 0 0 15px 45px
+			text-transform: none
+			
+	
+	.light_gray
+
+		h2
+			color: #626262
+
+		h3
+			color: #48c7ca
+			
+		.beneficios, h4.beneficios.sideoverflow
+			background-position: left -930px
+		
+		.strong_big_paragraph
+			font-size: 20px
+			letter-spacing: 0.03em
+			margin: 0
+			
+	

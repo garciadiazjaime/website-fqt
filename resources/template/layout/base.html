@@ -1,0 +1,59 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/static/css/screen.css" />
+	<link rel="stylesheet" href="static/css/bjqs.css" />	
+	<link rel="stylesheet" href="static/css/explorer.css" />
+	
+	<script type="text/javascript" src="static/js/jquery-1.9.0.min.js"></script>
+	
+	<!-- Custom SELECT and FILE UPLOAD  -->
+	<script type="text/javascript" src="static/js/select.jquery.js"></script>
+	<script type="text/javascript" src="static/js/fileupload.jquery.js"></script>
+	<!-- ENDS - Custom SELECT and FILE UPLOAD -->
+	<script type="text/javascript" src="static/js/bjqs-1.3.js"></script>
+	<script type="text/javascript" src="static/js/functions.js" ></script>
+	<script type="text/javascript" src="static/js/parallax/nbw-parallax.js"></script>
+	<script type="text/javascript" src="/static/js/parallax/jquery.localscroll-1.2.7-min.js"></script>
+	<script type="text/javascript" src="/static/js/parallax/jquery.scrollTo-1.4.2-min.js"></script>
+	<script type="text/javascript" src="/static/js/parallax/jquery.inview.js"></script>
+	
+	
+</head>
+<body>
+	<div id="wrapper" class="{{section}}">
+		<div id="header">
+			{% include 'layout/header.html' %}
+		</div>
+		<div id="content">
+			<div id="brand_social">
+				<div class="container">
+				<!-- INSERTAR LOGO  -->
+				{% if section == "inicio" %}
+						<h1 id="logo">
+					{% else %}
+						<p id="logo">		
+				{% endif %}
+						Fundación que transforma
+				{% if section == "inicio" %}	
+						</h1>
+				{% else %}
+						</p>
+				{% endif %}
+				<!-- TERMINA - INSERTAR LOGO  -->
+				
+					<ul id="social">
+						<li id="twitter"><a href="#" title="Visítanos en Twitter">Twitter</a></li><li id="facebook"><a href="#" title="Visítanos en Facebook">Facebook</a></li><li id="blogger"><a href="#" title="Visítanos en Blogger">Blogger</a></li>
+					<ul>
+				</div>
+			</div> <!-- #brand_social -->
+			
+			{% block site_wrapper %}{% endblock %} 
+		</div>
+		<div class="footer_top">
+		</div>
+		<div id="footer">
+			{% include 'layout/footer.html' %}
+		</div>
+	</div>
+</body>
+</html>

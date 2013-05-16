@@ -1,0 +1,52 @@
+ {% extends "layout/base.html" %}
+
+{% block site_wrapper %}
+	<div class="container">
+		<h1>Talleristas</h1>
+		<div class="half column first no_padding_bottom">
+			<p>Los Talleristas son estudiantes universitarios que realizan su servicio social o prácticas profesionales en los distintos programas y actividades de Fundación Que Transforma.</p>
+			<p>A ellos se les capacita y asigna espacios como escuelas o casas hogar para apoyar con  la labor de difundir y enseñar los contenidos educativos de la organización.</p>
+		</div><div class="half column no_padding_bottom">
+			<p>Los Talleristas promueven una cultura urbana proactiva enfocada al medio ambiente y desarrollo sustentable.</p>
+			<p>A través de diversos programas formativos, todos ellos lúdicos, se crea conciencia sobre la importancia de mejorar la calidad de vida a través de la participación ciudadana.</p>
+		</div>
+		<h3>Descargables Para Talleristas</h3>
+		<ul id="lista_descargables_talleristas">
+			<li class="half column first"><a href="static/media/descargables/ficha_de_registro.pdf" title="Ficha de Registro">Ficha de Registro</a></li><li class="half column"><a href="static/media/descargables/bitacora.pdf" title="Bitácora">Bitácora</a></li>
+		</ul>	
+		<h2>¿Quieres ser voluntario?</h2>
+		<div class="half column first">
+			<p>Si ya descargaste y llenaste tu ficha de registro, adjúntala completando la siguiente forma.</p>
+		</div><div class="half column"></div>
+		<form method="post" action="#" id="forma_voluntarios" enctype="multipart/form-data">
+			<div class="half column first">
+				<label>Nombre <span></span></label><input type="text" id="name" name="name" lang="es" class="custom_textbox required" />
+				<label>Edad <span></span></label><input type="text" id="edad" name="edad" lang="es" class="custom_textbox required" />
+				<label>Email <span></span></label><input type="email" id="email" name="email" lang="es" class="custom_textbox required" />
+				<label>Ocupación <span></span></label><input type="text" id="ocupacion" name="ocupacion" lang="es" class="custom_textbox required" />
+				<label class="full_width">¿De qué forma deseas apoyarnos?</label>
+				<div class="the_select">
+					<select class="mySelectBoxClass">
+						<option>Forestaciones / Huertos Escolares</option>
+						<option>Talleres</option>
+						<option>Eventos</option>
+						<option>Actividades Operativas</option>
+						<option>Experiencia Profesional</option>
+					</select>
+				</div>
+				
+			</div><div class="half column">
+				<label class="full_width">Mensaje</label>
+				<textarea id="mensaje" name="mensaje"></textarea>
+				<label class="full_width">Adjuntar ficha de registro</label>
+				<div id="FileUpload">
+				    <input type="file" size="24" id="BrowserHidden" onchange="getElementById('FileField').value = getElementById('BrowserHidden').value;" name="file" />
+				    <div id="BrowserVisible"><input type="text" id="FileField" /></div>
+				</div>
+				<br />
+				<p>*Campos requeridos</p>
+				<input type="submit"  class="custom_submit" value="Enviar" />
+			</div>
+		</form>
+	</div>
+{% endblock %}

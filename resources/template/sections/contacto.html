@@ -1,0 +1,42 @@
+ {% extends "layout/base.html" %}
+
+{% block site_wrapper %}
+	<div class="container">
+		<h1>Contáctanos</h1>
+		
+		<div class="half column first">
+			<p>Para cualquier duda o comentario, ponte en contacto con nosotros.</p>
+		</div><div class="half column"></div>
+		<div class="half column first">
+			<hr>
+			<form method="post" action="#" id="forma_contacto">
+				<label>Nombre <span></span></label><input type="text" id="name" name="name" lang="es" class="custom_textbox required" />
+				<label>Email <span></span></label><input type="email" id="email" name="email" lang="es" class="custom_textbox required" />
+				<label>Comentario <span></span></label><textarea id="mensaje" name="mensaje"></textarea>
+				<input type="submit"  class="custom_submit" value="Enviar" />
+				
+				<p id="message">Tu mensaje ha sido enviado. Nos contactaremos a la brevedad</p>
+			</form>
+			<br><br><br>
+			<p><strong>Dirección</strong> Niños Héroes #1024  Zona Centro, Tijuana B.C.,C.P. 22000</p>
+			<p><strong>Teléfono</strong> 6854342</p>
+		</div><div class="half column">
+			<hr>
+			<h2><span>Dirección</span></h2>
+			<ul id="directorio">
+				<li><strong>Daniela Sepúlveda Ruíz</strong>
+					Fundadora y Presidenta de la Mesa Directiva
+					<a href="mailto:comunicacion@fqt.org.mx" title="Enviar un correo al departamento de Comunicación" class="email">comunicacion@fqt.org.mx</a>
+				</li>
+				<li><strong>Edilia Peña Huerta</strong>
+					Dirección Operativa
+					<a href="mailto:direccion@fqt.org.mx" title="Enviar un correo al departamento de Dirección" class="email">direccion@fqt.org.mx</a>
+				</li>
+				<li><strong>Daniela Sepúlveda Ruíz</strong>
+					Fundadora y Presidenta de la Mesa Directiva
+					<a href="mailto:comunicacion@fqt.org.mx" title="Enviar un correo al departamento de Comunicación" class="email">comunicacion@fqt.org.mx</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+{% endblock %}

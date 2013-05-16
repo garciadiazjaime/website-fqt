@@ -1,0 +1,615 @@
+/* ----------- SETUP -------------- */	
+// @import compass/reset
+
+
+@import "compass/css3/border-radius"
+@import "compass/css3/transition"
+@import "compass/css3/font-face"
+@import "compass/css3/images"
+@import "compass/css3/box-shadow"
+@import "compass/css3/user-interface"
+@import "compass/css3/box-sizing"
+@import "compass/css3/opacity"
+
+@import "mixins.sass"
+
+//$background_fe: "../images/fe/" así se declaran las variables
+
+
+/* ****************** FONTFACE ************** */
+@font-face
+	font-family: 'montserrat_bold'
+	src: url('../fonts/montserrat_bold.eot')
+	src: url('../fonts/montserrat_bold.eot?#iefix') format('embedded-opentype'), url('../fonts/montserrat_bold.woff') format('woff'), url('../fonts/montserrat_bold.ttf') format('truetype'), url('../fonts/montserrat_bold.svg#montserrat_bold') format('svg')
+	font-weight: normal
+	font-style: normal
+
+@font-face
+	font-family: 'montserrat_regular'
+	src: url('../fonts/montserrat_regular.eot')
+	src: url('../fonts/montserrat_regular.eot?#iefix') format('embedded-opentype'), url('../fonts/montserrat_regular.woff') format('woff'), url('../fonts/montserrat_regular.ttf') format('truetype'), url('../fonts/montserrat_regular.svg#montserrat_regular') format('svg')
+	font-weight: normal
+	font-style: normal
+
+/* ****************** GENERAL ************** */
+body
+	@include background-image(radial-gradient(50% 100%, #a6ecf1 10px, #57a194 100%))
+	color: #535353
+	font: 13px Arial, Verdana, sans-serif
+	margin: 0
+	padding: 0
+	text-align: justify
+
+a
+	color: #535353
+	text-decoration: none
+
+	em
+		font-style: normal
+
+a:hover
+	color: lighten(#535353, 15)
+
+h1, h2, h3, h4, h5
+	color: #40a0a0
+	font-family: montserrat_bold, Verdana, sans-serif
+	text-align: left
+	text-transform: uppercase
+	font-weight: normal
+	
+h1
+	background: url(../media/pleca_header.png) left top no-repeat
+	font: 20px montserrat_regular, Verdana, sans-serif
+	height: 25px
+	margin: 0 0 5px -80px
+	padding: 10px 110px 25px 95px
+	width: 300px
+
+.container
+	margin: 0 auto
+	width: 952px
+	min-width: 952px
+	
+br.clearer
+	clear: both
+	
+
+.dark_aqua_background
+	background: url(../media/dark_aqua_texture.jpg) repeat
+
+
+
+.purple_list, .orange_list, .yellow_list
+	font-size: 18px
+	list-style-type: disc
+	padding: 0 0 0 15px
+	
+	li
+		margin: 0 0 15px
+		padding: 0 0 0 5px
+	
+	span
+		color: #535353
+		font-size: 13px
+	
+.purple_list
+	color: #645270
+
+
+.orange_list
+	color: #f7921f
+	
+.yellow_list
+	color: #e3dc1a
+	
+.gradient_line
+	background: url("../media/footer_top_bkg.png") no-repeat center
+	background-size: 100%
+	border: none
+	height: 28px
+		
+.centered
+	text-align: center
+/* ****************** LAYOUT **************** */
+.column
+	display: inline-block
+	vertical-align: top
+	
+	.half
+		padding: 0 0 50px 1%
+		width: 49%
+		
+	.half.first
+		margin-right: 1%
+		padding: 0 1% 50px 0
+		width: 48%
+	
+.half
+	padding: 0 0 50px
+	width: 434px
+	
+.half.first
+	margin-right: 84px
+
+.half.collapse
+	padding: 0 0 50px
+	width: 434px
+
+.half.first.collapse
+	margin-right: 84px
+
+.column
+	
+	.half.collapse
+		padding: 0 0 50px
+		width: 50%
+
+	.half.first.collapse
+		margin-right: 1%
+		padding: 0 0 50px 0
+		width: 49%	
+	
+
+.fourth
+	padding: 0 1% 50px
+	width: 23%
+
+.fourth.first
+	padding: 0 1% 50px 0
+	width: 24%
+
+.fourth.first.collapse
+	padding: 0 0 50px
+	width: 25%
+
+.three_fourth
+	padding: 0 1% 50px
+	width: 73%
+	
+.three_fourth.first
+	padding: 0 1% 50px 0
+	width: 74%
+
+#wrapper
+	background: url(../media/background_texture.png) repeat
+	position: relative
+	top: 50px
+	width: 100%
+		
+	
+/* ****************** HEADER ************** */
+#header
+	background: #6d973e
+	height: 50px
+	position: fixed
+	top: 0
+	width: 100%
+	z-index: 550
+	
+ul.menu
+	margin: 0
+	padding: 0
+	text-align: center
+	li
+		display: inline-block
+		color: #FFFFFF
+		font: 12px 'Montserrat-Bold', sans-serif
+		margin: 0
+		height: 50px
+		
+		&:hover
+			background: #e2dc1a
+		a
+			color: inherit
+			display: block
+			height: 50px
+			padding: 0 26px 9px
+			text-decoration: none
+			&:hover
+				background: url('../media/header_menu_a_bkg.png') no-repeat center bottom
+			span
+				display: block
+				padding-top: 20px
+	li.current
+		background: #e2dc1a
+		a
+			background: url('../media/header_menu_a_bkg.png') no-repeat center bottom
+
+#brand_social
+	height: 105px
+	margin: 0
+	overflow: hidden
+	position: static
+	width: 100%
+	z-index: 100
+	
+	#logo, #social
+		display: inline-block
+		vertical-align: top
+	
+	#logo
+		background: url(../media/logo.png) left 15px no-repeat
+		float: left
+		height: 70px
+		line-height: 5000em
+		margin: 0
+		overflow: hidden
+		padding: 0
+		width: 245px
+		
+	#social
+		float: right
+		list-style-type: none
+		
+		li
+			background: url(../media/sprite_social.png) 0 0 no-repeat
+			display: inline-block
+			height: 27px
+			margin: 0 0 0 10px
+			overflow: hidden
+			width: 28px
+			
+			a
+				display: block
+				line-height: 5000em
+				height: 100%
+			&:hover
+				background-position: 0 -57px
+		
+		#facebook
+			background-position: -37px 0
+			
+			&:hover
+				background-position: -37px -57px
+		
+		#blogger
+			background-position: -72px 0
+			
+			&:hover
+				background-position: -72px -57px	
+			
+/* ****************** FOOTER ************** */
+.footer_top
+	background: url("../media/footer_top_bkg.png") no-repeat center
+	background-size: 100%
+	height: 28px
+	margin: -11px 0 0 0
+	padding: 0
+	position: relative
+	z-index: 10
+#footer
+	background: #6d973e url('../media/background_texture.png')
+	margin: -17px 0 0 0
+	text-align: left
+	.container
+		padding: 40px
+	ul
+		color: #e0e6d8
+		display: inline-block
+		font: 12px 'Montserrat', sans-serif
+		list-style: none
+		margin: 0 0 40px
+		padding: 0
+		vertical-align: top
+
+		li
+			display: inline-block
+			vertical-align: top
+			margin-right: 35px
+			width: 148px
+			&:hover
+				color: #FFFFFF
+			ul
+				margin: 0
+				li
+					display: block
+
+		a
+			color: inherit
+			text-decoration: none
+	.yellow
+		color: #d1cc18
+		&:hover
+			color: #f0e807
+	.spotted
+		border-bottom: 1px dashed #FFFFFF
+	.padded
+		margin-bottom: 14px
+		padding-bottom: 8px
+	.dented
+		padding-left: 12px
+	.wide
+		width: 335px
+		li
+			width: 349px
+	.social_icons
+		display: inline-block
+		padding-left: 0
+		padding-right: 35px
+		vertical-align: top
+		width: 148px
+		a
+			background: url('../media/footer_sm_bkg.png')
+			display: inline-block
+			height: 27px
+			padding-right: 4px
+			width: 27px
+		.twitter
+			background-position: 0 0
+			&:hover
+				background-position: 0 -27px
+
+		.facebook
+			background-position: -32px 0
+			&:hover
+				background-position: -32px -27px
+		.blogger
+			background-position: -59px 0
+			&:hover
+				background-position: -59px -27px
+	#poweredby
+		background: #e2dc1a url('../media/background_texture.png')
+		color: #6d973e
+		font: 12px 'Montserrat', sans-serif
+		padding: 15px 0
+		text-align: center
+		a
+			color: inherit
+			text-decoration: none
+			&:hover
+				text-decoration: underline
+
+/* ****************** HOME ************** */
+$bgsize : 100%
+$firstheight: 1400px
+#personaje
+	background: url('../media/inicio_character.png') no-repeat center
+	height: 140px
+	position: fixed
+	top: 470px
+	width: 100%
+	z-index: 100
+.bgt
+	background: url('../media/background_texture.png') fixed
+	width: 100%
+	position: absolute
+	pointer-events: none
+	z-index: 500
+	
+#first
+	@include background-image(radial-gradient(100% 100%, #a0d7db 10px, #57a194 100%))
+	background-size: $bgsize
+	height: $firstheight
+	padding: 0
+
+	.bg
+		background: url('../media/inicio_first_stars.png') fixed
+		height: $firstheight
+		position: absolute
+		width: 100%
+	.bg2
+		background: url('../media/inicio_first_globo.png') no-repeat fixed
+		height: $firstheight
+		width: 100%
+		position: absolute
+		z-index: 10
+	.bg25
+		background: url('../media/inicio_first_nubes.png') no-repeat fixed
+		height: $firstheight
+		width: 100%
+		position: absolute
+	.bg3
+		background: url('../media/inicio_second_sun.png') no-repeat fixed
+		height: $firstheight
+		width: 100%
+		position: absolute
+		z-index: 510
+	.bg4
+		background: url('../media/inicio_first_smallhouse.png') repeat-x fixed
+		height: $firstheight
+		width: 100%
+		position: absolute
+		z-index: 3
+	.bg5
+		background: url('../media/inicio_first_mediumhouse.png') repeat-x fixed
+		height: $firstheight
+		width: 100%
+		position: absolute
+		z-index: 4
+	.bg6
+		background: url('../media/inicio_first_bighouse.png') repeat-x fixed
+		height: $firstheight
+		width: 100%
+		position: absolute
+		z-index: 5
+	.bgt
+		height: $firstheight
+
+$secondheight:640px
+#second
+	@include background-image(radial-gradient(100% 100%, #a0d7db 10px, #57a194 100%))
+	background-size: $bgsize
+	height: $secondheight
+	padding: 0
+	.bg
+		background: url('../media/inicio_first_stars.png') fixed
+		height: $secondheight
+		position: absolute
+		width: 100%
+	.bg2
+		background: url('../media/inicio_second_sun.png') no-repeat fixed
+		height: $secondheight
+		width: 100%
+		position: absolute
+		z-index: 5
+		
+	.bg3
+		background: url('../media/inicio_second_backsand.png') no-repeat fixed
+		height: $secondheight
+		width: 100%
+		position: absolute
+		z-index: 10
+	.bg4
+		background: url('../media/inicio_second_middlesand.png') no-repeat fixed
+		height: $secondheight
+		width: 100%
+		position: absolute
+		z-index: 7
+	.bg5
+		background: url('../media/inicio_second_frontsand.png') no-repeat fixed
+		height: $secondheight
+		width: 100%
+		position: absolute
+		z-index: 8
+	.bg6
+		background: url('../media/inicio_second_flotador.png') no-repeat fixed
+		height: $secondheight
+		width: 100%
+		position: absolute
+		z-index: 101
+	.bg7
+		background: url('../media/inicio_second_seagull.png') no-repeat fixed
+		height: $secondheight
+		width: 100%
+		position: absolute
+		z-index: 5
+		
+	.bg8
+		background: url('../media/inicio_second_waves.png') repeat-x fixed
+		height: $secondheight
+		width: 100%
+		position: absolute
+		z-index: 101
+	.bgt
+		height: $secondheight
+		
+$thirdheight: 700px
+#third
+	@include background-image(radial-gradient(100% 100%, #38adb7 10px, #3bb1ba 100%))
+	background-size: $bgsize
+	height: $thirdheight
+	padding: 0
+	z-index: 102
+	.bg
+		background: url('../media/inicio_first_stars.png') fixed
+		height: $thirdheight
+		position: absolute
+		width: 100%
+	.bg2
+		background: url('../media/inicio_third_peces.png') fixed
+		height: $thirdheight
+		position: absolute
+		width: 100%
+		z-index: 100
+	.bg3
+		background: url('../media/inicio_third_medusa.png') no-repeat fixed
+		height: $thirdheight
+		position: absolute
+		width: 100%
+		z-index: 101
+	.bg4
+		background: url('../media/inicio_third_bubbles.png') fixed
+		height: $thirdheight
+		position: absolute
+		width: 100%
+		z-index: 103
+	.bg5
+		background: url('../media/inicio_third_sub.png') no-repeat fixed
+		height: $thirdheight
+		position: absolute
+		width: 100%
+		z-index: 104
+	.bg6
+		background: url('../media/inicio_third_sand.png') no-repeat fixed
+		height: $thirdheight
+		position: absolute
+		width: 100%
+		z-index: 105
+	.bg7
+		background: url('../media/inicio_third_waves.png') repeat-x fixed
+		height: $secondheight
+		width: 100%
+		position: absolute
+		z-index: 105
+	.bgt
+		height: $thirdheight
+
+#home_scrollbox
+	position: fixed
+	right: 10px
+	top: 50%
+	z-index: 200
+	a
+		background: url("../media/inicio_scroll_bkg.png") 0 -27px 
+		display: block
+		height: 27px
+		margin: 0 0 15px 0
+		width: 27px
+		div
+			display: none
+		&:hover
+			background-position: 0 0
+			div
+				background: #E3DC1A 
+				@include box-shadow( -3px 3px 0 rgba(0, 0, 0, 0.075))
+				color: #FFFFFF
+				display: block
+				margin: 0 27px 0 -100px
+				padding: 6px 0
+				text-align: center
+				widht: 80px
+
+.inicio
+	#brand_social
+		margin: 0 auto
+		position: fixed
+		top: 50px
+		z-index: 510
+
+/* ****************** INICIO ************** */
+.inicio_info
+	display: inline-block
+	width: 365px
+	h1
+		background: none
+		color: #FFFFFF
+		height: auto
+		margin: 0 0 0 10px
+		padding: 0
+		text-transform: none
+		width: auto
+	p
+		background: #FFFFFF
+		border-radius: 10px
+		@include box-shadow( -3px 3px 0 rgba(0, 0, 0, 0.075))
+		@include opacity(0.8)
+		padding: 20px
+		position: relative
+		z-index: 119
+	a
+		background: url("../media/inicio_info_a.png") no-repeat 0 0
+		display: inline-block
+		height: 17px
+		width: 17px
+		z-index: 200
+		&:hover
+			background-position: 0 -17px
+	span
+		display: block
+		text-align: right
+.inicio_info.nosotros
+	padding: 370px 0 0 0
+.inicio_info.programa
+	padding: 287px 0 0 0
+.inicio_info.ecotips_home
+	padding: 320px 0 0 0
+.inicio_info.inversiones_inicio
+	padding: 150px 0 0 0
+	
+@import "nosotros_style.sass"
+@import "programas_style.sass"
+@import "ecotips_style.sass"
+@import "transparencia_style.sass"
+@import "talleristas_style.sass"
+@import "inversiones_sociales_style.sass"
+@import "contacto_style.sass"
