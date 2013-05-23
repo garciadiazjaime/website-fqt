@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^contacto$', 'app.front.views.contacto', name='contacto'),
     
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^tinymce/', include('tinymce.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()
