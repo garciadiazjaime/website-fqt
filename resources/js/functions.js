@@ -24,26 +24,23 @@ $(window).load(function() {
 		
 	$('.goto_top').click(function(){ 
 		var item = $(this).attr('href');
-		id = getLastItem(item)
-		
-		var inicio = "coordinacion,produccion,renta_equipo,floreria,arte_flor"
-		if(inicio.indexOf(id) !== -1)
-		{
-			gotoTop('panel_'+id)
-			id = "servicios/" + id
-		}
-			
-		else
-			gotoTop(id)
-		
-		var nosotros = "grupo_tradiciones,mision_vision,valores,historia,responsabilidad_social"
-		if(nosotros.indexOf(id) !== -1)
-			id = "nosotros/" + id
-		window.history.pushState( id, id, folder + id);
+		id = getLastItem(item)			
+		gotoTop(id, '', '-100')				
+		window.history.pushState( id, id, item);
 		return false;
 	});
 
 	// *********************** Slider simple - NOSOTROS y PROGRAMAS ***********************************
+
+	$('.slideshow').cycle({
+		fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...	    
+	});
+
+	/*
+	$('.slideshow').bjqs({	    
+	    responsive  : true
+	  });
+	
 	$('#slideshow_nosotros').bjqs({
 	    height      : 320,
 	    width       : 433,
@@ -79,6 +76,7 @@ $(window).load(function() {
 	    width       : 433,
 	    responsive  : true
 	  });
+	*/
 
 	// *********************** ECOTIPS *********************************
 	$('#ecotips_list li').click(function(){
@@ -120,7 +118,7 @@ function gotoTop(id, speed , more){
 
 	if(id.length)
 		$('html, body').animate({
-			scrollTop: $('#'+id).offset().top + more
+			scrollTop: $('#'+id).offset().top - 50
 		}, speed);
 }
 
