@@ -127,6 +127,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'app.programas',
     'tinymce',
+    'app.youtube',
+    'app.downloads',
 )
 
 # A sample logging configuration. The only tangible logging
