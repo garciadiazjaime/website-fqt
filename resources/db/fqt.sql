@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 3.2.4
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 25, 2013 at 12:07 AM
--- Server version: 5.5.27
--- PHP Version: 5.4.7
+-- Generation Time: May 26, 2013 at 07:16 PM
+-- Server version: 5.1.44
+-- PHP Version: 5.3.1
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -33,6 +32,11 @@ CREATE TABLE IF NOT EXISTS `auth_group` (
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+--
+-- Dumping data for table `auth_group`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +53,11 @@ CREATE TABLE IF NOT EXISTS `auth_group_permissions` (
   KEY `auth_group_permissions_1e014c8f` (`permission_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+--
+-- Dumping data for table `auth_group_permissions`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -63,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `auth_permission` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `content_type_id` (`content_type_id`,`codename`),
   KEY `auth_permission_e4470c6e` (`content_type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=43 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=52 ;
 
 --
 -- Dumping data for table `auth_permission`
@@ -97,12 +106,6 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (25, 'Can add Imagen', 9, 'add_image'),
 (26, 'Can change Imagen', 9, 'change_image'),
 (27, 'Can delete Imagen', 9, 'delete_image'),
-(28, 'Can add video_ category', 10, 'add_video_category'),
-(29, 'Can change video_ category', 10, 'change_video_category'),
-(30, 'Can delete video_ category', 10, 'delete_video_category'),
-(31, 'Can add video', 11, 'add_video'),
-(32, 'Can change video', 11, 'change_video'),
-(33, 'Can delete video', 11, 'delete_video'),
 (34, 'Can add download', 12, 'add_download'),
 (35, 'Can change download', 12, 'change_download'),
 (36, 'Can delete download', 12, 'delete_download'),
@@ -111,7 +114,16 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (39, 'Can delete toner', 13, 'delete_toner'),
 (40, 'Can add logos', 14, 'add_logos'),
 (41, 'Can change logos', 14, 'change_logos'),
-(42, 'Can delete logos', 14, 'delete_logos');
+(42, 'Can delete logos', 14, 'delete_logos'),
+(43, 'Can add categoria', 15, 'add_categoria'),
+(44, 'Can change categoria', 15, 'change_categoria'),
+(45, 'Can delete categoria', 15, 'delete_categoria'),
+(46, 'Can add ecocapsulas', 16, 'add_ecocapsulas'),
+(47, 'Can change ecocapsulas', 16, 'change_ecocapsulas'),
+(48, 'Can delete ecocapsulas', 16, 'delete_ecocapsulas'),
+(49, 'Can add infographic', 17, 'add_infographic'),
+(50, 'Can change infographic', 17, 'change_infographic'),
+(51, 'Can delete infographic', 17, 'delete_infographic');
 
 -- --------------------------------------------------------
 
@@ -140,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `username`, `first_name`, `last_name`, `email`, `password`, `is_staff`, `is_active`, `is_superuser`, `last_login`, `date_joined`) VALUES
-(1, 'admin', '', '', 'jaime@mintitmedia.com', 'pbkdf2_sha256$10000$8tUweWVSE6rl$P921LCJZG0p64mFvKyTJI6o+IHtrF5bE7e9Qux1PZeM=', 1, 1, 1, '2013-05-24 15:38:05', '2013-05-06 03:24:46');
+(1, 'admin', '', '', 'jaime@mintitmedia.com', 'pbkdf2_sha256$10000$8tUweWVSE6rl$P921LCJZG0p64mFvKyTJI6o+IHtrF5bE7e9Qux1PZeM=', 1, 1, 1, '2013-05-26 18:00:21', '2013-05-06 03:24:46');
 
 -- --------------------------------------------------------
 
@@ -158,6 +170,11 @@ CREATE TABLE IF NOT EXISTS `auth_user_groups` (
   KEY `auth_user_groups_bda51c3c` (`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+--
+-- Dumping data for table `auth_user_groups`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -173,6 +190,11 @@ CREATE TABLE IF NOT EXISTS `auth_user_user_permissions` (
   KEY `auth_user_user_permissions_fbfc09f1` (`user_id`),
   KEY `auth_user_user_permissions_1e014c8f` (`permission_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `auth_user_user_permissions`
+--
+
 
 -- --------------------------------------------------------
 
@@ -192,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   PRIMARY KEY (`id`),
   KEY `django_admin_log_fbfc09f1` (`user_id`),
   KEY `django_admin_log_e4470c6e` (`content_type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `django_admin_log`
@@ -222,7 +244,13 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `user_id`, `content_type_id
 (21, '2013-05-24 21:16:18', 1, 8, '5', 'Program object', 2, 'Changed weight.'),
 (22, '2013-05-24 21:16:58', 1, 8, '4', 'Program object', 2, 'Changed weight.'),
 (23, '2013-05-24 21:17:17', 1, 8, '3', 'Program object', 2, 'Changed weight.'),
-(24, '2013-05-24 21:32:42', 1, 8, '6', 'Program object', 2, 'Changed has_contact_form.');
+(24, '2013-05-24 21:32:42', 1, 8, '6', 'Program object', 2, 'Changed has_contact_form.'),
+(25, '2013-05-26 18:03:56', 1, 15, '1', 'Ecocápsulas', 1, ''),
+(26, '2013-05-26 18:04:05', 1, 15, '2', 'Ecotips', 1, ''),
+(27, '2013-05-26 18:32:50', 1, 12, '1', 'Bitácora', 1, ''),
+(28, '2013-05-26 18:33:00', 1, 12, '2', 'Ficha de Registro', 1, ''),
+(29, '2013-05-26 18:33:20', 1, 12, '3', 'Mint/Think', 1, ''),
+(30, '2013-05-26 18:47:24', 1, 13, '1', 'Toner object', 1, '');
 
 -- --------------------------------------------------------
 
@@ -237,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `django_content_type` (
   `model` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `app_label` (`app_label`,`model`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `django_content_type`
@@ -253,11 +281,12 @@ INSERT INTO `django_content_type` (`id`, `name`, `app_label`, `model`) VALUES
 (7, 'log entry', 'admin', 'logentry'),
 (8, 'program', 'programas', 'program'),
 (9, 'Imagen', 'programas', 'image'),
-(10, 'video_ category', 'youtube', 'video_category'),
-(11, 'video', 'youtube', 'video'),
 (12, 'download', 'downloads', 'download'),
 (13, 'toner', 'inversiones', 'toner'),
-(14, 'logos', 'inversiones', 'logos');
+(14, 'logos', 'inversiones', 'logos'),
+(15, 'categoria', 'youtube', 'categoria'),
+(16, 'ecocapsulas', 'youtube', 'ecocapsulas'),
+(17, 'infographic', 'transparencia', 'infographic');
 
 -- --------------------------------------------------------
 
@@ -279,6 +308,7 @@ CREATE TABLE IF NOT EXISTS `django_session` (
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('1365d5541b25e68b658c148765d391f6', 'YjdkYjA2OTVhYTFlNmI4MGYzZDhkNmI3ZGExZTk5YjZlMmJjZDMwMzqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n', '2013-05-20 03:31:32'),
+('845aac6e3db83afad2c0fe468abfc74b', 'YjdkYjA2OTVhYTFlNmI4MGYzZDhkNmI3ZGExZTk5YjZlMmJjZDMwMzqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n', '2013-06-09 18:00:21'),
 ('a6cfdfba0f84cb3c88640ef27a515b4c', 'YjdkYjA2OTVhYTFlNmI4MGYzZDhkNmI3ZGExZTk5YjZlMmJjZDMwMzqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n', '2013-06-07 15:38:05');
 
 -- --------------------------------------------------------
@@ -314,7 +344,16 @@ CREATE TABLE IF NOT EXISTS `downloads_download` (
   `status` tinyint(1) NOT NULL,
   `reg_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `downloads_download`
+--
+
+INSERT INTO `downloads_download` (`id`, `title`, `source`, `status`, `reg_date`) VALUES
+(1, 'Bitácora', 'downloads/MintPortafolio.pdf', 1, '2013-05-26 18:32:38'),
+(2, 'Ficha de Registro', 'downloads/naranjitay_2.pdf', 1, '2013-05-26 18:32:50'),
+(3, 'Mint/Think', 'downloads/THINK_MINT_propuesta_1.pdf', 1, '2013-05-26 18:33:09');
 
 -- --------------------------------------------------------
 
@@ -333,6 +372,11 @@ CREATE TABLE IF NOT EXISTS `inversiones_logos` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+--
+-- Dumping data for table `inversiones_logos`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -343,7 +387,14 @@ CREATE TABLE IF NOT EXISTS `inversiones_toner` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `counter` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `inversiones_toner`
+--
+
+INSERT INTO `inversiones_toner` (`id`, `counter`) VALUES
+(1, 420);
 
 -- --------------------------------------------------------
 
@@ -416,31 +467,67 @@ INSERT INTO `programas_program` (`id`, `title`, `description_left`, `description
 -- --------------------------------------------------------
 
 --
--- Table structure for table `youtube_video`
+-- Table structure for table `transparencia_infographic`
 --
 
-CREATE TABLE IF NOT EXISTS `youtube_video` (
+CREATE TABLE IF NOT EXISTS `transparencia_infographic` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(120) NOT NULL,
-  `source` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  `reg_date` datetime NOT NULL,
-  `category_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `youtube_video_42dc49bc` (`category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `alt` varchar(140) DEFAULT NULL,
+  `image` varchar(100) NOT NULL,
+  `weight` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `transparencia_infographic`
+--
+
+INSERT INTO `transparencia_infographic` (`id`, `alt`, `image`, `weight`) VALUES
+(1, NULL, 'infographic/sprite_transparencia.jpg', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `youtube_video_category`
+-- Table structure for table `youtube_categoria`
 --
 
-CREATE TABLE IF NOT EXISTS `youtube_video_category` (
+CREATE TABLE IF NOT EXISTS `youtube_categoria` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(120) NOT NULL,
+  `weight` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `youtube_categoria`
+--
+
+INSERT INTO `youtube_categoria` (`id`, `name`, `weight`) VALUES
+(1, 'Ecocápsulas', NULL),
+(2, 'Ecotips', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `youtube_ecocapsulas`
+--
+
+CREATE TABLE IF NOT EXISTS `youtube_ecocapsulas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(120) NOT NULL,
+  `source` varchar(255) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `weight` int(11) DEFAULT NULL,
+  `reg_date` datetime NOT NULL,
+  `category_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `youtube_ecocapsulas_42dc49bc` (`category_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `youtube_ecocapsulas`
+--
+
 
 --
 -- Constraints for dumped tables
@@ -485,13 +572,3 @@ ALTER TABLE `django_admin_log`
 --
 ALTER TABLE `programas_image`
   ADD CONSTRAINT `program_id_refs_id_9af5dc82` FOREIGN KEY (`program_id`) REFERENCES `programas_program` (`id`);
-
---
--- Constraints for table `youtube_video`
---
-ALTER TABLE `youtube_video`
-  ADD CONSTRAINT `category_id_refs_id_f1d7839d` FOREIGN KEY (`category_id`) REFERENCES `youtube_video_category` (`id`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

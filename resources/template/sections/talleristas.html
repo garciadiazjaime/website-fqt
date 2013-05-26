@@ -10,7 +10,7 @@
 			<p>Los Talleristas promueven una cultura urbana proactiva enfocada al medio ambiente y desarrollo sustentable.</p>
 			<p>A través de diversos programas formativos, todos ellos lúdicos, se crea conciencia sobre la importancia de mejorar la calidad de vida a través de la participación ciudadana.</p>
 		</div>
-		<h3>Descargables Para Talleristas</h3>
+		<h3 id="descargables">Descargables Para Talleristas</h3>
 		<ul id="lista_descargables_talleristas">
 			{% for row in downloads %}
 			{% if not forloop.counter|divisibleby:"1" %}
@@ -19,7 +19,7 @@
 			<li class="half column"><a href="/static/media/{{row.source}}" title="{{row.title}}" target="_blank">{{row.title}}</a></li>
 			{% endif %}
 			{% endfor %}
-		</ul>	
+		</ul><span id="quieres_ser_voluntario"></span>	
 		<h2>¿Quieres ser voluntario?</h2>
 		<div class="half column first">
 			<p>Si ya descargaste y llenaste tu ficha de registro, adjúntala completando la siguiente forma.</p>

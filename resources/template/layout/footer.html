@@ -9,7 +9,7 @@
 					<a href="/nosotros" title="Nosotros">Nosotros</a>
 				</li>
 				<li>
-					<a href="/nosotros/Mision" title="Misión">Misión</a>
+					<a href="/nosotros/mision" title="Misión">Misión</a>
 				</li>
 				<li>
 					<a href="/nosotros/vision" title="Visión">Visión</a>
@@ -21,7 +21,7 @@
 					<a href="/nosotros/valores" title="Valores">Valores</a>
 				</li>
 				<li class="yellow">
-					<a href="/nosotros/nuestro_equipo" title="Nuestro Equipo">Nuestro Equipo</a>
+					<a href="/nosotros/nuestro-equipo" title="Nuestro Equipo">Nuestro Equipo</a>
 				</li>
 			</ul>
 		</li>
@@ -31,7 +31,9 @@
 					<a href="/programas" title="Programas">Programas</a>
 				<li>		
 				{% for row in footer_menu.programs %}
-				<li><a href="/programas/{{row.title|slugify}}" title="{{row.title}}">{{row.title}}</a></li>
+				<li>
+					<a href="/programas/{{row.title|slugify}}" title="{{row.title}}">{{row.title}}</a>
+				</li>
 				{% endfor %}
 			</ul>
 		</li>
@@ -66,37 +68,37 @@
 					<a href="/talleristas/para_talleristas" title="Para talleristas">Para talleristas</a>
 				</li>
 				<li>
-					<a href="/tallersitas/quieres_ser_voluntario" title="¿Quiéres ser voluntario?">¿Quiéres ser voluntario?</a>
+					<a href="/talleristas/quieres_ser_voluntario" title="¿Quiéres ser voluntario?">¿Quiéres ser voluntario?</a>
 				</li>
 			</ul>
 			<ul>
 				<li class="yellow spotted padded">
-					<a href="/inversionistas_sociales" title="Inversionistas Sociales">Inversionistas sociales</a>
+					<a href="/inversiones_sociales" title="Inversionistas Sociales">Inversionistas sociales</a>
 				</li>
 				<li>
-					<a href="/inversionistas_sociales" title="Inversionistas Sociales">Inversionistas sociales</a>
+					<a href="/inversiones_sociales" title="Inversionistas Sociales">Inversionistas sociales</a>
 				</li>
 				<li>
-					<a href="/inversionistas_sociales/tipos_de_donativos" title="Tipos de donativos">Tipos de donativos</a>
+					<a href="/inversiones_sociales/donativos" title="Tipos de donativos">Tipos de donativos</a>
 				</li>
 			</ul>
 		</li>
 		<li>
 			<ul>
 				<li class="yellow spotted padded">
-					<a href="/inversionistas_sociales/tipos_de_donativos" title="Tipos de donativos">Tipos de Donativos</a>
+					<a href="/inversiones_sociales/donativos" title="Tipos de donativos">Tipos de Donativos</a>
 				</li>
 				<li>
-					<a href="/inversionistas_sociales/tipos_de_donativos/eco_producciones" title="Eco producciones">Eco producciones</a>
+					<a href="/inversiones_sociales/ecoproducciones" title="Eco producciones">Eco producciones</a>
 				</li>
 				<li>
-					<a href="/inversionistas_sociales/tipos_de_donativos/proyectos_semilla" title="Proyectos semilla">Proyecto semilla</a>
+					<a href="/inversiones_sociales/proyecto-semilla" title="Proyecto semilla">Proyecto semilla</a>
 				</li>
 				<li>
-					<a href="/inversionistas_sociales/tipos_de_donativos/beca_tallerista" title="Beca a un tallerista">Beca a un tallerista</a>
+					<a href="/inversiones_sociales/beca-tallerista" title="Beca a un tallerista">Beca a un tallerista</a>
 				</li>
 				<li>
-					<a href="/inversionistas_sociales/tipos_de_donativos/reciclases_tu_jardin" title="Reciclases en tu jardín">Reciclases en tu jardín</a>
+					<a href="/inversiones_sociales/reciclases-jardin" title="Reciclases en tu jardín">Reciclases en tu jardín</a>
 				</li>
 			</ul>
 		</li>
@@ -121,13 +123,13 @@
 		<li>
 			<ul>
 				<li class="yellow spotted padded">
-					<a href="/programas/campanas" title="Campañas">Campañas</a>
+					<a href="/inversiones_sociales/campanas" title="Campañas">Campañas</a>
 				</li>
 				<li>
-					<a href="/programas/toner" title="Tu toner transforma escuelas">Tu toner transforma escuelas</a>
+					<a href="/inversiones_sociales/toner" title="Tu toner transforma escuelas">Tu toner transforma escuelas</a>
 				</li>
 				<li>
-					<a href="/programas/reciempresa" title="Reciempresa">Reciempresa</a>
+					<a href="/inversiones_sociales/reciempresa" title="Reciempresa">Reciempresa</a>
 				</li>
 			</ul>
 		</li>
@@ -140,7 +142,7 @@
 					<a href="/contacto/directorio" title="Directorio">Directorio</a>
 				</li>
 				<li>
-					<a href="/contacto/forma" title="Forma de contacto">Forma de contacto</a>
+					<a href="/contacto/forma_contacto" title="Forma de contacto">Forma de contacto</a>
 				</li>
 			</ul>
 		</li>
