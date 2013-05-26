@@ -29,29 +29,10 @@
 			<ul>
 				<li class="yellow spotted padded">
 					<a href="/programas" title="Programas">Programas</a>
-				</li>
-				<li>
-					<a href="/programas/reciclases" title="Reciclases">Reciclases</a>
-				</li>
-				<li class="yellow dented">
-					<a href="/programas/registro" title="Registro">Registro</a>
-				</li>
-				<li>
-					<a href="/programas/recicla_en_tu_jardin" title="Recicla en tu jardín">Reciclas en tu jardín</a>
-				</li>
-				<li>
-					<a href="/programa/proyecto_semilla" title="Proyecto Semilla">Proyecto semilla</a>
-				</li>
-				<li>
-					<a href="/programas/jovenes_transformando" title="Jóvenes transformando">Jóvenes transformando</a>
-				</li>
-				<li>
-					<a href="/programas/ecoagentes" title="Ecoagentes">Ecoagentes</a>
-				</li>
-				<li>
-					<a href="/programas/laboratorio_vivo" title="Laboratorio Vivo">Laboratorio Vivo</a>
-				</li>
-
+				<li>		
+				{% for row in footer_menu.programs %}
+				<li><a href="/programas/{{row.title|slugify}}" title="{{row.title}}">{{row.title}}</a></li>
+				{% endfor %}
 			</ul>
 		</li>
 		<li>
@@ -60,10 +41,10 @@
 					<a href="/ecotips" title="Ecocápsulas">Ecocápsulas</a>
 				</li>
 				<li>
-					<a href="/ecotips" title="Ecotips">Ecotips</a>
+					<a href="/ecotips/ecotips" title="ecotips">Ecotips</a>
 				</li>
 				<li>
-					<a href="/ecotips/ecocapsulas" title="Ecocápsulas">Ecocápsulas</a>
+					<a href="/ecotips/ecocapsulas" title="ecocapsulas">Ecocapsulas</a>
 				</li>
 				<li class="yellow spotted padded">
 					<a href="/transparencia" title="Transparencia">Transparencia</a>

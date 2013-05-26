@@ -1,12 +1,16 @@
-var folder = '/trd/';
+var folder = '/';
 var server = get_server_path() + folder;
 
 $(window).load(function() {
 	var page = get_currentpage();
-	var params = page.split('/');
-	var element = params.pop();
-	
-	
+
+	var last_item = getLastItem(page)
+	console.log('asfL: ' +last_item)
+
+	if(last_item.length && $('#' + last_item).length){
+		gotoTop(last_item)				
+	}
+
 	
 	// CUSTOM FORM ELEMENTS
 	$('.mySelectBoxClass').customSelect();
@@ -36,16 +40,18 @@ $(window).load(function() {
 		fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...	    
 	});
 
-	/*
-	$('.slideshow').bjqs({	    
-	    responsive  : true
-	  });
-	
 	$('#slideshow_nosotros').bjqs({
 	    height      : 320,
 	    width       : 433,
 	    responsive  : true
 	  });
+	
+	/*
+	$('.slideshow').bjqs({	    
+	    responsive  : true
+	  });
+	
+	
 	
 	$('#slideshow_reciclases').bjqs({
 	    height      : 210,
@@ -77,6 +83,13 @@ $(window).load(function() {
 	    responsive  : true
 	  });
 	*/
+	if($('.fancybox').length)
+		$('.fancybox').fancybox({
+			ajax : {
+			    type	: "POST",
+			    data	: 'mydata=test'
+			}
+		})
 
 	// *********************** ECOTIPS *********************************
 	$('#ecotips_list li').click(function(){
@@ -85,6 +98,11 @@ $(window).load(function() {
 			return false;
 		}
 	);
+
+	$("form").submit(function() {
+		console.log('here')
+		return false;
+	});
 
 });
 
@@ -177,8 +195,11 @@ function clearForm(){
 }
 
 function getLastItem(cadena){
-       var params = cadena.split('/');
-       return params.pop();
+	var params = cadena.split('/');
+	tmp = params.pop()
+	if(!tmp.length)
+		tmp = params.pop()
+	return tmp;
 }
 
 

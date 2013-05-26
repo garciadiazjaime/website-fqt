@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from django.utils.encoding import smart_str
+from app.programas.models import Program
+from app.youtube.models import Categoria
 
 
 class Menu(object):
@@ -48,20 +50,16 @@ class Menu(object):
 		if len(response):
 			response = "<ul class=\"menu\">" + response + "</ul>"
 		return response
-'''
-	def get_footer(self, section):
-		response = ''		
-		for row in self.items:
-			if row['href'] not in 'testimoniales,contacto':
-				child = self.get_child(row['href'], row['child']) if row.has_key('child') else ''
-				if row['href'] == section:
-					response += "<li class=\"active \"><a title=\"/"+row['title'] +"\" href=\"/"+row['href']+"\">"+row['title'].title()+"</a> "+ child +"</li>"
-				else:
-					response += "<li><a title=\"/"+row['title'] +"\" href=\"/"+row['href']+"\">"+row['title'].title()+"</a>"+ child +"</li>"					
-		if len(response):
-			response = "<ul>" + response + "</ul>"
-		return response
 
+	def get_footer(self):
+		programs = []
+		programs ={
+			'programs': Program.objects_a.get_list_programs(),
+			}
+		return programs
+
+
+'''
 	def get_child(self, section, data):
 		response = ''		
 		if section != 'galeria':		
