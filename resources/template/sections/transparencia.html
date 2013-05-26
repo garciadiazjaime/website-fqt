@@ -9,6 +9,8 @@
 			
 		</div>
 		<h2 class="sideoverflow">Transparencia</h2>
-		<img src="static/media/sprite_transparencia.jpg" alt="Conoce sobre nuestros proyectos" id="imagen_proyectos" />
+		{% for row in infographic %}
+		<img src="/static/media/{{row.image}}" alt="{{row.alt}}" id="imagen_proyectos"/>
+		{% endfor %}
 	</div>
 {% endblock %}

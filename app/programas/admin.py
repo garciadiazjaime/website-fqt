@@ -20,8 +20,8 @@ class ImageInline(admin.StackedInline):
 
 class ProgramAdmin(admin.ModelAdmin):
 	inlines = [ImageInline]
-	search_fields = ['title', 'description']
-	list_display = ('title', 'description', 'has_contact_form', 'reg_date')
+	search_fields = ['title', 'description_left', 'description_right']
+	list_display = ('title', 'description_left', 'description_right', 'has_contact_form', 'reg_date')
 	list_filter = ['has_contact_form', 'reg_date']	
 
 admin.site.register(Program, ProgramAdmin)

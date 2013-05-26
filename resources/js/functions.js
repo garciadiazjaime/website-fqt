@@ -1,12 +1,16 @@
-var folder = '/trd/';
+var folder = '/';
 var server = get_server_path() + folder;
 
 $(window).load(function() {
 	var page = get_currentpage();
-	var params = page.split('/');
-	var element = params.pop();
-	
-	
+
+	var last_item = getLastItem(page)
+	console.log('asfL: ' +last_item)
+
+	if(last_item.length && $('#' + last_item).length){
+		gotoTop(last_item)				
+	}
+
 	
 	// CUSTOM FORM ELEMENTS
 	$('.mySelectBoxClass').customSelect();
@@ -24,31 +28,30 @@ $(window).load(function() {
 		
 	$('.goto_top').click(function(){ 
 		var item = $(this).attr('href');
-		id = getLastItem(item)
-		
-		var inicio = "coordinacion,produccion,renta_equipo,floreria,arte_flor"
-		if(inicio.indexOf(id) !== -1)
-		{
-			gotoTop('panel_'+id)
-			id = "servicios/" + id
-		}
-			
-		else
-			gotoTop(id)
-		
-		var nosotros = "grupo_tradiciones,mision_vision,valores,historia,responsabilidad_social"
-		if(nosotros.indexOf(id) !== -1)
-			id = "nosotros/" + id
-		window.history.pushState( id, id, folder + id);
+		id = getLastItem(item)			
+		gotoTop(id, '', '-100')				
+		window.history.pushState( id, id, item);
 		return false;
 	});
 
 	// *********************** Slider simple - NOSOTROS y PROGRAMAS ***********************************
+
+	$('.slideshow').cycle({
+		fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...	    
+	});
+
 	$('#slideshow_nosotros').bjqs({
 	    height      : 320,
 	    width       : 433,
 	    responsive  : true
 	  });
+	
+	/*
+	$('.slideshow').bjqs({	    
+	    responsive  : true
+	  });
+	
+	
 	
 	$('#slideshow_reciclases').bjqs({
 	    height      : 210,
@@ -79,6 +82,14 @@ $(window).load(function() {
 	    width       : 433,
 	    responsive  : true
 	  });
+	*/
+	if($('.fancybox').length)
+		$('.fancybox').fancybox({
+			ajax : {
+			    type	: "POST",
+			    data	: 'mydata=test'
+			}
+		})
 
 	// *********************** ECOTIPS *********************************
 	$('#ecotips_list li').click(function(){
@@ -87,6 +98,11 @@ $(window).load(function() {
 			return false;
 		}
 	);
+
+	$("form").submit(function() {
+		console.log('here')
+		return false;
+	});
 
 });
 
@@ -120,7 +136,7 @@ function gotoTop(id, speed , more){
 
 	if(id.length)
 		$('html, body').animate({
-			scrollTop: $('#'+id).offset().top + more
+			scrollTop: $('#'+id).offset().top - 50
 		}, speed);
 }
 
@@ -179,8 +195,11 @@ function clearForm(){
 }
 
 function getLastItem(cadena){
-       var params = cadena.split('/');
-       return params.pop();
+	var params = cadena.split('/');
+	tmp = params.pop()
+	if(!tmp.length)
+		tmp = params.pop()
+	return tmp;
 }
 
 

@@ -12,7 +12,13 @@
 		</div>
 		<h3>Descargables Para Talleristas</h3>
 		<ul id="lista_descargables_talleristas">
-			<li class="half column first"><a href="static/media/descargables/ficha_de_registro.pdf" title="Ficha de Registro">Ficha de Registro</a></li><li class="half column"><a href="static/media/descargables/bitacora.pdf" title="Bitácora">Bitácora</a></li>
+			{% for row in downloads %}
+			{% if not forloop.counter|divisibleby:"1" %}
+			<li class="half column first"><a href="/static/media/{{row.source}}" title="{{row.title}}" target="_blank">{{row.title}}</a></li>
+			{% else %}
+			<li class="half column"><a href="/static/media/{{row.source}}" title="{{row.title}}" target="_blank">{{row.title}}</a></li>
+			{% endif %}
+			{% endfor %}
 		</ul>	
 		<h2>¿Quieres ser voluntario?</h2>
 		<div class="half column first">

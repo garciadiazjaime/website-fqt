@@ -9,164 +9,63 @@
 			
 				<div class="half column first">
 					<ul>
-						<li><a href="programas/reciclases">Reciclases</a></li>
-						<li><a href="programas/reciclases_en_tu_jardin">Reciclases en tu jardín</a></li>
-						<li><a href="programas/proyecto_semilla">Proyecto semilla</a></li>
+						{% for row in list_programs %}
+						{% if not forloop.counter|divisibleby:"2" %}
+						<li><a href="/programas/{{row.title|slugify}}" title="{{row.title}}" class="goto_top">{{row.title}}</a></li>
+						{% endif %}
+						{% endfor %}						
 					</ul>
 				</div><div class="half column">
 					<ul>
-						<li><a href="programas/ecoagentes">Ecoagentes</a></li>
-						<li><a href="programas/jovenes_transformando">Jóvenes transformando</a></li>
-						<li><a href="programas/laboratorio_vivo">Laboratorio vivo</a></li>
+						{% for row in list_programs %}
+						{% if forloop.counter|divisibleby:"2" %}
+						<li><a href="/programas/{{row.title|slugify}}" title="{{row.title}}" class="goto_top">{{row.title}}</a></li>
+						{% endif %}
+						{% endfor %}
 					</ul>
 				</div>
-			</div>
-		
+			</div>		
 		</div>
 		<div id="background_tree"></div>
 	</div>
 	<div id="block_programas">
 		<div class="container"> 
 			<div class="pattern">
-				<div id="reciclases">
-					<h2>Reciclases</h2>
+				{% for row in programs %}
+				<div id="{{row.info.title|slugify}}">
+					<h2>{{row.info.title}}</h2>
 					<div class="half column first">
-						<div id="slideshow_reciclases">
-					        <ul class="bjqs">
-					          <li class="slide"><img src="static/media/banner_programas/reciclases_01.jpg" alt="Reciclases" />
-							   </li>
-					          <li class="slide">
-				          		<img src="static/media/banner_programas/reciclases_02.jpg" alt="Reciclases" />
-					          </li>
-					          <li class="slide">
-				          		<img src="static/media/banner_programas/reciclases_03.jpg" alt="Reciclases" /></li>
-							</ul>
+						{% if row.info.where_gallery == '1' %}
+						<div class="slideshow">							
+				        	{% for img in row.images %}
+				        		<img src="/media/{{img.image}}" alt="{{img.alt}}" />
+				        	{% endfor %}					          							  
 						</div>
-						<p>Talleres que promueven una cultura urbana proactiva, <em>enfocada al medio ambiente y desarrollo sustentable</em>, de forma dinámica y divertida. Se realizan en escuelas públicas de educación básica y media superior, además de  eventos organizados por otras organizaciones civiles o por dependencias de gobierno de los tres niveles de gobierno, enfocadas a la educación, medio ambiente, cultura, ciencia y tecnología. </p>
-						<p>Las actividades están dirigidas a niños y jóvenes. En Reciclases se les enseña a niños y jóvenes la importancia de cuidar el entono donde conviven con otras personas, a hacer uso correcto de los recursos, a respetar el espacio que comparten con otras personas y la necesidad de reducir, reutilizar y separar los residuos generados en la dinámica diaria.</p>
-					</div><div class="half column">
-						<p>Las Reciclases se realizan gracias al apoyo y compromiso de  jóvenes universitarios que realizan servicio social o prácticas profesionales, los cuales son capacitados para convertirse en Talleristas de Reciclases, se les asigna una escuela y cumplen con el total de horas frente a grupo. De esta forma formamos a futuros maestros y se brinda la oportunidad de crear la necesidad, dentro de los espacios educativos, de incorporar la clase de cultura y educación ambiental. 
-						</p>
-						<p>A la fecha se han beneficiado a 66 preescolares, primarias y secundarias de Tijuana y Mexicali con la participación de 172 talleristas y 25 voluntarios universitarios, beneficiando a 42,228 niños y jóvenes en escuelas y 12,890 en eventos especiales.</p>
-						<hr />
-						<p class="big_paragraph">Forma parte de nuestro equipo de talleristas</p>
-						<a href="inscripcion/reciclases" title="Inscribirte a Reciclases" class="button"> Inscríbete</a>
+						{% endif %}
+						{% autoescape off %}
+						{{row.info.description_left}}
+						{% endautoescape %}
 					</div>
-				</div>
-				<div id="reciclases_en_tu_jardin">
-					<h2>Reciclases
-					<br /> en tu jardín</h2>
-					<div class="half column first">
-						<p><em>Son una evolución de las Reciclases.</em></p>
-						<p>Las escuelas interesadas en recibir árboles para ser plantados en sus espacios comunes, se registran para entrar en el programa. Los estudiantes de estos espacios educativos participan en la actividad de forestación de su propio centro educativo. Se invitan a los padres de familia a ser parte de esta actividad para  poder fortalecer un sentido de pertenencia en su comunidad. A la fecha se han plantado 1,331 árboles frutales y de sombra en escuelas y casas hogar de Tijuana y Ensenada.</p>
-					</div><div class="half column">
-						<div id="slideshow_reciclases_jardin">
-					        <ul class="bjqs">
-					          <li class="slide"><img src="static/media/banner_programas/reci_jardin_01.jpg" alt="Reciclases en tu jardín" />
-							   </li>
-					          <li class="slide">
-				          		<img src="static/media/banner_programas/reci_jardin_02.jpg" alt="Reciclases en tu jardín" />
-					          </li>
-					          <li class="slide">
-				          		<img src="static/media/banner_programas/reci_jardin_03.jpg" alt="Reciclases en tu jardín" />
-								</li>
-							</ul>
+					<div class="half column">
+						{% if row.info.where_gallery == '2' %}
+						<div class="slideshow">							
+				        	{% for img in row.images %}
+				        		<img src="/media/{{img.image}}" alt="{{img.alt}}" />
+				        	{% endfor %}					          							  
 						</div>
+						{% endif %}
+						{% autoescape off %}
+						{{row.info.description_right}}
+						{% endautoescape %}						
+						{% if row.info.has_contact_form %}
+						<hr />								
+						<p class="big_paragraph">{{row.info.contact_form_title}}</p>
+						<a href="/inscripcion/{{row.info.title|slugify}}" title="Inscríbete a {{row.info.title}}" class="button fancybox"> Inscríbete</a>
+						{% endif %}
 					</div>
 				</div>
-				<div id="proyecto_semilla">	
-					<h2>Proyecto Semilla</h2>
-					<div class="half column first">
-						<div id="slideshow_proyecto_semilla">
-					        <ul class="bjqs">
-					          <li class="slide"><img src="static/media/banner_programas/proyect_semilla_01.jpg" alt="Proyecto semilla" />
-							   </li>
-					          <li class="slide">
-				          		<img src="static/media/banner_programas/proyect_semilla_02.jpg" alt="Proyecto semilla" />
-					          </li>
-					          <li class="slide">
-				          		<img src="static/media/banner_programas/proyect_semilla_03.jpg" alt="Proyecto semilla" />
-								</li>
-							</ul>
-						</div>
-					</div><div class="half column">
-						<p>El proyecto semilla es un programa dinámico de participación y educación, en el que niños y jóvenes de casas hogar aprenden la importancia de la conservación del entorno y la apropiación del espacio. Con actividades como forestación, construcción de su propio huerto, realización de composta, asignación de espacio para la separación de residuos y con talleres de educación ambiental Reciclases.
-						</p>
-						<p>Desde su arranque se ha impartido en dos etapas, la primera fue de enero a julio de 2011 en el que se invitó a 9 casas hogar donde se beneficiaron 250 niños y en la segunda etapa de enero a julio de 2012 se continuó el programa con 8 casas hogar beneficiando a 200 niños.
-						</p>
-						<p>
-						Contamos con la colaboración de estudiantes de la licenciatura en educación, de la Universidad del Desarrollo Profesional (UNIDEP) campus Ensenada, quienes imparten los talleres.	
-						</p>
-					</div>
-				</div>
-				<div id="jovenes_transformando">
-					<h2>Jóvenes <br /> transformando</h2>	
-					<div class="half column first">
-						<div id="slideshow_jovenes_transformando">
-					        <ul class="bjqs">
-					          <li class="slide"><img src="static/media/banner_programas/jov_trans_01.jpg" alt="Jóvenes transformando" />
-							   </li>
-					          <li class="slide">
-				          		<img src="static/media/banner_programas/jov_trans_02.jpg" alt="Jóvenes transformando" />
-					          </li>
-					      
-							</ul>
-						</div>
-					</div><div class="half column">
-						<p>Programa integral donde los jóvenes son un agente de cambio dentro de su comunidad. Se promueve la participación ciudadana con actividades que fortalecen una cultura urbana proactiva y un sentido de pertenencia dentro de la comunidad. </p>
-						<p class="big_paragraph">¿Te gustaría ser parte de los jóvenes que
-						transforman su ciudad?</p>
-						<a href="inscripcion/reciclases" title="Inscribirte a Jóvenes transformando" class="button"> Inscríbete</a>
-					</div>
-				</div>
-				<div id="ecoagentes">
-					<h2>Ecoagentes</h2>					
-					<div class="half column first">
-						<p>Programa enfocado a involucrar a niños y jóvenes en el cuidado del medio ambiente de  forma proactiva utilizando una plataforma virtual diseñada para monitorear las reducciones de C02 a partir de las acciones de los participantes.  </p>
-						<p>Se promueve el trabajo en equipo y el liderazgo a fin de generar sinergias positivas y consolidar la forma de percibirse como agente de cambio. Además de promover una cultura de la conservación y cuidado del agua, de la energía eléctrica, de las áreas verdes y la buena disposición de residuos orgánicos e inorgánicos no tóxicos. </p>
-						<p>Esto se logra a través de talleres de educación ambiental y una plataforma ambiental que permite el monitoreo y seguimiento. </p>
-					</div><div class="half column">
-						<img src="static/media/banner_programas/ecoagentes_01.jpg" alt="Ecoagentes" />
-					</div>
-				</div>
-				<div id="laboratorio_vivo">	
-					<h2>Laboratorio Vivo</h2>					
-					<div class="half column first">
-						<div id="slideshow_laboratorio_vivo">
-					        <ul class="bjqs">
-					          <li class="slide"><img src="static/media/banner_programas/lab_vivo_01.jpg" alt="Jóvenes transformando" />
-							   </li>
-					          <li class="slide">
-				          		<img src="static/media/banner_programas/lab_vivo_02.jpg" alt="Jóvenes transformando" />
-					          </li>
-							<li class="slide">
-				          		<img src="static/media/banner_programas/lab_vivo_03.jpg" alt="Jóvenes transformando" />
-					          </li>
-					      
-							</ul>
-						</div>
-						<p>Consta de talleres prácticos que van guiando a niñas y niños en la importancia de cultivar por si mismos, alimentos orgánicos. </p>
-						<p>Se le llama Laboratorio Vivo, ya que el huerto se convierte en un lugar donde se experimenta directamente con la naturaleza, se observa, se interviene y además se basa en el trabajo en equipo.</p>
-						<p>Es considerado un programa transversal con la propuesta del Plan de estudios 2011, se rescatan temáticas de los diferentes campos de  formación, en los distintos niveles de educación básica.</p>
-						<p>Estos talleres son impartidos dentro de las instituciones educativas como escuelas públicas y casas hogar.</p>
-					</div><div class="half column">
-						<h3>Objetivo General</h3>
-						<p>Establecer un huerto de aprendizaje (un laboratorio vivo) dentro de  instituciones educativas, con el fin de conectar directamente a los niños y niñas con su entorno y con la producción de alimentos orgánicos, dando una herramienta de vida práctica en su formación.
-						</p>
-						<h3>Objetivos Específicos</h3>
-						<ul class="yellow_list">
-							<li><span>Crear una conciencia social sobre el origen de nuestros alimentos, para reducir su huella ecológica.</span></li>
-							<li><span>Vincular los conocimientos construidos en el campo de otras asignaturas curriculares del nivel básico con el huerto.</span></li>
-							<li><span>Estimular las inteligencias múltiples que cada uno de los participantes poseen.</span></li>
-							<li><span>Diversificar la dieta de los estudiantes dentro del programa de huerto escolar.</span></li>
-							<li><span>Desarrollar habilidades prácticas para que el alumnos puedan reproducir estos conocimientos en su hogar o comunidad.
-							</span></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+				{% endfor %}
+			</div>				
 		</div>
 	</div>
-
-
 {% endblock %}
