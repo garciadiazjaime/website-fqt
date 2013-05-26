@@ -20,7 +20,7 @@ def home(request):
 
 	return render_to_response('sections/inicio.html', locals())
 
-def nosotros(request):
+def nosotros(request, category=''):
 	page_title  = "Fundaci&oacute;n que transforma."
 	keywords 	= "fundaci&oacute;n transforma"
 	description = "Nosotros"
@@ -72,7 +72,7 @@ def transparencia(request, category=''):
 
 	return render_to_response('sections/transparencia.html', locals())
 
-def talleristas(request):
+def talleristas(request, category=''):
 	page_title  = "Fundaci&oacute;n que transforma."
 	keywords 	= "fundaci&oacute;n transforma"
 	description = "Talleristas"
@@ -84,7 +84,7 @@ def talleristas(request):
 
 	return render_to_response('sections/talleristas.html', locals())
 
-def inversiones_sociales(request):
+def inversiones_sociales(request, category=''):
 	page_title  = "Fundaci&oacute;n que transforma."
 	keywords 	= "fundaci&oacute;n transforma"
 	description = "Inversiones Sociales"
@@ -98,7 +98,7 @@ def inversiones_sociales(request):
 
 	return render_to_response('sections/inversiones_sociales.html', locals())
 
-def contacto(request):
+def contacto(request, category=''):
 	page_title  = "Fundaci&oacute;n que transforma."
 	keywords 	= "fundaci&oacute;n transforma"
 	description = "Contacto"

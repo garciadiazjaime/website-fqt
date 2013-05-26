@@ -5,10 +5,12 @@ $(window).load(function() {
 	var page = get_currentpage();
 
 	var last_item = getLastItem(page)
-	console.log('asfL: ' +last_item)
 
 	if(last_item.length && $('#' + last_item).length){
-		gotoTop(last_item)				
+		if(page.indexOf('programas') !== -1)
+			gotoTop(last_item, '', '450')
+		else			
+			gotoTop(last_item)				
 	}
 
 	
@@ -128,7 +130,7 @@ function get_currentpage(){
 	return p;
 }
 
-function gotoTop(id, speed , more){
+function gotoTop(id, speed , more=200){
 	if(isNaN(speed))
 		speed = 1250
 	if(isNaN(more))
@@ -136,7 +138,7 @@ function gotoTop(id, speed , more){
 
 	if(id.length)
 		$('html, body').animate({
-			scrollTop: $('#'+id).offset().top - 50
+			scrollTop: parseInt($('#'+id).offset().top -50 )
 		}, speed);
 }
 
