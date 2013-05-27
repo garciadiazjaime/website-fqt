@@ -130,7 +130,7 @@ function get_currentpage(){
 	return p;
 }
 
-function gotoTop(id, speed , more=200){
+function gotoTop(id, speed , more){
 	if(isNaN(speed))
 		speed = 1250
 	if(isNaN(more))
