@@ -11,7 +11,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Mint IT Meida', 'info@mintitmedia.com'),
 )
 
 MANAGERS = ADMINS
@@ -22,7 +22,7 @@ DATABASES = {
         'NAME': 'fqt',                      # Or path to database file if using sqlite3.
         'USER': 'root',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock',                      # Set to empty string for localhost. Not used with sqlite3.
+        'HOST': '/opt/lampp/var/mysql/mysql.sock',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
@@ -35,7 +35,7 @@ TIME_ZONE = 'America/Tijuana'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'mx-es'
 
 SITE_ID = 1
 
