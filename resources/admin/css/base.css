@@ -27,7 +27,7 @@ a img {
 }
 
 a.section:link, a.section:visited {
-    color: white;
+    color: #f9fafa;
     text-decoration: none;
 }
 
@@ -496,7 +496,7 @@ input[type=text], input[type=password], textarea, select, .vTextField {
     font-size: 11px;
     text-align: left;
     font-weight: bold;
-    background: #7CA0C7 url(../img/default-bg.gif) top left repeat-x;
+    background: #666666;
     color: white;
 }
 
@@ -656,14 +656,14 @@ a.deletelink:hover {
 .object-tools li {
     display: block;
     float: left;
-    background: url(../img/tool-left.gif) 0 0 no-repeat;
+    background: url(../images/tool-left.png) 0 0 no-repeat;
     padding: 0 0 0 8px;
     margin-left: 2px;
     height: 16px;
 }
 
 .object-tools li:hover {
-    background: url(../img/tool-left_over.gif) 0 0 no-repeat;
+    background: url(../images/tool-left_over.png) 0 0 no-repeat;
 }
 
 .object-tools a:link, .object-tools a:visited {
@@ -672,29 +672,65 @@ a.deletelink:hover {
     color: white;
     padding: .1em 14px .1em 8px;
     height: 14px;
-    background: #999 url(../img/tool-right.gif) 100% 0 no-repeat;
+    background: #999 url(../images/layout/tool-right.png) 100% 0 no-repeat;
+	-webkit-border-top-right-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+	-moz-border-radius-topright: 8px;
+	-moz-border-radius-bottomright: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
 }
 
 .object-tools a:hover, .object-tools li:hover a {
-    background: #5b80b2 url(../img/tool-right_over.gif) 100% 0 no-repeat;
+    background: #5b80b2 url(../images/layout/tool-right_over.png) 100% 0 no-repeat;
+	-webkit-border-top-right-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+	-moz-border-radius-topright: 8px;
+	-moz-border-radius-bottomright: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
 }
 
 .object-tools a.viewsitelink, .object-tools a.golink {
-    background: #999 url(../img/tooltag-arrowright.gif) top right no-repeat;
+    background: #999 url(../images/layout/tooltag-arrowright.png) top right no-repeat;
+    -webkit-border-top-right-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+	-moz-border-radius-topright: 8px;
+	-moz-border-radius-bottomright: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
     padding-right: 28px;
 }
 
 .object-tools a.viewsitelink:hover, .object-tools a.golink:hover {
-    background: #5b80b2 url(../img/tooltag-arrowright_over.gif) top right no-repeat;
+    background: #5b80b2 url(../images/layout/tooltag-arrowright_over.png) top right no-repeat;
+	-webkit-border-top-right-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+	-moz-border-radius-topright: 8px;
+	-moz-border-radius-bottomright: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
 }
 
 .object-tools a.addlink {
-    background: #999 url(../img/tooltag-add.gif) top right no-repeat;
+    background: #999 url(../images/layout/tooltag-add.png) top right no-repeat;
+    -webkit-border-top-right-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+	-moz-border-radius-topright: 8px;
+	-moz-border-radius-bottomright: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
     padding-right: 28px;
 }
 
 .object-tools a.addlink:hover {
-    background: #5b80b2 url(../img/tooltag-add_over.gif) top right no-repeat;
+    background: #5b80b2 url(../images/layout/tooltag-add_over.png) top right no-repeat;
+	-webkit-border-top-right-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+	-moz-border-radius-topright: 8px;
+	-moz-border-radius-bottomright: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
 }
 
 /* OBJECT HISTORY */
@@ -778,7 +814,7 @@ table#change-history tbody th {
 /* HEADER */
 
 #header {
-    background: #417690;
+    background: #6D973E;
     color: #ffc;
     overflow: hidden;
 }
@@ -790,13 +826,21 @@ table#change-history tbody th {
 #header a:hover {
     text-decoration: underline;
 }
-
+#branding{
+	margin: 0 auto;
+	width: 97%;
+}
 #branding h1 {
+	background: url(../images/logo_admin.png) 0 0  no-repeat;
+	height: 52px;
     padding: 0 10px;
     font-size: 18px;
+	line-height: 5000em;
     margin: 8px 0;
+	overflow: hidden;
     font-weight: normal;
     color: #f4f379;
+	width: 239px;
 }
 
 #branding h2 {
@@ -829,7 +873,11 @@ table#change-history tbody th {
 }
 
 #content-related .module h2 {
-    background: #eee url(../img/nav-bg.gif) bottom left repeat-x;
-    color: #666;
+    background:#ce8531;
+    color: #ffffff;
 }
 
+.login #header{
+		
+	margin: 10px auto;
+}
