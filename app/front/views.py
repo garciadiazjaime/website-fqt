@@ -39,7 +39,7 @@ def programas(request, category=''):
 	section 	= "programas"
 	main_menu = menu.get_main(section)
 	list_programs = Program.objects_a.get_list_programs()
-	programs = Program.objects_a.get_programs()
+	programs = Program.objects_a.get_programs()	
 	footer_menu = menu.get_footer()
 
 	return render_to_response('sections/programas.html', locals())
