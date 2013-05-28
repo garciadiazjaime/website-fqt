@@ -35,7 +35,7 @@
 				<div id="{{row.info.title|slugify}}">
 					<h2>{{row.info.title}}</h2>
 					<div class="half column first">
-						{% if row.info.where_gallery == 1 %}
+						{% if row.info.where_gallery == '1' %}
 						<div class="slideshow">
 				        	{% for img in row.images %}
 				        		<img src="/media/{{img.image}}" alt="{{img.alt}}" />
@@ -47,7 +47,7 @@
 						{% endautoescape %}
 					</div>
 					<div class="half column">
-						{% if row.info.where_gallery == 2 %}
+						{% if row.info.where_gallery == '2' %}
 						<div class="slideshow">							
 				        	{% for img in row.images %}
 				        		<img src="/media/{{img.image}}" alt="{{img.alt}}" />
