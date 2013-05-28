@@ -46,8 +46,8 @@ def programas(request, category=''):
 
 @csrf_exempt
 def inscripcion(request, form=''):
-	return HttpResponse('yea')
-	#return render_to_response('sections/programas2.html', locals())
+	
+	return render_to_response('sections/inscripcion.html', locals())
 
 def ecotips(request, category=''):
 	page_title  = "Fundaci&oacute;n que transforma."

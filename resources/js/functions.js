@@ -1,4 +1,4 @@
-var folder = '/';
+var folder = ':8000/';
 var server = get_server_path() + folder;
 
 $(window).load(function() {
@@ -89,8 +89,13 @@ $(window).load(function() {
 		$('.fancybox').fancybox({
 			ajax : {
 			    type	: "POST",
-			    data	: 'mydata=test'
-			}
+			    data	: 'mydata=test',
+				
+			},
+			overlayColor: '#000000', 
+			overlayOpacity:'.6',
+			autoScale : false,
+			width : 395
 		})
 
 	// *********************** ECOTIPS *********************************
