@@ -89,8 +89,13 @@ $(window).load(function() {
 		$('.fancybox').fancybox({
 			ajax : {
 			    type	: "POST",
-			    data	: 'mydata=test'
-			}
+			    data	: 'mydata=test',
+				
+			},
+			overlayColor: '#000000', 
+			overlayOpacity:'.6',
+			autoScale : false,
+			width : 395
 		})
 
 	// *********************** ECOTIPS *********************************
