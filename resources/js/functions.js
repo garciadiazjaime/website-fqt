@@ -1,4 +1,4 @@
-var folder = '/';
+var folder = ':8000/';
 var server = get_server_path() + folder;
 
 $(window).load(function() {
