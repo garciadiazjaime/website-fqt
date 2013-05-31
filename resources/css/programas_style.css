@@ -1,11 +1,11 @@
 /*
 Syntax error: Undefined mixin 'border-radius'.
-        on line 112 of /Users/Vagui/django_projects/fqt/resources/sass/programas_style.sass, in `border-radius'
-        from line 112 of /Users/Vagui/django_projects/fqt/resources/sass/programas_style.sass
+        on line 134 of /Users/Vagui/django_projects/fqt/resources/sass/programas_style.sass, in `border-radius'
+        from line 134 of /Users/Vagui/django_projects/fqt/resources/sass/programas_style.sass
 
 Backtrace:
-/Users/Vagui/django_projects/fqt/resources/sass/programas_style.sass:112:in `border-radius'
-/Users/Vagui/django_projects/fqt/resources/sass/programas_style.sass:112
+/Users/Vagui/django_projects/fqt/resources/sass/programas_style.sass:134:in `border-radius'
+/Users/Vagui/django_projects/fqt/resources/sass/programas_style.sass:134
 /Users/Vagui/.rvm/gems/ruby-1.9.3-p392/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
 /Users/Vagui/.rvm/gems/ruby-1.9.3-p392/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/Vagui/.rvm/gems/ruby-1.9.3-p392/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
@@ -86,4 +86,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'border-radius'.\A         on line 112 of /Users/Vagui/django_projects/fqt/resources/sass/programas_style.sass, in `border-radius'\A         from line 112 of /Users/Vagui/django_projects/fqt/resources/sass/programas_style.sass"; }
+  content: "Syntax error: Undefined mixin 'border-radius'.\A         on line 134 of /Users/Vagui/django_projects/fqt/resources/sass/programas_style.sass, in `border-radius'\A         from line 134 of /Users/Vagui/django_projects/fqt/resources/sass/programas_style.sass"; }
