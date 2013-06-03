@@ -45,6 +45,7 @@ $(document).ready(function() { //when the document is ready...
 	var $third_bg5 = $("#third .bg5");
 	var $third_bg6 = $("#third .bg6");
 	var $third_bg7 = $("#third .bg7");
+	var $third_bgsand = $("#third .bg_sand_pattern");
 	var $third_bgt = $("#third .bgt");
 	var $personaje = $("#personaje");
 
@@ -136,7 +137,7 @@ $(document).ready(function() { //when the document is ready...
 		//	if(pos > 420){
 		//		$first_bg3.css({'z-index': 1});
 		//	}else{
-				$first_bg3.css({'z-index': 132});
+				$first_bg3.css({'z-index': 5});
 		//	}
 			
 		}
@@ -181,6 +182,7 @@ $(document).ready(function() { //when the document is ready...
 				$third_bg3.css({'backgroundPosition': newPos(50, windowHeight, pos, 3040, 1)});
 			}
 			$third_bg6.css({'backgroundPosition': newPos(50, windowHeight, pos, 3100, 1)});
+			$third_bgsand.css({'backgroundPosition': newPos(50, windowHeight, pos, 3100, 1)});
 
 			$third_bgt.css({'backgroundPosition': newPos(50, windowHeight, pos, 900, 0.05)});
 		}

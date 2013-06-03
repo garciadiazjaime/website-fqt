@@ -3,6 +3,7 @@ import datetime
 
 class Categoria(models.Model):
 	name = models.CharField(max_length=120)
+	url = models.URLField(max_length=500)
 	weight = models.IntegerField(blank=True, null=True)
 
 	def __unicode__(self):

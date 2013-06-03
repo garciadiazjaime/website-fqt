@@ -35,10 +35,15 @@
 body
 	@include background-image(radial-gradient(50% 100%, #a6ecf1 10px, #57a194 100%))
 	color: #535353
-	font: 13px Arial, Verdana, sans-serif
+	font: 14px Arial, Verdana, sans-serif
 	margin: 0
 	padding: 0
 	text-align: justify
+
+p
+	letter-spacing: 0.04em
+	line-height: 1.4em
+	margin-bottom: 17px
 
 a
 	color: #535353
@@ -82,6 +87,7 @@ br.clearer
 .purple_list, .orange_list, .yellow_list
 	font-size: 18px
 	list-style-type: disc
+	line-height: 1.4em
 	padding: 0 0 0 15px
 	
 	li
@@ -90,7 +96,12 @@ br.clearer
 	
 	span
 		color: #535353
-		font-size: 13px
+		font-size: 14px
+	
+	strong
+		display: inline-block
+		margin-right: 7px
+		
 	
 .purple_list
 	color: #645270
@@ -283,6 +294,10 @@ ul.menu
 	text-align: left
 	.container
 		padding: 40px
+		
+	.extra_top_margin
+		margin-top: 20px
+		
 	ul
 		color: #e0e6d8
 		display: inline-block
@@ -376,6 +391,10 @@ $firstheight: 1400px
 	pointer-events: none
 	z-index: 500
 	
+#first, #second, #third
+	.container
+		position: relative
+		z-index: 110
 #first
 	@include background-image(radial-gradient(100% 100%, #a0d7db 10px, #57a194 100%))
 	background-size: $bgsize
@@ -392,7 +411,7 @@ $firstheight: 1400px
 		height: $firstheight
 		width: 100%
 		position: absolute
-		z-index: 10
+		z-index: 100
 	.bg25
 		background: url('../media/inicio_first_nubes.png') no-repeat fixed
 		height: $firstheight
@@ -403,19 +422,19 @@ $firstheight: 1400px
 		height: $firstheight
 		width: 100%
 		position: absolute
-		z-index: 510
+		z-index: 5
 	.bg4
 		background: url('../media/inicio_first_smallhouse.png') repeat-x fixed
 		height: $firstheight
 		width: 100%
 		position: absolute
-		z-index: 3
+		z-index: 9
 	.bg5
 		background: url('../media/inicio_first_mediumhouse.png') repeat-x fixed
 		height: $firstheight
 		width: 100%
 		position: absolute
-		z-index: 4
+		z-index: 10
 	.bg6
 		background: url('../media/inicio_first_bighouse.png') repeat-x fixed
 		height: $firstheight
@@ -444,17 +463,17 @@ $secondheight:640px
 		z-index: 5
 		
 	.bg3
-		background: url('../media/inicio_second_backsand.png') no-repeat fixed
+		background: url('../media/inicio_second_backsand.png') repeat-x fixed
 		height: $secondheight
 		width: 100%
 		position: absolute
 		z-index: 10
 	.bg4
-		background: url('../media/inicio_second_middlesand.png') no-repeat fixed
+		background: url('../media/inicio_second_middlesand.png') repeat-x fixed
 		height: $secondheight
 		width: 100%
 		position: absolute
-		z-index: 7
+		z-index: 10
 	.bg5
 		background: url('../media/inicio_second_frontsand.png') no-repeat fixed
 		height: $secondheight
@@ -531,6 +550,14 @@ $thirdheight: 700px
 		width: 100%
 		position: absolute
 		z-index: 105
+		
+	.bg_sand_pattern
+		background: url('../media/inicio_third_pattern_sand.png') bottom repeat-x fixed
+		height: $thirdheight
+		width: 100%
+		position: absolute
+		z-index: 1
+		
 	.bgt
 		height: $thirdheight
 

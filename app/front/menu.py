@@ -21,6 +21,10 @@ class Menu(object):
 				'title': 'programas',
 			},
 			{				
+				'href': 'ecotips',
+				'title': 'ecotips',
+			},
+			{				
 				'href': 'transparencia',
 				'title': 'transparencia',				
 			},
@@ -29,8 +33,8 @@ class Menu(object):
 				'title': 'talleristas',				
 			},
 			{				
-				'href': 'inversiones_sociales',
-				'title': 'inversiones sociales',
+				'href': 'inversionistas_sociales',
+				'title': 'inversionistas sociales',
 			},			
 			{				
 				'href': 'contacto',

@@ -6,6 +6,7 @@ from app.programas.models import Program
 from app.transparencia.models import Infographic
 from app.downloads.models import Download
 from app.inversiones.models import Toner
+from app.youtube.models import Categoria, Ecocapsulas
 
 menu = Menu()
 
@@ -57,6 +58,8 @@ def ecotips(request, category=''):
 	section 	= "ecotips"
 	main_menu = menu.get_main(section)
 	footer_menu = menu.get_footer()
+	categories = Categoria.objects.all()
+	ecocapsulas = Ecocapsulas.objects.all()
 
 	return render_to_response('sections/ecotips.html', locals())
 
