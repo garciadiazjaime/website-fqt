@@ -98,9 +98,7 @@
 			</div><div class="half column">
 				<p id="consulta_series">Consulta las diferentes series:</p>
 				<ul id="temporadas_series">
-					{% for row in categories %}
-					<li><a href="/ecocapsulas/{{row.id}}" title="{{row.name}}">{{row.name}}</a></li>
-					{% endfor %}
+					{% for row in categories %}<li><a href="/ecocapsulas/{{row.id}}" title="{{row.name}}">{{row.name}}</a></li>{% endfor %}
 				</ul>
 			</div>
 			<ul id="lista_ecocapsulas">{% for row in ecocapsulas %}<li class="{% if forloop.first %}first{% elif forloop.counter0|divisibleby:'4' %}first{% elif forloop.last %}last{% endif %}"><a href="/ecocapsulas/{{row.category}}" title="{{row.title}}"><img src="/static/media/ecotips_thumbs/permalink1.jpg" alt="{{row.title}}" /></a><h4><a href="/ecocapsulas/{{row.category}}" title="{{row.title}}">{{row.title}}</a></h4></li>{% endfor %}
