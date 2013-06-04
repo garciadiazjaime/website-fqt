@@ -3,7 +3,7 @@ var server = get_server_path() + folder;
 
 $(window).load(function() {
 	var page = get_currentpage();
-
+	console.log(page)
 	var last_item = getLastItem(page)
 
 	if(last_item.length && $('#' + last_item).length){
@@ -11,6 +11,10 @@ $(window).load(function() {
 			gotoTop(last_item, '', '450')
 		else			
 			gotoTop(last_item)				
+	}else if(page.indexOf('ecocapsulas') !== -1)
+	{
+		console.log('here')
+		gotoTop('ecocapsulas')
 	}
 
 	
@@ -85,6 +89,26 @@ $(window).load(function() {
 	    responsive  : true
 	  });
 	*/
+
+	$(".eco_fancybox").click(function(){
+		$.fancybox({
+			'padding'		: 0,
+			'autoScale'		: false,
+			'transitionIn'	: 'none',
+			'transitionOut'	: 'none',
+			'title'			: this.title,
+			'width'			: '600',
+			'height'		: '400',
+			'href'			: this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+			'type'			: 'swf',
+			'swf'			: {
+				'wmode'		: 'transparent',
+				'allowfullscreen'	: 'true'
+			}
+		});
+		return false
+	})
+
 	if($('.fancybox').length)
 		$('.fancybox').fancybox({
 			ajax : {
@@ -136,6 +160,7 @@ function get_currentpage(){
 }
 
 function gotoTop(id, speed , more){
+	console.log(id)
 	if(isNaN(speed))
 		speed = 1250
 	if(isNaN(more))

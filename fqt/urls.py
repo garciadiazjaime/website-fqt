@@ -17,7 +17,10 @@ urlpatterns = patterns('',
         url(r'^programas/(?P<category>[^/]+)', 'app.front.views.programas', name='programas'),
         url(r'^inscripcion/(?P<form>[^/]+)$', 'app.front.views.inscripcion', name='inscripcion'),
     url(r'^ecotips$', 'app.front.views.ecotips', name='ecotips'),
+        url(r'^ecotips/ecocapsulas/(?P<slug>[^/]+)$', 'app.front.views.ecotips', name='ecotips'),
         url(r'^ecotips/(?P<category>[^/]+)$', 'app.front.views.ecotips', name='ecotips'),
+
+
         url(r'^update_ecocapsulas$', 'app.youtube.views.update_ecocapsulas', name='test'),
 
     url(r'^transparencia$', 'app.front.views.transparencia', name='transparencia'),
@@ -29,6 +32,8 @@ urlpatterns = patterns('',
     url(r'^contacto$', 'app.front.views.contacto', name='contacto'),
         url(r'^contacto/(?P<category>[^/]+)$', 'app.front.views.contacto', name='contacto'),
     
+    url(r'^test$', 'app.front.views.test', name='test'),
+
     url(r'^admin/', include(admin.site.urls)),
     url(r'^tinymce/', include('tinymce.urls')),
 )
