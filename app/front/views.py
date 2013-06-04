@@ -50,7 +50,7 @@ def inscripcion(request, form=''):
 	
 	return render_to_response('sections/inscripcion.html', locals())
 
-def ecotips(request, category=''):
+def ecotips(request, category='', slug=''):
 	page_title  = "Fundaci&oacute;n que transforma."
 	keywords 	= "fundaci&oacute;n transforma"
 	description = "Ecotips"
@@ -59,7 +59,10 @@ def ecotips(request, category=''):
 	main_menu = menu.get_main(section)
 	footer_menu = menu.get_footer()
 	categories = Categoria.objects.all()
-	ecocapsulas = Ecocapsulas.objects.all()
+	if slug != '':
+		ecocapsulas = Ecocapsulas.objects.filter(category__slug=slug)
+	else:
+		ecocapsulas = Ecocapsulas.objects.all()
 
 	return render_to_response('sections/ecotips.html', locals())
 
@@ -111,3 +114,6 @@ def contacto(request, category=''):
 	footer_menu = menu.get_footer()
 
 	return render_to_response('sections/contacto.html', locals())
+
+def test(request):
+	return HttpResponse('asfd')
