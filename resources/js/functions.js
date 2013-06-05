@@ -122,6 +122,8 @@ $(window).load(function() {
 			width : 395
 		})
 
+	$('#transparencia_fancybox').fancybox()
+
 	// *********************** ECOTIPS *********************************
 	$('#ecotips_list li').click(function(){
 			var thumb_id = $(this).attr('id');

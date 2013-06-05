@@ -7,6 +7,7 @@ from app.transparencia.models import Infographic
 from app.downloads.models import Download
 from app.inversiones.models import Toner
 from app.youtube.models import Categoria, Ecocapsulas
+from app.inversiones.models import Logos
 
 menu = Menu()
 
@@ -58,11 +59,11 @@ def ecotips(request, category='', slug=''):
 	section 	= "ecotips"
 	main_menu = menu.get_main(section)
 	footer_menu = menu.get_footer()
-	categories = Categoria.objects.all()
+	categories = Categoria.objects.all().order_by('-weight')
 	if slug != '':
-		ecocapsulas = Ecocapsulas.objects.filter(category__slug=slug)
+		ecocapsulas = Ecocapsulas.objects.filter(category__slug=slug).order_by('-weight')
 	else:
-		ecocapsulas = Ecocapsulas.objects.all()
+		ecocapsulas = Ecocapsulas.objects.all().order_by('-weight')
 
 	return render_to_response('sections/ecotips.html', locals())
 
@@ -95,12 +96,16 @@ def inversiones_sociales(request, category=''):
 	keywords 	= "fundaci&oacute;n transforma"
 	description = "Inversiones Sociales"
 	menu_inicio = "current"
-	section 	= "inversiones_sociales"
+	section 	= "inversionistas_sociales"
 	main_menu = menu.get_main(section)
 	footer_menu = menu.get_footer()
 	toner = Toner.objects.filter()[0]
-	counter = toner.parse_to_span()
-	#return HttpResponse(counter)
+	counter = toner.parse_to_span
+	toner = Logos.objects.filter(category=1).order_by('-weight', '-id')
+	aliados = Logos.objects.filter(category=2).order_by('-weight', '-id')
+	universidades = Logos.objects.filter(category=3).order_by('-weight', '-id')
+	inversionistas = Logos.objects.filter(category=4).order_by('-weight', '-id')
+	especie = Logos.objects.filter(category=5).order_by('-weight', '-id')
 
 	return render_to_response('sections/inversiones_sociales.html', locals())
 

@@ -54,29 +54,11 @@
 			<h3 id="empresas_participantes" class="sideoverflow">Empresas Participantes</h3>
 			<div id="slider_empresas" class="slider_inversiones">
 				<ul>
+					{% for row in toner %}
 					<li>
-						<a href="" title="Industrias Electricas" target="_blank"><img src="/static/inversiones/em_industrias_electricas.jpg" alt="Industrias Electricas"></a>
-					</li><li>
-							<a href="" title="Victory Enterprises" target="_blank"><img src="/static/inversiones/em_victory_entreprises.jpg" alt="Victory Enterprises"></a>
-					</li><li>
-							<a href="" title="Victory Enterprises" target="_blank"><img src="/static/inversiones/em_world_trade_center.jpg" alt="Victory Enterprises"></a>
-					</li><li>
-							<a href="" title="Victory Enterprises" target="_blank"><img src="/static/inversiones/em_galber.jpg" alt="Victory Enterprises"></a>
-					</li><li>
-							<a href="" title="Victory Enterprises" target="_blank"><img src="/static/inversiones/em_aim.jpg" alt="Victory Enterprises"></a>
+						<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
 					</li>
-					
-					<li>
-							<a href="" title="Victory Enterprises" target="_blank"><img src="/static/inversiones/em_aba_seguros.jpg" alt="Victory Enterprises"></a>		
-					</li><li>
-							<a href="" title="Victory Enterprises" target="_blank"><img src="/static/inversiones/em_amex.jpg" alt="Victory Enterprises"></a>		
-					</li><li>
-							<a href="" title="Victory Enterprises" target="_blank"><img src="/static/inversiones/em_arris.jpg" alt="Victory Enterprises"></a>	
-					</li><li>
-							<a href="" title="Victory Enterprises" target="_blank"><img src="/static/inversiones/em_autosplice.jpg" alt="Victory Enterprises"></a>	
-					</li><li>
-							<a href="" title="Victory Enterprises" target="_blank"><img src="/static/inversiones/em_cafe_pedrin.jpg" alt="Victory Enterprises"></a>	
-					</li>
+					{% endfor %}
 				</ul>
 				<div class="slider_texture"></div>
 				<a href="anterior" title="Anterior" class="prev">Anterior</a>
@@ -195,17 +177,12 @@
 			<h3>Aliados estratégicos</h3>
 			<div id="slider_aliados" class="slider_inversiones">
 				<ul>
-					<li id="al_baja_sky"><a href="#" title="Baja Sky">Baja Sky</a></li><li id="al_us_consulate">
-						<a href="#" title="U.S. Consulate General Tijuana">U.S. Consulate General Tijuana</a></li><li id="al_el_trompo">
-						<a href="#" title="El trompo">El trompo</a></li><li id="al_fide">
-						<a href="#" title="Fideicomiso para el ahorro  de energía eléctrica">Fideicomiso para el ahorro  de energía eléctrica</a></li><li id="al_fundacion_ninez">
-						<a href="#" title="Fideicomiso para la protección de la niñez">Fideicomiso para la protección de la niñez</a></li><li id="al_gob_bc">
-						<a href="#" title="Gobierno de Baja California">Gobierno de Baja California</a></li><li id="al_telecomunicaciones">
-						<a href="#" title="Telecomunicaciones">Telecomunicaciones</a></li><li id="al_simpatt">
-						<a href="#" title="Sistema Municipal de Parques Temáticos de Tijuana">Sistema Municipal de Parques Temáticos de Tijuana</a></li><li id="al_cam_helen_keller">
-						<a href="#" title="CAM Helen Kéller">CAM Helen Kéller</a></li><li id="al_faltas">
-						<a href="#" title="¡Faltas Tú!">¡Faltas Tú!</a>
+					{% for row in aliados %}
+					<li>
+						<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
 					</li>
+					{% endfor %}
+					<li id="al_faltas"><a href="#" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
 				</ul>
 				<div class="slider_texture"></div>
 				<a href="anterior" title="Anterior" class="prev">Anterior</a>
@@ -215,16 +192,12 @@
 			<h3>Universidades</h3>
 			<div id="slider_universidades" class="slider_inversiones">
 				<ul>
-					<li id="uni_cecyt"><a href="#" title="Cecyt">Cecyt</a></li><li id="uni_xochicalco">
-						<a href="#" title="Universidad Xochicalco">Universidad Xochicalco</a></li><li id="uni_utt">
-						<a href="#" title="Universidad Tecnológica de Tijuana">Universidad Tecnológica de Tijuana</a></li><li id="uni_upn">
-						<a href="#" title="Universidad  Pedagógica Nacional">Universidad  Pedagógica Nacional</a></li><li id="uni_ibero">
-						<a href="#" title="IBERO">IBERO</a></li><li id="uni_uabc">
-						<a href="#" title="UABC">UABC</a></li><li id="uni_unidep">
-						<a href="#" title="UNIDEP">UNIDEP</a></li><li id="uni_cut">
-						<a href="#" title="Universidad de Tijuana CUT">Universidad de Tijuana CUT</a></li><li id="uni_faltas">
-						<a href="#" title="¡Faltas Tú!">¡Faltas Tú!</a>
+					{% for row in universidades %}
+					<li>
+						<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
 					</li>
+					{% endfor %}
+					<li id="uni_faltas"><a href="#" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
 				</ul>
 				<div class="slider_texture"></div>
 				<a href="anterior" title="Anterior" class="prev">Anterior</a>
@@ -234,10 +207,18 @@
 			<h3>Inversionistas Sociales</h3>
 			<div id="slider_inversionistas" class="slider_inversiones">
 				<ul>
+					{% for row in inversionistas %}
+					<li>
+						<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
+					</li>
+					{% endfor %}
+					<li id="inv_faltas"><a href="#" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
+					<!--
 					<li id="inv_gob_bc"><a href="#" title="Gobierno de Baja California">Gobierno de Baja California</a></li><li id="inv_papeles_graficos">
 						<a href="#" title="Papeles y Gráficos de B.C.">Papeles y Gráficos de B.C.</a></li><li id="inv_faltas">
 						<a href="#" title="¡Faltas Tú!">¡Faltas Tú!</a>
 					</li>
+					-->
 				</ul>
 				<div class="slider_texture"></div>
 				<a href="anterior" title="Anterior" class="prev">Anterior</a>
@@ -247,11 +228,18 @@
 			<h3>Especie</h3>
 			<div id="slider_especie" class="slider_inversiones">
 				<ul>
+					{% for row in especie %}
+					<li>
+						<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
+					</li>
+					{% endfor %}
+					<li id="esp_faltas"><a href="#" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
+					<!--
 					<li id="esp_club_infantil"><a href="#" title="Club Infantil">Club Infantil</a></li><li id="esp_hola_californias">
 						<a href="#" title="Hola Californias">Hola Californias</a></li><li id="esp_ecoideas_panasonic">
 						<a href="#" title="Eco Ideas Panasonic">Eco Ideas Panasonic</a></li><li id="esp_faltas">
 						<a href="#" title="¡Faltas Tú!">¡Faltas Tú!</a>
-					</li>
+					</li>-->
 				</ul>
 				<div class="slider_texture"></div>
 				<a href="anterior" title="Anterior" class="prev">Anterior</a>

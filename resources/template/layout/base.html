@@ -1,14 +1,18 @@
 <html>
 <head>
 	<link rel="stylesheet" href="/static/css/jquery.fancybox-1.3.4.css" />
+	{% if not section == 'ecotips' and not section == 'transparencia' %}
 	<link rel="stylesheet" type="text/css" href="/static/css/screen.css" />
+	{% else %}
+	<link rel="stylesheet" type="text/css" href="/static/css/screen_2.css" />
+	{% endif %}
 	<link rel="stylesheet" href="/static/css/bjqs.css" />	
 	<link rel="stylesheet" href="/static/css/explorer.css" />
 	
-	{% if section == 'programas' %}
+	{% if section == 'programas' or section == 'ecotips' or section == 'transparencia' %}
 	<script type="text/javascript" src="/static/js/jquery1-5.min.js"></script>
 	{% else %}
-	<script type="text/javascript" src="/static/js/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript" src="/static/js/jquery-1.10.1.min.js"></script>
 	{% endif %}
 	<!-- Custom SELECT and FILE UPLOAD  -->
 	<script type="text/javascript" src="/static/js/select.jquery.js"></script>
