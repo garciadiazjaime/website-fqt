@@ -180,6 +180,24 @@ br.clearer
 .three_fourth.first
 	padding: 0 1% 50px 0
 	width: 74%
+	
+.third
+	margin: 0 0 0 2%
+	padding: 0
+	width: 31.33%
+	
+.third.first
+	margin: 0
+	width: 33.33%
+	
+.two_third
+	margin: 0 0 0 2%
+	padding: 0
+	width: 64.66%
+
+.two_third.first
+	margin: 0
+	width: 66.66%
 
 #wrapper
 	background: url(../media/background_texture.png) repeat
@@ -204,7 +222,8 @@ ul.menu
 	li
 		display: inline-block
 		color: #FFFFFF
-		font: 12px 'Montserrat-Bold', sans-serif
+		font: 12px montserrat_bold, sans-serif
+		font-weight: normal
 		margin: 0
 		height: 50px
 		
@@ -214,10 +233,11 @@ ul.menu
 			color: inherit
 			display: block
 			height: 50px
-			padding: 0 25px 9px
+			padding: 0 22px 9px
 			text-decoration: none
 			&:hover
 				background: url('../media/header_menu_a_bkg.png') no-repeat center bottom
+				
 			span
 				display: block
 				padding-top: 20px
@@ -612,6 +632,7 @@ $thirdheight: 700px
 		@include opacity(0.8)
 		padding: 20px
 		position: relative
+		text-align: justify
 		z-index: 119
 	a
 		background: url("../media/inicio_info_a.png") no-repeat 0 0

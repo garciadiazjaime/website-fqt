@@ -1,0 +1,121 @@
+@import "compass/css3/border-radius"
+
+#fancybox-content, #fancybox-outer
+	background: transparent
+	border: none
+	color: #ffffff
+	position: relative
+
+	h2
+		display: none
+
+	label
+		background: #75a142
+		@include border-radius()
+		display: inline-block
+		margin: 0 4px 10px 0
+		padding: 5px 10px
+		position: relative
+		vertical-align: top
+
+		span
+			background: url(../media/label_decor.png) 0 0 no-repeat
+			display: inline-block
+			height: 17px
+			position: absolute
+			right: -8px
+			width: 8px
+
+	label.small
+		width: 85px
+
+	label.medium
+		width: 160px
+
+	label.large
+		width: 200px
+	
+	
+	.custom_textarea, .custom_textbox, select	
+		font: 13px Arial,Verdana,sans-serif	
+	
+	.custom_textarea
+		@include border-radius()
+		border: none
+		height: 130px
+		padding: 7px 5px
+		
+	.custom_textbox
+		@include border-radius()
+		border: none
+		height: 28px
+		padding: 3px 5px
+	
+	.custom_textbox.small	
+		width: 170px
+	
+	.custom_textbox.medium, .fake_select
+		width: 210px
+		
+	.custom_textbox.large, .custom_textarea.large
+		width: 285px
+		
+	.fake_select
+		display: inline-block
+		height: 30px
+		overflow: hidden
+		position: relative
+		vertical-align: top
+		
+		select
+			background: transparent
+			border: none
+			height: 30px
+			padding: 5px 0px 5px 10px
+			position: relative
+			width: 110%
+			z-index: 10
+				
+		.select_decor
+			background: #ffffff url(../media/select_sprite.png) right 10px no-repeat
+			@include border-radius()
+			height: 30px
+			left: 0
+			position: absolute
+			top: 0
+			width: 100%
+			z-index: 5
+			
+		&:hover
+			.select_decor
+				background-position: right -112px
+		
+	.custom_submit
+		background: #e2dc1a
+		border: none
+		@include border-radius()
+		color: #000000
+		display: block
+		font-size: 15px
+		text-align: center
+		margin:  10px 0 0 auto
+		padding: 10px 15px
+		text-transform: uppercase
+		width: 120px
+		
+		&:hover
+			background: lighten(#e2dc1a, 10)
+		
+		
+#fancybox-content
+	font-size: 15px
+	max-width: 395px
+	width: 395px
+
+#fancybox-wrap, #fancybox-outer
+	max-width: 395px
+	width: 395px
+	
+#fancybox-title-float-main
+	display: none
+	

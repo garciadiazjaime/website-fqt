@@ -1,13 +1,18 @@
 <html>
 <head>
 	<link rel="stylesheet" href="/static/css/jquery.fancybox-1.3.4.css" />
-	{% if not section == 'ecotips' and not section == 'transparencia' %}
-	<link rel="stylesheet" type="text/css" href="/static/css/screen.css" />
-	{% else %}
-	<link rel="stylesheet" type="text/css" href="/static/css/screen_2.css" />
-	{% endif %}
 	<link rel="stylesheet" href="/static/css/bjqs.css" />	
+	<link rel="stylesheet" type="text/css" href="/static/css/screen.css" />
+	{% if section == 'programas' %}
+	<link rel="stylesheet" type="text/css" href="/static/css/fancybox_programas.css" />
+	{% endif %}
+	{% if section == 'transparencia' %}
+	<link rel="stylesheet" type="text/css" href="/static/css/fancybox_transparencia.css" />
+	{% endif %}
 	<link rel="stylesheet" href="/static/css/explorer.css" />
+	{% if is_chrome %}
+		<link rel="stylesheet" href="/static/css/chrome.css" />
+	{% endif %}
 	
 	{% if section == 'programas' or section == 'ecotips' or section == 'transparencia' %}
 	<script type="text/javascript" src="/static/js/jquery1-5.min.js"></script>
