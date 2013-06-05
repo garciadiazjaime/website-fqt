@@ -25,7 +25,7 @@ class Logos(models.Model):
 	image = models.ImageField(upload_to='inversiones')
 	weight = models.IntegerField(blank=True, null=True)
 	link = models.URLField(blank=True, null=True)
-	category = models.CharField(choices=CATEGORY_CHOICES, max_length=140)
+	category = models.IntegerField(choices=CATEGORY_CHOICES, max_length=140)
 	reg_date = models.DateTimeField('Registration date', default=datetime.datetime.now)
 
 	def __unicode__(self):
