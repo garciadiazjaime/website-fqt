@@ -46,6 +46,10 @@ class Program(models.Model):
 	objects = models.Manager()
 	objects_a = ProgramManager()
 
+	class Meta:
+		verbose_name = "Programa"
+		verbose_name_plural = "Programas"
+
 class Image(models.Model):
 	alt = models.CharField(max_length=140, blank=True, null=True)
 	image = models.ImageField(upload_to='programas')	
