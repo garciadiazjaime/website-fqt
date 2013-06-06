@@ -2,18 +2,14 @@
 <head>
 	<link rel="stylesheet" href="/static/css/jquery.fancybox-1.3.4.css" />
 	<link rel="stylesheet" href="/static/css/bjqs.css" />	
-	{% if not section == 'transparencia' %}
 	<link rel="stylesheet" type="text/css" href="/static/css/screen.css" />
-	{% else %}
-	<link rel="stylesheet" type="text/css" href="/static/css/screen_2.css" />
-	{% endif %}
 	
 	{% if section == 'programas' %}
 	<link rel="stylesheet" type="text/css" href="/static/css/fancybox_programas.css" />
 	{% endif %}
 	{% if section == 'transparencia' %}
-	<!--<link rel="stylesheet" type="text/css" href="/static/css/fancybox_transparencia.css" />-->
-
+	<link rel="stylesheet" type="text/css" href="/static/css/fancybox_transparencia.css" />
+	{% endif %}
 	<!-- Add mousewheel plugin (this is optional) -->
 	<script type="text/javascript" src="/static/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
 
@@ -32,10 +28,6 @@
 	<!-- Add Media helper (this is optional) -->
 	<script type="text/javascript" src="/static/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.5"></script>
 
-
-
-
-	{% endif %}
 	<link rel="stylesheet" href="/static/css/explorer.css" />
 	{% if is_chrome %}
 		<link rel="stylesheet" href="/static/css/chrome.css" />

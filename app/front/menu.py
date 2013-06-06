@@ -69,20 +69,28 @@ class Menu(object):
 			child = ''
 			if row['href'] == 'programas':
 				programas = Program.objects.all()
+				i = 0
 				for row2 in programas:
-					child +=  "<li><a title=\""+row2.title +"\" href=\"/"+row['href']+"/"+slugify(row2.title)+"\"><span>"+row2.title+"</span></a></li>"
+					sublist_class=""
+					if i == 0: sublist_class="first"
+					child +=  "<li class=\""+sublist_class+"\" ><a title=\""+row2.title +"\" href=\"/"+row['href']+"/"+slugify(row2.title)+"\"><span>"+row2.title+"</span></a></li>"
+					i += 1
 			
 			elif row['href'] == 'campanas_donantes' and 'child' in row:
+				i = 0
 				for row2 in row['child']:
-					child +=  "<li><a title=\""+row2['title']+"\" href=\"/"+row['href']+"/"+row2['href']+"\"><span>"+row2['title']+"</span></a></li>"
+					sublist_class=""
+					if i == 0: sublist_class="first"
+					child +=  "<li class=\""+sublist_class+"\"><a title=\""+row2['title']+"\" href=\"/"+row['href']+"/"+row2['href']+"\"><span>"+row2['title']+"</span></a></li>"
+					i += 1
 
 			if len(child):
 				child = "<ul class=\"child\">" + child + "</ul>"
 
 			if row['href'] == section:
-				response += "<li class=\"current \"><a title=\"/"+row['title'] +"\" href=\"/"+row['href']+"\"><span>"+row['title']+"</span></a> " + child + "</li>"
+				response += "<li class=\""+row['href']+" current \"><a title=\"/"+row['title'] +"\" href=\"/"+row['href']+"\"><span>"+row['title']+"</span></a> " + child + "</li>"
 			else:
-				response += "<li><a title=\"/"+row['title'] +"\" href=\"/"+row['href']+"\"><span>"+row['title']+"</span></a> " + child + "</li>"
+				response += "<li class=\""+row['href']+"\"><a title=\"/"+row['title'] +"\" href=\"/"+row['href']+"\"><span>"+row['title']+"</span></a> " + child + "</li>"
 
 		if len(response):
 			response = "<ul class=\"menu\">" + response + "</ul>"
