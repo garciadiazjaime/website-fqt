@@ -68,7 +68,7 @@ class Menu(object):
 		for row in self.items:
 			child = ''
 			if row['href'] == 'programas':
-				programas = Program.objects.all()
+				programas = Program.objects.all().order_by('-weight', '-reg_date')
 				i = 0
 				for row2 in programas:
 					sublist_class=""
