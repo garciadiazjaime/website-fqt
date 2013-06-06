@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 import datetime
 
@@ -9,3 +11,7 @@ class Download(models.Model):
 
 	def __unicode__(self):
 		return self.title
+
+	class Meta:
+		verbose_name = "Talleristas"
+		verbose_name_plural = "Descargables"

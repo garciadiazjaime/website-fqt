@@ -122,9 +122,7 @@ $(window).load(function() {
 			width : 395
 		})
 
-	$('#transparencia_fancybox').fancybox(	{
-			'left': itemLeft,
-		})
+	$('#transparencia_fancybox').fancybox()
 
 	// *********************** ECOTIPS *********************************
 	$('#ecotips_list li').click(function(){
