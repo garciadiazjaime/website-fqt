@@ -210,21 +210,35 @@
 	li	
 		color: #ffffff
 		display: inline-block
-		margin: 0 10px 0 0
+		margin: 0 10px 10px 0
+		vertical-align: top
 
 		a
 			background: #6e6e6e
 			color: #ffffff
 			display: block
-			font: 16px montserrat_bold, Verdana, sans-serif
-			letter-spacing: .03em
-			padding: 15px 18px
-			text-align: center
-			text-transform: uppercase
-			width: 77px
-
+			font: 13px montserrat_bold, Verdana, sans-serif
+			letter-spacing: .04em
+			height: 40px
+			overflow: hidden
+			padding: 4px 13px
+			text-align: left
+			text-transform: none
+			width: 105px
+			
 			&:hover
 				background: lighten(#6e6e6e, 15)
+				
+				
+		em
+			font-style: normal
+			text-transform: uppercase
+			
+	li.one_line
+		a
+			height: 30px
+			text-align: center
+			padding: 12px 13px 6px
 
 #background_beach
 	background: url(../media/background_ecotips_naturaleza.png) center 0 no-repeat

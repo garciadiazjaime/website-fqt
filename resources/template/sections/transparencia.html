@@ -8,9 +8,13 @@
 		</div><div class="half column">
 			
 		</div>
-		<h2 class="sideoverflow purple_text">Cinco años formando ciudadanos conscientes </h2>
+		
 		{% for row in infographic %}
-		<img src="/static/media/{{row.image}}" alt="{{row.alt}}" id="imagen_proyectos"/>
+		{% if row.alt|length %}<h2 class="sideoverflow purple_text">{{row.title}}</h2>{% endif %}
+		<a href="/static/media/{{row.big_image}}" title="{{row.title}}" id="transparencia_fancybox">
+			<img src="/static/media/{{row.image}}" alt="{{row.alt}}" id="imagen_proyectos"/>
+		</a>
 		{% endfor %}
+		
 	</div>
 {% endblock %}

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 import datetime
 
@@ -13,6 +15,10 @@ class Toner(models.Model):
 			c += '<span>'+ str(int(digit)) + '</span>'
 		return c
 
+	class Meta:
+		verbose_name = "Campañas y Donativos"
+		verbose_name_plural = "Cartuchos"
+
 class Logos(models.Model):
 	CATEGORY_CHOICES = (
 		(1, 'toner'),
@@ -25,8 +31,12 @@ class Logos(models.Model):
 	image = models.ImageField(upload_to='inversiones')
 	weight = models.IntegerField(blank=True, null=True)
 	link = models.URLField(blank=True, null=True)
-	category = models.CharField(choices=CATEGORY_CHOICES, max_length=140)
+	category = models.IntegerField(choices=CATEGORY_CHOICES, max_length=140)
 	reg_date = models.DateTimeField('Registration date', default=datetime.datetime.now)
 
 	def __unicode__(self):
 		return self.image.name
+
+	class Meta:
+		verbose_name = "Campañas y Donativos"
+		verbose_name_plural = "Logos"

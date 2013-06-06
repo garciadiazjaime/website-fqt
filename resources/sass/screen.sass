@@ -180,6 +180,24 @@ br.clearer
 .three_fourth.first
 	padding: 0 1% 50px 0
 	width: 74%
+	
+.third
+	margin: 0 0 0 2%
+	padding: 0
+	width: 31.33%
+	
+.third.first
+	margin: 0
+	width: 33.33%
+	
+.two_third
+	margin: 0 0 0 2%
+	padding: 0
+	width: 64.66%
+
+.two_third.first
+	margin: 0
+	width: 66.66%
 
 #wrapper
 	background: url(../media/background_texture.png) repeat
@@ -201,30 +219,111 @@ ul.menu
 	margin: 0
 	padding: 0
 	text-align: center
+	
 	li
 		display: inline-block
 		color: #FFFFFF
-		font: 12px 'Montserrat-Bold', sans-serif
+		font: 12px montserrat_bold, sans-serif
+		font-weight: normal
 		margin: 0
-		height: 50px
-		
-		&:hover
-			background: #e2dc1a
+		vertical-align: top
+			
 		a
 			color: inherit
 			display: block
-			height: 50px
-			padding: 0 26px 9px
+			padding: 0 0 9px
 			text-decoration: none
+	
 			&:hover
 				background: url('../media/header_menu_a_bkg.png') no-repeat center bottom
+					
+				span
+					background: #e2dc1a
 			span
+				background: transparent
 				display: block
-				padding-top: 20px
-	li.current
-		background: #e2dc1a
+				height: 24px
+				padding: 14px 20px 12px
+				
+	li.current		
 		a
 			background: url('../media/header_menu_a_bkg.png') no-repeat center bottom
+
+			&:hover
+				background: url('../media/header_menu_a_bkg.png') no-repeat center bottom
+
+				span
+					background: #e2dc1a
+			span
+				background:  #e2dc1a
+				
+				
+	li:hover 
+		
+		.child
+			display: block
+			
+			
+		span
+			background: #e2dc1a
+			
+			li
+				span
+					background: transparent
+					
+	li.current:hover
+		li
+			span
+				background: transparent
+				
+			a
+				background-image: none
+	
+		
+	li.programas
+		width: 135px	
+			
+	li.campanas_donantes
+		width: 195px
+		
+	li	
+	
+		.child
+			display: none
+			padding: 0
+		
+		
+			li
+				display: block
+				height: auto
+				font-family: montserrat_regular, sans-serif
+				margin: 0
+				text-align: left
+		
+				a
+					background: rgba(65,65,65, .8)
+					padding: 0
+					
+					&:hover
+						background-color: rgba(65,65,65, 1)
+					
+						span
+							transparent
+							
+				span
+					background: transparent
+					height: auto
+					padding: 8px 10px
+			
+			li.first
+				margin: -9px 0 0
+				
+				a
+					background: rgba(65,65,65, .8) url('../media/header_menu_a_bkg.png') no-repeat center top
+				span
+					padding: 17px 10px 8px
+			
+		
 
 #brand_social
 	height: 105px
@@ -612,6 +711,7 @@ $thirdheight: 700px
 		@include opacity(0.8)
 		padding: 20px
 		position: relative
+		text-align: justify
 		z-index: 119
 	a
 		background: url("../media/inicio_info_a.png") no-repeat 0 0

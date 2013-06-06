@@ -7,10 +7,15 @@ from app.transparencia.models import Infographic
 from app.downloads.models import Download
 from app.inversiones.models import Toner
 from app.youtube.models import Categoria, Ecocapsulas
+from app.inversiones.models import Logos
+
+
+
 
 menu = Menu()
 
 def home(request):
+	is_chrome = True if 'Chrome' in request.META['HTTP_USER_AGENT'] else False
 	page_title  = "Fundaci&oacute;n que Transforma."
 	keywords 	= "fundaci&oacute;n transforma"
 	description = "Bienvenidos a Fundaci&oacute;n que Transforma"
@@ -22,6 +27,7 @@ def home(request):
 	return render_to_response('sections/inicio.html', locals())
 
 def nosotros(request, category=''):
+	is_chrome = True if 'Chrome' in request.META['HTTP_USER_AGENT'] else False
 	page_title  = "Fundaci&oacute;n que transforma."
 	keywords 	= "fundaci&oacute;n transforma"
 	description = "Nosotros"
@@ -33,6 +39,7 @@ def nosotros(request, category=''):
 	return render_to_response('sections/nosotros.html', locals())
 
 def programas(request, category=''):	
+	is_chrome = True if 'Chrome' in request.META['HTTP_USER_AGENT'] else False
 	page_title  = "Fundaci&oacute;n que transforma."
 	keywords 	= "fundaci&oacute;n transforma"
 	description = "Programas"
@@ -50,7 +57,8 @@ def inscripcion(request, form=''):
 	
 	return render_to_response('sections/inscripcion.html', locals())
 
-def ecotips(request, category=''):
+def ecotips(request, category='', slug=''):
+	is_chrome = True if 'Chrome' in request.META['HTTP_USER_AGENT'] else False
 	page_title  = "Fundaci&oacute;n que transforma."
 	keywords 	= "fundaci&oacute;n transforma"
 	description = "Ecotips"
@@ -58,12 +66,16 @@ def ecotips(request, category=''):
 	section 	= "ecotips"
 	main_menu = menu.get_main(section)
 	footer_menu = menu.get_footer()
-	categories = Categoria.objects.all()
-	ecocapsulas = Ecocapsulas.objects.all()
+	categories = Categoria.objects.all().order_by('-weight')
+	if slug != '':
+		ecocapsulas = Ecocapsulas.objects.filter(category__slug=slug).order_by('-weight')
+	else:
+		ecocapsulas = Ecocapsulas.objects.all().order_by('-weight')
 
 	return render_to_response('sections/ecotips.html', locals())
 
 def transparencia(request, category=''):
+	is_chrome = True if 'Chrome' in request.META['HTTP_USER_AGENT'] else False
 	page_title  = "Fundaci&oacute;n que transforma."
 	keywords 	= "fundaci&oacute;n transforma"
 	description = "Transparencia"
@@ -76,6 +88,7 @@ def transparencia(request, category=''):
 	return render_to_response('sections/transparencia.html', locals())
 
 def talleristas(request, category=''):
+	is_chrome = True if 'Chrome' in request.META['HTTP_USER_AGENT'] else False
 	page_title  = "Fundaci&oacute;n que transforma."
 	keywords 	= "fundaci&oacute;n transforma"
 	description = "Talleristas"
@@ -88,20 +101,26 @@ def talleristas(request, category=''):
 	return render_to_response('sections/talleristas.html', locals())
 
 def inversiones_sociales(request, category=''):
+	is_chrome = True if 'Chrome' in request.META['HTTP_USER_AGENT'] else False
 	page_title  = "Fundaci&oacute;n que transforma."
 	keywords 	= "fundaci&oacute;n transforma"
-	description = "Inversiones Sociales"
+	description = "Campa&ntilde;as y donantes"
 	menu_inicio = "current"
-	section 	= "inversiones_sociales"
+	section 	= "campanas_donantes"
 	main_menu = menu.get_main(section)
 	footer_menu = menu.get_footer()
 	toner = Toner.objects.filter()[0]
-	counter = toner.parse_to_span()
-	#return HttpResponse(counter)
+	counter = toner.parse_to_span
+	toner = Logos.objects.filter(category=1).order_by('-weight', '-id')
+	aliados = Logos.objects.filter(category=2).order_by('-weight', '-id')
+	universidades = Logos.objects.filter(category=3).order_by('-weight', '-id')
+	inversionistas = Logos.objects.filter(category=4).order_by('-weight', '-id')
+	especie = Logos.objects.filter(category=5).order_by('-weight', '-id')
 
 	return render_to_response('sections/inversiones_sociales.html', locals())
 
 def contacto(request, category=''):
+	is_chrome = True if 'Chrome' in request.META['HTTP_USER_AGENT'] else False
 	page_title  = "Fundaci&oacute;n que transforma."
 	keywords 	= "fundaci&oacute;n transforma"
 	description = "Contacto"
@@ -111,3 +130,6 @@ def contacto(request, category=''):
 	footer_menu = menu.get_footer()
 
 	return render_to_response('sections/contacto.html', locals())
+
+def test(request):
+	return HttpResponse('asfd')
