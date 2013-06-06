@@ -1,19 +1,21 @@
-var folder = ':8000/';
+var folder = '';
 var server = get_server_path() + folder;
 
 $(window).load(function() {
 	var page = get_currentpage();
-	console.log(page)
 	var last_item = getLastItem(page)
 
 	if(last_item.length && $('#' + last_item).length){
 		if(page.indexOf('programas') !== -1)
+		{
 			gotoTop(last_item, '', '450')
+			//console.log('here: ' + $('#'+last_item).top)
+			//$.scrollTo('#'+last_item, 800);
+		}		
 		else			
 			gotoTop(last_item)				
 	}else if(page.indexOf('ecocapsulas') !== -1)
 	{
-		console.log('here')
 		gotoTop('ecocapsulas')
 	}
 
@@ -141,7 +143,6 @@ $(window).load(function() {
 	);
 
 	$("form").submit(function() {
-		console.log('here')
 		return false;
 	});
 
@@ -170,7 +171,7 @@ function get_currentpage(){
 }
 
 function gotoTop(id, speed , more){
-	console.log(id)
+	console.log('gototop')
 	if(isNaN(speed))
 		speed = 1250
 	if(isNaN(more))
