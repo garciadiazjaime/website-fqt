@@ -82,6 +82,8 @@ $(window).load(function() {
 				'wmode'		: 'transparent',
 				'allowfullscreen'	: 'true'
 			},
+			overlayColor: '#000000', 
+			overlayOpacity:'.6',
 		});
 		return false
 	})
@@ -103,6 +105,9 @@ $(window).load(function() {
 		$('#transparencia_fancybox').fancybox(
 			{
 				autoScale : false,
+				overlayColor: '#000000', 
+				overlayOpacity:'.6',
+			    responsive  : false,
 				width: 1045,
 			}
 		)

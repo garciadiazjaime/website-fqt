@@ -31,6 +31,13 @@
 	font-weight: normal
 	font-style: normal
 
+@font-face
+	font-family: 'gotham_light'
+	src: url('../fonts/gotham_light.eot')
+	src: url('../fonts/gotham_light.eot?#iefix') format('embedded-opentype'), url('../fonts/gotham_light.woff') format('woff'), url('../fonts/gotham_light.ttf') format('truetype'), url('../fonts/gotham_light.svg#gotham_light') format('svg')
+	font-weight: normal
+	font-style: normal
+
 /* ****************** GENERAL ************** */
 body
 	@include background-image(radial-gradient(50% 100%, #a6ecf1 10px, #57a194 100%))
@@ -121,6 +128,24 @@ br.clearer
 		
 .centered
 	text-align: center
+	
+#boton_donativos
+	background: url(../media/boton_donativos.png) no-repeat top right
+	display: block
+	height: 180px
+	line-height: 50000em
+	overflow: hidden
+	opacity: 1
+	position: fixed
+	right: 0
+	top: 20%
+	@include transition(opacity 0.3s ease-in)
+	width: 54px
+	z-index: 5000
+	
+	&:hover
+		opacity: .8
+
 /* ****************** LAYOUT **************** */
 .column
 	display: inline-block
@@ -282,9 +307,24 @@ ul.menu
 		
 	li.programas
 		width: 135px	
+		
+		.child
+			margin-right: -60px
+			
+			li.first
+				span
+					background: url('../media/header_menu_a_bkg.png') no-repeat 60px top
+				
 			
 	li.campanas_donantes
-		width: 195px
+		width: 195px	
+		
+		.child
+			margin-right: -30px
+			
+			li.first
+				span
+					background: url('../media/header_menu_a_bkg.png') no-repeat 90px top
 		
 	li	
 	
@@ -296,16 +336,20 @@ ul.menu
 			li
 				display: block
 				height: auto
-				font-family: montserrat_regular, sans-serif
+				font-family: gotham_light, sans-serif
 				margin: 0
 				text-align: left
 		
 				a
-					background: rgba(65,65,65, .8)
+					background: #584b40
+					border-bottom: 1px solid #584b40
+					border-top: 1px solid #584b40
 					padding: 0
 					
 					&:hover
-						background-color: rgba(65,65,65, 1)
+						background-color: #493e34
+						border-bottom: 1px solid #ffffff
+						border-top: 1px solid #ffffff
 					
 						span
 							transparent
@@ -319,9 +363,18 @@ ul.menu
 				margin: -9px 0 0
 				
 				a
-					background: rgba(65,65,65, .8) url('../media/header_menu_a_bkg.png') no-repeat center top
+					background: #584b40 
+					border-bottom: 1px solid #584b40
+					border-top: 1px solid #584b40
+				
+					&:hover
+						background-color: #493e34
+						border-bottom: 1px solid #ffffff
+						border-top: 1px solid #ffffff
+						
 				span
-					padding: 17px 10px 8px
+					margin-top: -1px
+					padding: 18px 10px 8px
 			
 		
 
