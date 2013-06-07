@@ -54,43 +54,15 @@ $(window).load(function() {
 	    responsive  : true
 	  });
 	
-	/*
-	$('.slideshow').bjqs({	    
-	    responsive  : true
-	  });
-	
-	
-	
-	$('#slideshow_reciclases').bjqs({
-	    height      : 210,
-	    width       : 433,
-	    responsive  : true
-	  });
+	$('.block_programas a.prev').click(function(){
+		console.log('pref')
+		return false
+	})
 
-	$('#slideshow_reciclases_jardin').bjqs({
-	    height      : 185,
-	    width       : 484,
-	    responsive  : true
-	  });
-
-	$('#slideshow_proyecto_semilla').bjqs({
-	    height      : 210,
-	    width       : 433,
-	    responsive  : true
-	  });
-
-	$('#slideshow_jovenes_transformando').bjqs({
-	    height      : 210,
-	    width       : 433,
-	    responsive  : true
-	  });
-
-	$('#slideshow_laboratorio_vivo').bjqs({
-	    height      : 210,
-	    width       : 433,
-	    responsive  : true
-	  });
-	*/
+	$('.block_programas a.next').click(function(){
+		console.log('next')
+		return false
+	})
 
 	$(".eco_fancybox").click(function(){
 		$.fancybox({
@@ -106,7 +78,7 @@ $(window).load(function() {
 			'swf'			: {
 				'wmode'		: 'transparent',
 				'allowfullscreen'	: 'true'
-			}
+			},
 		});
 		return false
 	})

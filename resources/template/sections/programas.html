@@ -38,7 +38,7 @@
 						{% if row.info.where_gallery == 1 %}
 						<div class="slideshow">
 				        	{% for img in row.images %}
-				        		<img src="/media/{{img.image}}" alt="{{img.alt}}" />
+				        		<img src="/media/{{img.image}}" {% if img.alt|length %}alt="{{img.alt}}" {% endif %} {% if not forloop.first %}class="hide"{% endif %} />
 				        	{% endfor %}					          							  
 						</div>
 						{% endif %}
@@ -50,7 +50,7 @@
 						{% if row.info.where_gallery == 2 %}
 						<div class="slideshow">							
 				        	{% for img in row.images %}
-				        		<img src="/media/{{img.image}}" alt="{{img.alt}}" />
+				        		<img src="/media/{{img.image}}" alt="{{img.alt}}" {% if not forloop.first %}class="hide"{% endif %} />
 				        	{% endfor %}					          							  
 						</div>
 						{% endif %}

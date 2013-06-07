@@ -38,20 +38,16 @@ class Menu(object):
 				'title': 'Campa&ntilde;as y donantes',
 				'child':[
 					{
-						'href': 'aliados-estrategicos',
-						'title': 'Aliados estrat&eacute;gicos',
+						'href': 'campanas',
+						'title': 'Campa&ntilde;as',
 					},	
 					{
-						'href': 'universidades',
-						'title': 'Universidades',
+						'href': 'tipos-donativos',
+						'title': 'Tipos de donativos',
 					},
 					{
 						'href': 'inversionistas-sociales',
 						'title': 'Inversionistas Sociales',
-					},
-					{
-						'href': 'especie',
-						'title': 'Especie',
 					},
 				],
 			},			
