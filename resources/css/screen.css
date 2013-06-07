@@ -2,3 +2,32 @@
 .hide{
 	display: none;
 }
+.screen_logos {
+	position: relative;
+	width: 900px;
+	margin: 20px;
+}
+
+.screen_logos .buttons {
+	border: 1px solid #777;
+	margin-bottom: 5px;
+	width: 679px;
+}
+
+
+.logo_slideshow {
+	overflow: hidden;
+	width: 680px;
+	border: 1px solid #777;
+}
+
+.logo_slideshow ul {
+	width: 3900px;
+	padding-left: 225px;
+}
+
+.logo_slideshow li {
+	float: left;
+	margin: 0 16px;
+	cursor: pointer;
+}

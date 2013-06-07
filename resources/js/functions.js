@@ -21,7 +21,8 @@ $(window).load(function() {
 
 	
 	// CUSTOM FORM ELEMENTS
-	$('.mySelectBoxClass').customSelect();
+	if($('.mySelectBoxClass').length)
+		$('.mySelectBoxClass').customSelect();
 /*	$("input[type=file]").filestyle({ 
 	     image: "static/media/grey.gif",
 	     imageheight : 22,
@@ -44,15 +45,17 @@ $(window).load(function() {
 
 	// *********************** Slider simple - NOSOTROS y PROGRAMAS ***********************************
 
-	$('.slideshow').cycle({
-		fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...	    
-	});
+	if($('.slideshow').length)
+		$('.slideshow').cycle({
+			fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...	    
+		});
 
-	$('#slideshow_nosotros').bjqs({
-	    height      : 320,
-	    width       : 433,
-	    responsive  : true
-	  });
+	if($('#slideshow_nosotros').length)
+		$('#slideshow_nosotros').bjqs({
+		    height      : 320,
+		    width       : 433,
+		    responsive  : true
+		  });
 	
 	$('.block_programas a.prev').click(function(){
 		console.log('pref')
@@ -96,11 +99,12 @@ $(window).load(function() {
 			width : 395
 		})
 
-	$('#transparencia_fancybox').fancybox(
-		{
-			autoScale : false,
-			width: 1045,
-		}
+	if($('#transparencia_fancybox').length)
+		$('#transparencia_fancybox').fancybox(
+			{
+				autoScale : false,
+				width: 1045,
+			}
 		)
 	
 	
@@ -117,6 +121,24 @@ $(window).load(function() {
 	$("form").submit(function() {
 		return false;
 	});
+
+	
+	$('.logo_slideshow').serialScroll({		
+		items:'li',
+		prev:'.screen_logos a.prev',
+		next:'.screen_logos a.next',
+		offset:-230, //when scrolling to photo, stop 230 before reaching it (from the left)
+		start:1, //as we are centering it, start at the 2nd
+		duration:1200,
+		force:true,
+		stop:true,
+		lock:false,
+		cycle:false, //don't pull back once you reach the end
+		//easing:'easeOutQuart', //use this easing equation for a funny effect
+		jump: true //click on the images to scroll to them
+		
+	});
+
 
 });
 

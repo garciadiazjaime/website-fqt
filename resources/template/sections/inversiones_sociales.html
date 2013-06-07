@@ -64,6 +64,24 @@
 				<a href="anterior" title="Anterior" class="prev">Anterior</a>
 				<a href="siguiente" title="Siguiente" class="next">Siguiente</a>
 			</div>
+
+			<div class="screen_logos">
+				<div class="buttons">
+					<a class="prev" href="#">Previous</a>
+					<a class="next" href="#">Next</a>
+					<br class="clear">
+				</div>
+				<div class="logo_slideshow">
+					<ul>
+						{% for row in toner %}
+						<li>
+							<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+
 		
 			<h3 class="half column first no_padding_bottom" id="reciempresa">Reciempresa</h3><div class="half column no_padding_bottom"></div>
 			<div class="half column first">
@@ -188,6 +206,26 @@
 				<a href="anterior" title="Anterior" class="prev">Anterior</a>
 				<a href="siguiente" title="Siguiente" class="next">Siguiente</a>
 			</div>
+
+			<div class="screen_logos">
+				<div class="buttons">
+					<a class="prev" href="#">Previous</a>
+					<a class="next" href="#">Next</a>
+					<br class="clear">
+				</div>
+				<div class="logo_slideshow">
+					<ul>
+						{% for row in aliados %}
+						<li>
+							<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
+						</li>
+						{% endfor %}
+						<li id="al_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
+					</ul>
+				</div>
+			</div>
+
+
 			<h3>Universidades</h3>
 			<div id="slider_universidades" class="slider_inversiones block_programas">
 				<ul>
@@ -202,6 +240,24 @@
 				<a href="anterior" title="Anterior" class="prev">Anterior</a>
 				<a href="siguiente" title="Siguiente" class="next">Siguiente</a>
 			</div>
+			<div class="screen_logos">
+				<div class="buttons">
+					<a class="prev" href="#">Previous</a>
+					<a class="next" href="#">Next</a>
+					<br class="clear">
+				</div>
+				<div class="logo_slideshow">
+					<ul>
+						{% for row in universidades %}
+						<li>
+							<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
+						</li>
+						{% endfor %}
+						<li id="uni_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
+					</ul>
+				</div>
+			</div>
+
 			<h3>Inversionistas Sociales</h3>
 			<div id="slider_inversionistas" class="slider_inversiones block_programas">
 				<ul>
@@ -216,6 +272,24 @@
 				<a href="anterior" title="Anterior" class="prev">Anterior</a>
 				<a href="siguiente" title="Siguiente" class="next">Siguiente</a>
 			</div>
+			<div class="screen_logos">
+				<div class="buttons">
+					<a class="prev" href="#">Previous</a>
+					<a class="next" href="#">Next</a>
+					<br class="clear">
+				</div>
+				<div class="logo_slideshow">
+					<ul>
+						{% for row in inversionistas %}
+						<li>
+							<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
+						</li>
+						{% endfor %}
+						<li id="inv_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
+					</ul>
+				</div>
+			</div>
+
 			<h3>Especie</h3>
 			<div id="slider_especie" class="slider_inversiones block_programas">
 				<ul>
@@ -236,6 +310,24 @@
 				<a href="anterior" title="Anterior" class="prev">Anterior</a>
 				<a href="siguiente" title="Siguiente" class="next">Siguiente</a>
 			</div>
+			<div class="screen_logos">
+				<div class="buttons">
+					<a class="prev" href="#">Previous</a>
+					<a class="next" href="#">Next</a>
+					<br class="clear">
+				</div>
+				<div class="logo_slideshow">
+					<ul>
+						{% for row in especie %}
+						<li>
+							<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
+						</li>
+						{% endfor %}
+						<li id="esp_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
+					</ul>
+				</div>
+			</div>
+
 		</div>
 	</div>
 {% endblock %}
