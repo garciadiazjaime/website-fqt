@@ -1,7 +1,7 @@
  {% extends "layout/base.html" %}
 
 {% block site_wrapper %}
-	<div class="container">
+	<div class="container" id="campanas">
 		<h1>Inversiones Sociales</h1>
 		<h2>Campañas</h2>
 	</div>
@@ -17,7 +17,7 @@
 
 				<p>Los recursos obtenidos del reciclaje serán destinados a la operación de los programas activos de Fundación Que Transforma, con el fin de seguir realizando actividades que promuevan y fomenten una cultura urbana proactiva, enfocada al medio ambiente, de forma lúdica en escuelas públicas y casas hogar.</p>
 				<br /><br /><br /><br /><br />
-				<img src="static/media/inversionistas_soc/toner.jpg" alt="Tu tóner transforma escuelas" />
+				<img src="/static/media/inversionistas_soc/toner.jpg" alt="Tu tóner transforma escuelas" />
 			
 				<h4>Procedimiento</h4>
 				<p>Una vez que los cartuchos estén vacíos y listos para remplazarse por unos nuevos, estos no deberán depositarse en el contenedor de basura, por el contrario, deberán ser separados y conservados. </p>
@@ -52,7 +52,7 @@
 				</div>
 			</div>
 			<h3 id="empresas_participantes" class="sideoverflow">Empresas Participantes</h3>
-			<div id="slider_empresas" class="slider_inversiones">
+			<div id="slider_empresas" class="slider_inversiones block_programas">
 				<ul>
 					{% for row in toner %}
 					<li>
@@ -64,6 +64,25 @@
 				<a href="anterior" title="Anterior" class="prev">Anterior</a>
 				<a href="siguiente" title="Siguiente" class="next">Siguiente</a>
 			</div>
+
+			<div class="screen_logos">
+				<div class="buttons">
+					<a class="prev" href="#">Previous</a>
+					<a class="next" href="#">Next</a>
+					<br class="clear">
+				</div>
+				<div class="logo_slideshow">
+					<ul>
+						{% for row in toner %}
+						<li>
+							<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="slide_texture"></div>
+			</div>
+
 		
 			<h3 class="half column first no_padding_bottom" id="reciempresa">Reciempresa</h3><div class="half column no_padding_bottom"></div>
 			<div class="half column first">
@@ -82,7 +101,7 @@
 		<div id="underwater_nature"></div>
 	</div>
 	
-	<div class="light_gray">
+	<div class="light_gray" id="tipos-donativos">
 		<div class="container" id="donativos">
 			<h2>Donativos</h2>
 			<p class="slogan">Programas de Responsabilidad Social Corporativa</p>
@@ -171,69 +190,119 @@
 		<hr class="gradient_line">
 	</div>
 	<div class="dark_gray">
-		<div class="container">
+		<div class="container" id="inversionistas-sociales">
 			<h2>Inversionistas sociales</h2>
 			
 			<h3>Aliados estratégicos</h3>
-			<div id="slider_aliados" class="slider_inversiones">
+			<div id="slider_aliados" class="slider_inversiones block_programas">
 				<ul>
 					{% for row in aliados %}
 					<li>
 						<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
 					</li>
 					{% endfor %}
-					<li id="al_faltas"><a href="#" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
+					<li id="al_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
 				</ul>
 				<div class="slider_texture"></div>
 				<a href="anterior" title="Anterior" class="prev">Anterior</a>
 				<a href="siguiente" title="Siguiente" class="next">Siguiente</a>
 			</div>
 
+			<div class="screen_logos">
+				<div class="buttons">
+					<a class="prev" href="#">Previous</a>
+					<a class="next" href="#">Next</a>
+					<br class="clear">
+				</div>
+				<div class="logo_slideshow">
+					<ul>
+						{% for row in aliados %}
+						<li>
+							<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
+						</li>
+						{% endfor %}
+						<li id="al_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
+					</ul>
+				</div>
+				<div class="slide_texture"></div>
+			</div>
+
+
 			<h3>Universidades</h3>
-			<div id="slider_universidades" class="slider_inversiones">
+			<div id="slider_universidades" class="slider_inversiones block_programas">
 				<ul>
 					{% for row in universidades %}
 					<li>
 						<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
 					</li>
 					{% endfor %}
-					<li id="uni_faltas"><a href="#" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
+					<li id="uni_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
 				</ul>
 				<div class="slider_texture"></div>
 				<a href="anterior" title="Anterior" class="prev">Anterior</a>
 				<a href="siguiente" title="Siguiente" class="next">Siguiente</a>
 			</div>
+			<div class="screen_logos">
+				<div class="buttons">
+					<a class="prev" href="#">Previous</a>
+					<a class="next" href="#">Next</a>
+					<br class="clear">
+				</div>
+				<div class="logo_slideshow">
+					<ul>
+						{% for row in universidades %}
+						<li>
+							<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
+						</li>
+						{% endfor %}
+						<li id="uni_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
+					</ul>	
+				</div>
+				<div class="slide_texture"></div>
+			</div>
 
 			<h3>Inversionistas Sociales</h3>
-			<div id="slider_inversionistas" class="slider_inversiones">
+			<div id="slider_inversionistas" class="slider_inversiones block_programas">
 				<ul>
 					{% for row in inversionistas %}
 					<li>
 						<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
 					</li>
 					{% endfor %}
-					<li id="inv_faltas"><a href="#" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
-					<!--
-					<li id="inv_gob_bc"><a href="#" title="Gobierno de Baja California">Gobierno de Baja California</a></li><li id="inv_papeles_graficos">
-						<a href="#" title="Papeles y Gráficos de B.C.">Papeles y Gráficos de B.C.</a></li><li id="inv_faltas">
-						<a href="#" title="¡Faltas Tú!">¡Faltas Tú!</a>
-					</li>
-					-->
+					<li id="inv_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
 				</ul>
 				<div class="slider_texture"></div>
 				<a href="anterior" title="Anterior" class="prev">Anterior</a>
 				<a href="siguiente" title="Siguiente" class="next">Siguiente</a>
 			</div>
+			<div class="screen_logos">
+				<div class="buttons">
+					<a class="prev" href="#">Previous</a>
+					<a class="next" href="#">Next</a>
+					<br class="clear">
+				</div>
+				<div class="logo_slideshow">
+					<ul>
+						{% for row in inversionistas %}
+						<li>
+							<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
+						</li>
+						{% endfor %}
+						<li id="inv_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
+					</ul>
+				</div>
+				<div class="slide_texture"></div>
+			</div>
 
 			<h3>Especie</h3>
-			<div id="slider_especie" class="slider_inversiones">
+			<div id="slider_especie" class="slider_inversiones block_programas">
 				<ul>
 					{% for row in especie %}
 					<li>
 						<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
 					</li>
 					{% endfor %}
-					<li id="esp_faltas"><a href="#" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
+					<li id="esp_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
 					<!--
 					<li id="esp_club_infantil"><a href="#" title="Club Infantil">Club Infantil</a></li><li id="esp_hola_californias">
 						<a href="#" title="Hola Californias">Hola Californias</a></li><li id="esp_ecoideas_panasonic">
@@ -245,6 +314,25 @@
 				<a href="anterior" title="Anterior" class="prev">Anterior</a>
 				<a href="siguiente" title="Siguiente" class="next">Siguiente</a>
 			</div>
+			<div class="screen_logos">
+				<div class="buttons">
+					<a class="prev" href="#">Previous</a>
+					<a class="next" href="#">Next</a>
+					<br class="clear">
+				</div>
+				<div class="logo_slideshow">
+					<ul>
+						{% for row in especie %}
+						<li>
+							<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
+						</li>
+						{% endfor %}
+						<li id="esp_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
+					</ul>	
+				</div>	
+				<div class="slide_texture"></div>
+			</div>
+
 		</div>
 	</div>
 {% endblock %}

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 import datetime
 
@@ -6,12 +8,17 @@ class Categoria(models.Model):
 	url = models.CharField(max_length=500)
 	slug = models.CharField(max_length=500)
 	weight = models.IntegerField(blank=True, null=True)
+	cat_class = models.CharField("css clase", max_length=120, blank=True, null=True)
 
 	def __unicode__(self):
 		return self.name
 
 	class Meta:
 		ordering = ['-weight']
+
+	class Meta:
+		verbose_name = "Ecotips"
+		verbose_name_plural = "Categorías"
 
 class Ecocapsulas(models.Model):
 	title = models.CharField(max_length=120)
@@ -25,3 +32,6 @@ class Ecocapsulas(models.Model):
 	def __unicode__(self):
 		return self.title
 	
+	class Meta:
+		verbose_name = "Ecotips"
+		verbose_name_plural = "Ecocápsulas"

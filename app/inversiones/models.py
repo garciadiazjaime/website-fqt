@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 import datetime
 
@@ -12,6 +14,10 @@ class Toner(models.Model):
 		for digit in str(self.counter):
 			c += '<span>'+ str(int(digit)) + '</span>'
 		return c
+
+	class Meta:
+		verbose_name = "Campañas y Donativos"
+		verbose_name_plural = "Cartuchos"
 
 class Logos(models.Model):
 	CATEGORY_CHOICES = (
@@ -30,3 +36,7 @@ class Logos(models.Model):
 
 	def __unicode__(self):
 		return self.image.name
+
+	class Meta:
+		verbose_name = "Campañas y Donativos"
+		verbose_name_plural = "Logos"

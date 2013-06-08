@@ -7,7 +7,7 @@ from app.inversiones.models import Toner, Logos
 
 class LogosAdmin(admin.ModelAdmin):
 	search_fields = ['alt']
-	list_display = ('alt', 'image', 'weight', 'category', 'reg_date')
+	list_display = ('alt', 'image', 'weight', 'reg_date')
 	list_filter = ['category', 'reg_date']	
 
 admin.site.register(Logos, LogosAdmin)

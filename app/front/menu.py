@@ -3,6 +3,7 @@
 from django.utils.encoding import smart_str
 from app.programas.models import Program
 from app.youtube.models import Categoria
+from slugify import slugify
 
 
 class Menu(object):
@@ -10,46 +11,82 @@ class Menu(object):
 	items = [			
 			{				
 				'href': 'inicio',
-				'title': 'inicio',				
+				'title': 'Inicio',				
 			},
 			{				
 				'href': 'nosotros',
-				'title': 'nosotros',				
+				'title': 'Nosotros',				
 			},
 			{				
 				'href': 'programas',
-				'title': 'programas',
+				'title': 'Programas',
 			},
 			{				
 				'href': 'ecotips',
-				'title': 'ecotips',
+				'title': 'Ecotips',
 			},
 			{				
 				'href': 'transparencia',
-				'title': 'transparencia',				
+				'title': 'Transparencia',				
 			},
 			{				
 				'href': 'talleristas',
-				'title': 'talleristas',				
+				'title': 'Talleristas',				
 			},
 			{				
-				'href': 'inversionistas_sociales',
-				'title': 'inversionistas sociales',
+				'href': 'campanas_donantes',
+				'title': 'Campa&ntilde;as y donantes',
+				'child':[
+					{
+						'href': 'campanas',
+						'title': 'Campa&ntilde;as',
+					},	
+					{
+						'href': 'tipos-donativos',
+						'title': 'Tipos de donativos',
+					},
+					{
+						'href': 'inversionistas-sociales',
+						'title': 'Inversionistas Sociales',
+					},
+				],
 			},			
 			{				
 				'href': 'contacto',
-				'title': 'contacto',
+				'title': 'Contacto',
 			},
 		]
 
 
 	def get_main(self, section):
 		response = ''		
+		child = ''
 		for row in self.items:
+			child = ''
+			if row['href'] == 'programas':
+				programas = Program.objects.all().order_by('-weight', '-reg_date')
+				i = 0
+				for row2 in programas:
+					sublist_class=""
+					if i == 0: sublist_class="first"
+					child +=  "<li class=\""+sublist_class+"\" ><a title=\""+row2.title +"\" href=\"/"+row['href']+"/"+slugify(row2.title)+"\"><span>"+row2.title+"</span></a></li>"
+					i += 1
+			
+			elif row['href'] == 'campanas_donantes' and 'child' in row:
+				i = 0
+				for row2 in row['child']:
+					sublist_class=""
+					if i == 0: sublist_class="first"
+					child +=  "<li class=\""+sublist_class+"\"><a title=\""+row2['title']+"\" href=\"/"+row['href']+"/"+row2['href']+"\"><span>"+row2['title']+"</span></a></li>"
+					i += 1
+
+			if len(child):
+				child = "<ul class=\"child\">" + child + "</ul>"
+
 			if row['href'] == section:
-				response += "<li class=\"current \"><a title=\"/"+row['title'] +"\" href=\"/"+row['href']+"\"><span>"+row['title'].title()+"</span></a></li>"
+				response += "<li class=\""+row['href']+" current \"><a title=\"/"+row['title'] +"\" href=\"/"+row['href']+"\"><span>"+row['title']+"</span></a> " + child + "</li>"
 			else:
-				response += "<li><a title=\"/"+row['title'] +"\" href=\"/"+row['href']+"\"><span>"+row['title'].title()+"</span></a></li>"
+				response += "<li class=\""+row['href']+"\"><a title=\"/"+row['title'] +"\" href=\"/"+row['href']+"\"><span>"+row['title']+"</span></a> " + child + "</li>"
 
 		if len(response):
 			response = "<ul class=\"menu\">" + response + "</ul>"
@@ -62,46 +99,8 @@ class Menu(object):
 			}
 		return programs
 
-
-'''
 	def get_child(self, section, data):
-		response = ''		
-		if section != 'galeria':		
-			for row in data:
-				li_id = row['li_id'] if row.has_key('li_id') else ''						
-				response += "<li id=\""+ li_id +"\"><a title=\"/"+row['title'] +"\" href=\"/"+ section + "/" + row['href']+"\"><span>"+row['title'].title()+"</span></a></li>"		
-		else:			
-			category = Category.objects.filter(active=True)			
-			for row in category:
-				response += "<li><a title=\""+ smart_str(row.name) + "\" href=\"/galeria/"+ str(row.url) + "\"><span>" + smart_str(row.name) +"</span></a></li>"
-		if len(response):
-			response = "<ul>" + response + "</ul>"
-		return response
-
-	def get_galeria(self):
-		response = ''		
-		category = Category.objects.filter(active=True)			
-		first = ''
-		second = ''
-		third = ''
-		i = 0
-		for row in category:
-			if i % 3 == 0:
-				if len(first):
-					first += "<li><a href=\"/galeria/"+ str(row.url) + "\" title=\"" + smart_str(row.name)  + "\"><span>"+ smart_str(row.name) +"</span></a></li>"
-				else:
-					first += "<li class=\"first\"><a href=\"/galeria/"+ str(row.url) + "\" title=\"" + smart_str(row.name)  + "\"><span>"+ smart_str(row.name) +"</span></a></li>"			
-			elif i % 3 == 1:
-				if len(second):
-					second += "<li><a href=\"/galeria/"+ str(row.url) + "\" title=\"" + smart_str(row.name)  + "\"><span>"+ smart_str(row.name) +"</span></a></li>"
-				else:
-					second += "<li class=\"first\"><a href=\"/galeria/"+ str(row.url) + "\" title=\"" + smart_str(row.name)  + "\"><span>"+ smart_str(row.name) +"</span></a></li>"
-			elif i % 3 == 2:
-				if len(third):
-					third += "<li><a href=\"/galeria/"+ str(row.url) + "\" title=\"" + smart_str(row.name)  + "\"><span>"+ smart_str(row.name) +"</span></a></li>"
-				else:
-					third += "<li class=\"first\"><a href=\"/galeria/"+ str(row.url) + "\" title=\"" + smart_str(row.name)  + "\"><span>"+ smart_str(row.name) +"</span></a></li>"
-			i += 1
-		response = "<div class=\"column one_third first\"><ul><ul>" + first + "</ul></div><div class=\"column one_third first\"><ul><ul>" + second + "</ul></div><div class=\"column one_third first\"><ul><ul>" + third + "</ul></div>"	
-		return response
-'''
+		response = ''
+		for row in data:
+			li_id = row['li_id'] if row.has_key('li_id') else ''						
+			response += "<li id=\""+ li_id +"\"><a title=\"/"+row['title'] +"\" href=\"/"+ section + "/" + row['href']+"\"><span>"+row['title'].title()+"</span></a></li>"
