@@ -74,9 +74,31 @@
 				<div class="logo_slideshow">
 					<ul>
 						{% for row in toner %}
+						{% if forloop.first %}
 						<li>
-							<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+        					<ul>
+        						<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+						{% elif forloop.counter|divisibleby:'10' and not forloop.last %}
+							</ul>
 						</li>
+						<li>
+        					<ul>
+        						<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+						{% elif forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+							</ul>
+						</li>
+						{% else %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+						{% endif %}
 						{% endfor %}
 					</ul>
 				</div>
