@@ -80,14 +80,14 @@
         						<li>
 									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
-						{% elif forloop.counter|divisibleby:'10' and not forloop.last %}
+						{% elif forloop.counter|divisibleby:'8' and not forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
 							</ul>
 						</li>
 						<li>
         					<ul>
-        						<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
-								</li>
 						{% elif forloop.last %}
 								<li>
 									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
