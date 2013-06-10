@@ -52,6 +52,7 @@
 				</div>
 			</div>
 			<h3 id="empresas_participantes" class="sideoverflow">Empresas Participantes</h3>
+			<!--
 			<div id="slider_empresas" class="slider_inversiones block_programas">
 				<ul>
 					{% for row in toner %}
@@ -64,7 +65,7 @@
 				<a href="anterior" title="Anterior" class="prev">Anterior</a>
 				<a href="siguiente" title="Siguiente" class="next">Siguiente</a>
 			</div>
-
+			-->
 			<div class="screen_logos">
 				<div class="buttons">
 					<a class="prev" href="#">Previous</a>
@@ -80,7 +81,7 @@
         						<li>
 									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
-						{% elif forloop.counter|divisibleby:'8' and not forloop.last %}
+						{% elif forloop.counter|divisibleby:'10' and not forloop.last %}
 								<li>
 									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
@@ -94,9 +95,12 @@
 								</li>
 							</ul>
 						</li>
+						{% else %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>							
 						{% endif %}
 						{% endfor %}
-						
 					</ul>
 				</div>
 				<div class="slide_texture"></div>
@@ -213,6 +217,7 @@
 			<h2>Inversionistas sociales</h2>
 			
 			<h3>Aliados estratégicos</h3>
+			<!--
 			<div id="slider_aliados" class="slider_inversiones block_programas">
 				<ul>
 					{% for row in aliados %}
@@ -226,7 +231,7 @@
 				<a href="anterior" title="Anterior" class="prev">Anterior</a>
 				<a href="siguiente" title="Siguiente" class="next">Siguiente</a>
 			</div>
-
+			-->
 			<div class="screen_logos">
 				<div class="buttons">
 					<a class="prev" href="#">Previous</a>
@@ -234,33 +239,42 @@
 					<br class="clear">
 				</div>
 				<div class="logo_slideshow">
-					<ul>
+					<ul>						
 						{% for row in aliados %}
+						{% if forloop.first %}
 						<li>
-							<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
+        					<ul>
+        						<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+						{% elif forloop.counter|divisibleby:'10' and not forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+							</ul>
 						</li>
+						<li>
+        					<ul>
+						{% elif forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+							</ul>
+						</li>
+						{% else %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>							
+						{% endif %}
 						{% endfor %}
-						<li id="al_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
+						<!--<li id="al_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>-->
 					</ul>
 				</div>
 				<div class="slide_texture"></div>
 			</div>
 
 
-			<h3>Universidades</h3>
-			<div id="slider_universidades" class="slider_inversiones block_programas">
-				<ul>
-					{% for row in universidades %}
-					<li>
-						<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
-					</li>
-					{% endfor %}
-					<li id="uni_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
-				</ul>
-				<div class="slider_texture"></div>
-				<a href="anterior" title="Anterior" class="prev">Anterior</a>
-				<a href="siguiente" title="Siguiente" class="next">Siguiente</a>
-			</div>
+			<h3>Universidades</h3>			
 			<div class="screen_logos">
 				<div class="buttons">
 					<a class="prev" href="#">Previous</a>
@@ -270,30 +284,39 @@
 				<div class="logo_slideshow">
 					<ul>
 						{% for row in universidades %}
+						{% if forloop.first %}
 						<li>
-							<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
+	    					<ul>
+	    						<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+						{% elif forloop.counter|divisibleby:'10' and not forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+							</ul>
 						</li>
+						<li>
+	    					<ul>
+						{% elif forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+							</ul>
+						</li>
+						{% else %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>							
+						{% endif %}
 						{% endfor %}
-						<li id="uni_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
+						<!--<li id="uni_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>-->
 					</ul>	
 				</div>
 				<div class="slide_texture"></div>
 			</div>
 
 			<h3>Inversionistas Sociales</h3>
-			<div id="slider_inversionistas" class="slider_inversiones block_programas">
-				<ul>
-					{% for row in inversionistas %}
-					<li>
-						<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
-					</li>
-					{% endfor %}
-					<li id="inv_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
-				</ul>
-				<div class="slider_texture"></div>
-				<a href="anterior" title="Anterior" class="prev">Anterior</a>
-				<a href="siguiente" title="Siguiente" class="next">Siguiente</a>
-			</div>
 			<div class="screen_logos">
 				<div class="buttons">
 					<a class="prev" href="#">Previous</a>
@@ -303,36 +326,39 @@
 				<div class="logo_slideshow">
 					<ul>
 						{% for row in inversionistas %}
+						{% if forloop.first %}
 						<li>
-							<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
+	    					<ul>
+	    						<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+						{% elif forloop.counter|divisibleby:'10' and not forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+							</ul>
 						</li>
+						<li>
+	    					<ul>
+						{% elif forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+							</ul>
+						</li>
+						{% else %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>							
+						{% endif %}
 						{% endfor %}
-						<li id="inv_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
+						<!--<li id="inv_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>-->
 					</ul>
 				</div>
 				<div class="slide_texture"></div>
 			</div>
 
-			<h3>Especie</h3>
-			<div id="slider_especie" class="slider_inversiones block_programas">
-				<ul>
-					{% for row in especie %}
-					<li>
-						<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
-					</li>
-					{% endfor %}
-					<li id="esp_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
-					<!--
-					<li id="esp_club_infantil"><a href="#" title="Club Infantil">Club Infantil</a></li><li id="esp_hola_californias">
-						<a href="#" title="Hola Californias">Hola Californias</a></li><li id="esp_ecoideas_panasonic">
-						<a href="#" title="Eco Ideas Panasonic">Eco Ideas Panasonic</a></li><li id="esp_faltas">
-						<a href="#" title="¡Faltas Tú!">¡Faltas Tú!</a>
-					</li>-->
-				</ul>
-				<div class="slider_texture"></div>
-				<a href="anterior" title="Anterior" class="prev">Anterior</a>
-				<a href="siguiente" title="Siguiente" class="next">Siguiente</a>
-			</div>
+			<h3>Especie</h3>			
 			<div class="screen_logos">
 				<div class="buttons">
 					<a class="prev" href="#">Previous</a>
@@ -342,16 +368,37 @@
 				<div class="logo_slideshow">
 					<ul>
 						{% for row in especie %}
+						{% if forloop.first %}
 						<li>
-							<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
+	    					<ul>
+	    						<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+						{% elif forloop.counter|divisibleby:'10' and not forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+							</ul>
 						</li>
+						<li>
+	    					<ul>
+						{% elif forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+							</ul>
+						</li>
+						{% else %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>							
+						{% endif %}
 						{% endfor %}
 						<li id="esp_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
 					</ul>	
 				</div>	
 				<div class="slide_texture"></div>
 			</div>
-
 		</div>
 	</div>
 {% endblock %}

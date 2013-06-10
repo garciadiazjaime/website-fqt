@@ -138,7 +138,7 @@ $(window).load(function() {
 		force:true,
 		stop:true,
 		lock:false,
-		cycle:false, //don't pull back once you reach the end
+		cycle:true, //don't pull back once you reach the end
 		//easing:'easeOutQuart', //use this easing equation for a funny effect
 		jump: true //click on the images to scroll to them
 		
