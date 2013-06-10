@@ -94,12 +94,9 @@
 								</li>
 							</ul>
 						</li>
-						{% else %}
-								<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
-								</li>
 						{% endif %}
 						{% endfor %}
+						
 					</ul>
 				</div>
 				<div class="slide_texture"></div>
