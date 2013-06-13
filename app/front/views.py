@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 from django.shortcuts import get_object_or_404, render_to_response, render, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.template import RequestContext
@@ -8,6 +10,7 @@ from app.downloads.models import Download
 from app.inversiones.models import Toner
 from app.youtube.models import Categoria, Ecocapsulas
 from app.inversiones.models import Logos
+from django.core.mail import send_mail
 
 
 
@@ -56,6 +59,14 @@ def programas(request, category=''):
 def inscripcion(request, form=''):
 	
 	return render_to_response('sections/inscripcion.html', locals())
+
+@csrf_exempt
+def programa_inscribite(request):
+	data = ''
+	for key, value in request.POST.iteritems():
+		data += key + ': ' + value + "\n"
+	#send_mail('Programa Inscripción', data, 'info@fqt.com', ['info@fqt.com'])
+	return HttpResponse('true')
 
 def ecotips(request, category='', slug=''):
 	is_chrome = True if 'Chrome' in request.META['HTTP_USER_AGENT'] else False

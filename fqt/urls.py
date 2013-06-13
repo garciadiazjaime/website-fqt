@@ -16,6 +16,9 @@ urlpatterns = patterns('',
     url(r'^programas$', 'app.front.views.programas', name='programas'),
         url(r'^programas/(?P<category>[^/]+)', 'app.front.views.programas', name='programas'),
         url(r'^inscripcion/(?P<form>[^/]+)$', 'app.front.views.inscripcion', name='inscripcion'),
+        url(r'^programa_inscribite$', 'app.front.views.programa_inscribite', name='programa_inscribite'),
+        
+
     url(r'^ecotips$', 'app.front.views.ecotips', name='ecotips'),
         url(r'^ecotips/ecocapsulas/(?P<slug>[^/]+)$', 'app.front.views.ecotips', name='ecotips'),
         url(r'^ecotips/(?P<category>[^/]+)$', 'app.front.views.ecotips', name='ecotips'),
