@@ -45,18 +45,27 @@ $(window).load(function() {
 
 	// *********************** Slider simple - NOSOTROS y PROGRAMAS ***********************************
 
-	if($('.slideshow').length)
-		$('.slideshow').cycle({
-			fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...	    
+	if($('.slideshow_right').length)
+		$('.slideshow_right').cycle({
+			fx: 'scrollRight', // choose your transition type, ex: fade, scrollUp, shuffle, etc...	    
+		});
+
+	if($('.slideshow_left').length)
+		$('.slideshow_left').cycle({
+			fx: 'scrollLeft', // choose your transition type, ex: fade, scrollUp, shuffle, etc...	    
 		});
 
 	if($('#slideshow_nosotros').length)
+		$('#slideshow_nosotros').cycle({
+			fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...	    
+		});
+	/*
 		$('#slideshow_nosotros').bjqs({
 		    height      : 320,
 		    width       : 433,
 		    responsive  : true
 		  });
-	
+	*/
 	$('.block_programas a.prev').click(function(){
 		console.log('pref')
 		return false
@@ -98,7 +107,10 @@ $(window).load(function() {
 			overlayColor: '#000000', 
 			overlayOpacity:'.6',
 			autoScale : false,
-			width : 395
+			width : 395,
+			onComplete	: function() {
+			    load_fancy_program()
+			},
 		})
 
 	if($('#transparencia_fancybox').length)
@@ -128,25 +140,68 @@ $(window).load(function() {
 	});
 
 	
-	$('.logo_slideshow').serialScroll({		
-		items:'li',
-		prev:'.screen_logos a.prev',
-		next:'.screen_logos a.next',
-		offset:-230, //when scrolling to photo, stop 230 before reaching it (from the left)
-		start:1, //as we are centering it, start at the 2nd
-		duration:1200,
-		force:true,
-		stop:true,
-		lock:false,
-		cycle:true, //don't pull back once you reach the end
-		//easing:'easeOutQuart', //use this easing equation for a funny effect
-		jump: true //click on the images to scroll to them
-		
-	});
-
-
+	if($('.logo_slideshow'). length)
+		$('.logo_slideshow').serialScroll({		
+			items:'li',
+			prev:'.screen_logos a.prev',
+			next:'.screen_logos a.next',
+			offset:-230, //when scrolling to photo, stop 230 before reaching it (from the left)
+			start:1, //as we are centering it, start at the 2nd
+			duration:1200,
+			force:true,
+			stop:true,
+			lock:false,
+			cycle:true, //don't pull back once you reach the end
+			//easing:'easeOutQuart', //use this easing equation for a funny effect
+			jump: true //click on the images to scroll to them
+			
+		});
 });
 
+function load_fancy_program()
+{
+	$('#forma_inscripcion').submit(function(){
+		console.log('here')
+		flag = true
+		$('#msg_ins').text('')
+		if($('#nombre').val() == '')
+		{
+			$('#nombre').prev().addClass('required')
+			flag = false
+		}
+		else
+			$('#nombre').prev().removeClass('required')
+
+		if($('#email').val() == '')
+		{
+			$('#email').prev().addClass('required')
+			flag = false
+		}
+		else
+			$('#email').prev().removeClass('required')
+
+		if($('#mensaje').val() == '')
+		{
+			$('#mensaje').prev().addClass('required')
+			flag = false
+		}
+		else
+			$('#mensaje').prev().removeClass('required')
+
+		if(flag == false)
+			$('#msg_ins').text('Favor de llenar los campos marcados')
+		else
+		{
+			$('#msg_ins').text('...enviando datos')
+			fields = $(this).serialize()
+			$.post("programa_inscribite", $(this).serialize(), function(data){
+				$('#form_wrapper').html('<b>Mensaje enviado, gracias.</b>')
+				$('#msg_ins').text('')
+			});
+		}
+		return false
+	})
+}
 (function($) { 
          // slideTo function for nivo-slider
         $.slideTo = function(idx) {
@@ -259,4 +314,8 @@ function showDivEcotips(id)
 		$('#'+id+'_sld').show();	
     	$('#'+id+'_sld').stop().animate({ opacity: 1 }, 300);	
 	}
+}
+
+jQuery.fn.reset = function () {
+  $(this).each (function() { this.reset(); });
 }
