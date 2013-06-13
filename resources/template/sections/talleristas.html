@@ -32,7 +32,7 @@
 				<label>Ocupación <span></span></label><input type="text" id="ocupacion" name="ocupacion" lang="es" class="custom_textbox required" />
 				<label class="full_width">¿De qué forma deseas apoyarnos?</label>
 				<div class="the_select">
-					<select class="mySelectBoxClass">
+					<select class="mySelectBoxClass" id="select_apoyo" name="select_apoyo">
 						<option>Forestaciones / Huertos Escolares</option>
 						<option>Talleres</option>
 						<option>Eventos</option>
@@ -51,12 +51,10 @@
 				</div>
 				<br />
 				<div class="column two_third first">
-					<p><span class="required">*</span>Campos requeridos</p>
+					<p><span id="msg" class="required">*Campos requeridos</span></p>
 				</div><div class="column third">
 					<input type="submit"  class="custom_submit" value="Enviar" />
-				</div>
-				
-				
+				</div>							
 			</div>
 		</form>
 	</div>
