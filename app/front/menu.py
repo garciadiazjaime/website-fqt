@@ -35,7 +35,7 @@ class Menu(object):
 			},
 			{				
 				'href': 'campanas_donantes',
-				'title': 'Campa&ntilde;as y donantes',
+				'title': 'Campa&ntilde;as y Donantes',
 				'child':[
 					{
 						'href': 'campanas',
@@ -43,7 +43,7 @@ class Menu(object):
 					},	
 					{
 						'href': 'tipos-donativos',
-						'title': 'Tipos de donativos',
+						'title': 'Tipos de Donativos',
 					},
 					{
 						'href': 'inversionistas-sociales',

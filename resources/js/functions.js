@@ -117,6 +117,7 @@ $(window).load(function() {
 		$('#transparencia_fancybox').fancybox(
 			{
 				autoScale : false,
+				height: 400,
 				overlayColor: '#000000', 
 				overlayOpacity:'.6',
 			    responsive  : false,
