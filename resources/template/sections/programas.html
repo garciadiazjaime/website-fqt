@@ -35,13 +35,8 @@
 				<div id="{{row.info.title|slugify}}">
 					<h2>{{row.info.title}}</h2>
 					<div class="half column first">
-<<<<<<< HEAD
 						{% if row.info.where_gallery == '1' %}
-						<div class="slideshow">
-=======
-						{% if row.info.where_gallery == 1 %}
 						<div class="{% if forloop.counter|divisibleby:'2' %}slideshow_right{% else %} slideshow_left {% endif %}">
->>>>>>> 58f9e9668ddb61ba0c7b6a5fc7ab6be46321a7ea
 				        	{% for img in row.images %}
 				        		<img src="/media/{{img.image}}" {% if img.alt|length %}alt="{{img.alt}}" {% endif %} {% if not forloop.first %}class="hide"{% endif %} />
 				        	{% endfor %}					          							  
@@ -52,13 +47,8 @@
 						{% endautoescape %}
 					</div>
 					<div class="half column">
-<<<<<<< HEAD
 						{% if row.info.where_gallery == '2' %}
-						<div class="slideshow">							
-=======
-						{% if row.info.where_gallery == 2 %}
 						<div class="{% if forloop.counter|divisibleby:'2' %}slideshow_right{% else %} slideshow_left {% endif %}">							
->>>>>>> 58f9e9668ddb61ba0c7b6a5fc7ab6be46321a7ea
 				        	{% for img in row.images %}
 				        		<img src="/media/{{img.image}}" alt="{{img.alt}}" {% if not forloop.first %}class="hide"{% endif %} />
 				        	{% endfor %}					          							  
