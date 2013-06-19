@@ -51,21 +51,7 @@
 					</ol>
 				</div>
 			</div>
-			<h3 id="empresas_participantes" class="sideoverflow">Empresas Participantes</h3>
-			<!--
-			<div id="slider_empresas" class="slider_inversiones block_programas">
-				<ul>
-					{% for row in toner %}
-					<li>
-						<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
-					</li>
-					{% endfor %}
-				</ul>
-				<div class="slider_texture"></div>
-				<a href="anterior" title="Anterior" class="prev">Anterior</a>
-				<a href="siguiente" title="Siguiente" class="next">Siguiente</a>
-			</div>
-			-->
+			<h3 id="empresas_participantes" class="sideoverflow">Empresas Participantes</h3>			
 			<div class="screen_logos">
 				<div class="buttons">
 					{% if toner|length > 10 %}
@@ -75,17 +61,17 @@
 					{% endif %}
 				</div>
 				<div class="logo_slideshow">
-					<ul>
+					<ul id="ul_toner">
 						{% for row in toner %}
 						{% if forloop.first %}
 						<li>
         					<ul>
         						<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank"  {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
 						{% elif forloop.counter|divisibleby:'10' and not forloop.last %}
 								<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
 							</ul>
 						</li>
@@ -93,13 +79,13 @@
         					<ul>
 						{% elif forloop.last %}
 								<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
 							</ul>
 						</li>
 						{% else %}
 								<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>							
 						{% endif %}
 						{% endfor %}
@@ -218,22 +204,7 @@
 		<div class="container" id="inversionistas-sociales">
 			<h2>Inversionistas sociales</h2>
 			
-			<h3>Aliados estratégicos</h3>
-			<!--
-			<div id="slider_aliados" class="slider_inversiones block_programas">
-				<ul>
-					{% for row in aliados %}
-					<li>
-						<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>
-					</li>
-					{% endfor %}
-					<li id="al_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
-				</ul>
-				<div class="slider_texture"></div>
-				<a href="anterior" title="Anterior" class="prev">Anterior</a>
-				<a href="siguiente" title="Siguiente" class="next">Siguiente</a>
-			</div>
-			-->
+			<h3>Aliados estratégicos</h3>			
 			<div class="screen_logos">
 				<div class="buttons">
 					{% if aliados|length > 10 %}
@@ -249,11 +220,11 @@
 						<li>
         					<ul>
         						<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank"{% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
 						{% elif forloop.counter|divisibleby:'10' and not forloop.last %}
 								<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
 							</ul>
 						</li>
@@ -261,13 +232,13 @@
         					<ul>
 						{% elif forloop.last %}
 								<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
 							</ul>
 						</li>
 						{% else %}
 								<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>							
 						{% endif %}
 						{% endfor %}
@@ -294,11 +265,11 @@
 						<li>
 	    					<ul>
 	    						<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
 						{% elif forloop.counter|divisibleby:'10' and not forloop.last %}
 								<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
 							</ul>
 						</li>
@@ -306,13 +277,13 @@
 	    					<ul>
 						{% elif forloop.last %}
 								<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
 							</ul>
 						</li>
 						{% else %}
 								<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>							
 						{% endif %}
 						{% endfor %}
@@ -338,11 +309,11 @@
 						<li>
 	    					<ul>
 	    						<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
 						{% elif forloop.counter|divisibleby:'10' and not forloop.last %}
 								<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
 							</ul>
 						</li>
@@ -350,13 +321,13 @@
 	    					<ul>
 						{% elif forloop.last %}
 								<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
 							</ul>
 						</li>
 						{% else %}
 								<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>							
 						{% endif %}
 						{% endfor %}
@@ -382,11 +353,11 @@
 						<li>
 	    					<ul>
 	    						<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
 						{% elif forloop.counter|divisibleby:'10' and not forloop.last %}
 								<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
 							</ul>
 						</li>
@@ -394,13 +365,13 @@
 	    					<ul>
 						{% elif forloop.last %}
 								<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
 							</ul>
 						</li>
 						{% else %}
 								<li>
-									<a href="{% if row.link|length %}{{row.link}}{% else %}javascript::return false;{% endif %}" title="{{row.alt}}" target="_blank"><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>							
 						{% endif %}
 						{% endfor %}

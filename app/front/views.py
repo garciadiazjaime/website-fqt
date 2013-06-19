@@ -11,6 +11,8 @@ from app.inversiones.models import Toner
 from app.youtube.models import Categoria, Ecocapsulas
 from app.inversiones.models import Logos
 from django.core.mail import send_mail
+import re
+import unidecode
 
 
 
@@ -57,7 +59,13 @@ def programas(request, category=''):
 
 @csrf_exempt
 def inscripcion(request, form=''):
-	
+	data = Program.objects.all().order_by('-weight', '-reg_date')
+	select = ''
+	for row in data:
+		if slugify(row.title) == form:
+			select += '<option value="' + slugify(row.title) + '" selected>' + row.title + '</option>'
+		else:
+			select += '<option value="' + slugify(row.title) + '">' + row.title + '</option>'
 	return render_to_response('sections/inscripcion.html', locals())
 
 @csrf_exempt
@@ -144,3 +152,7 @@ def contacto(request, category=''):
 
 def test(request):
 	return HttpResponse('asfd')
+
+def slugify(str):
+    str = unidecode.unidecode(str).lower()
+    return re.sub(r'\W+','-',str)

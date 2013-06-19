@@ -188,7 +188,48 @@ $(window).load(function() {
 	});
 
 	
-	if($('.logo_slideshow'). length)
+	if($('.logo_slideshow').length)
+	{
+		//each li 940
+		$('.buttons a').click(function(){
+			dir = $(this).attr('class')
+			console.log(dir)		
+			sign = (dir == 'next') ? '-':'+'
+			ul = $(this).parent().next().children()
+			howmany_children = ul.children().length
+			limit_right = (howmany_children-1) * 850 * -1
+			margin_left = $(ul).css('margin-left').replace('px', '')			
+			can_right = margin_left > limit_right ? true : false
+			can_left = margin_left < 0 ? true : false
+
+			console.log(margin_left + " " + limit_right)
+			console.log("can_right: " + can_right)
+			console.log("can_left: " + can_left)
+			
+
+			if( (dir == 'next' && can_right)
+				|| (dir == 'prev' && can_left)
+					)
+				$(ul).stop().animate(
+			 		{
+		            	marginLeft: sign + '=405px'
+		        	},
+		        	600
+		        )			
+	        event.preventDefault()	        
+		})
+
+		$('.no_link').click(function(){
+			event.preventDefault()
+		})
+	}
+		 
+	if($('#gmap').length)
+		load_gmap()
+
+	if($('#forma_contacto').length)
+		load_contact_form()
+	/*
 		$('.logo_slideshow').serialScroll({		
 			items:'li',
 			prev:'.screen_logos a.prev',
@@ -201,10 +242,55 @@ $(window).load(function() {
 			lock:false,
 			cycle:true, //don't pull back once you reach the end
 			//easing:'easeOutQuart', //use this easing equation for a funny effect
-			jump: true //click on the images to scroll to them
-			
+			jump: true //click on the images to scroll to them			
 		});
+	*/
 });
+
+function load_contact_form()
+{
+	$("#forma_contacto").submit(function() {		
+		$('#message').html('')
+		flag = true
+		if($('#name').val() == '')
+		{
+			$('#name').prev().addClass('required')
+			flag = false
+		}
+		else
+			$('#name').prev().removeClass('required')		
+
+		if($('#email').val() == '')
+		{
+			$('#email').prev().addClass('required')
+			flag = false
+		}
+		else
+			$('#email').prev().removeClass('required')
+
+		if($('#mensaje').val() == '')
+		{
+			$('#mensaje').prev().addClass('required')
+			flag = false
+		}
+		else
+			$('#mensaje').prev().removeClass('required')
+
+		if(!flag)
+			$('#message').html('Favor de llenar los campos marcados')
+		else
+		{
+			$('#message').html('Enviando datos, por favor espera...')
+			//Tu mensaje ha sido enviado. Nos contactaremos a la brevedad
+		}
+		event.preventDefault()
+	});
+}
+
+function load_gmap()
+{
+	$('#gmap').html('<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=+32.529906,-117.0395&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=61.153041,129.550781&amp;ie=UTF8&amp;ll=32.529906,-117.0395&amp;spn=0.002031,0.003954&amp;t=m&amp;z=17&amp;output=embed"></iframe><p id="big_map"><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=+32.529906,-117.0395&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=61.153041,129.550781&amp;ie=UTF8&amp;ll=32.529906,-117.0395&amp;spn=0.002031,0.003954&amp;t=m&amp;z=14" target="_blank">Ver mapa más grande</a></p>')
+}
 
 function load_fancy_program()
 {
