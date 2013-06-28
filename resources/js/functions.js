@@ -213,16 +213,22 @@ $(window).load(function() {
 					)
 				$(ul).stop().animate(
 			 		{
-		            	marginLeft: sign + '=405px'
+		            	marginLeft: sign + '=1000px'
 		        	},
 		        	600
-		        )			
-	        event.preventDefault()	        
+		        )
+		    return false			
 		})
 
 		$('.no_link').click(function(){
-			event.preventDefault()
+			return false
 		})
+
+		if($('#btn_donar').length)
+			$('#btn_donar').click(function(){
+				$('#form_donar').submit()
+				return false
+			})			
 	}
 		 
 	if($('#gmap').length)
