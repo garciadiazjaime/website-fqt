@@ -81,7 +81,19 @@
 								<li>
 									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
+								{% if not forloop.counter|divisibleby:'10'  %}
+									<li>
+										<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+									</li>
+								{% endif %}
 							</ul>
+							{% if forloop.counter|divisibleby:'10'  %}
+							<ul>
+								<li>
+									<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+								</li>
+							</ul>
+							{% endif %}
 						</li>
 						{% else %}
 								<li>
@@ -242,7 +254,21 @@
 								<li>
 									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
+								{% if not forloop.counter|divisibleby:'10'  %}
+							
+									<li>
+										<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+									</li>
+							
+								{% endif %}
 							</ul>
+							{% if forloop.counter|divisibleby:'10'  %}
+							<ul>
+								<li>
+									<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+								</li>
+							</ul>
+							{% endif %}
 						</li>
 						{% else %}
 								<li>
@@ -287,7 +313,21 @@
 								<li>
 									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
+								{% if not forloop.counter|divisibleby:'10'  %}
+							
+									<li>
+										<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+									</li>
+							
+								{% endif %}
 							</ul>
+							{% if forloop.counter|divisibleby:'10'  %}
+							<ul>
+								<li>
+									<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+								</li>
+							</ul>
+							{% endif %}
 						</li>
 						{% else %}
 								<li>
@@ -331,7 +371,22 @@
 								<li>
 									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
+								{% if not forloop.counter|divisibleby:'10'  %}
+							
+									<li>
+										<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+									</li>
+							
+								{% endif %}
 							</ul>
+							
+							{% if forloop.counter|divisibleby:'10'  %}
+							<ul>
+								<li>
+									<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+								</li>
+							</ul>
+							{% endif %}
 						</li>
 						{% else %}
 								<li>
@@ -375,7 +430,22 @@
 								<li>
 									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/media/{{row.image}}" alt="{{row.alt}}"></a>	
 								</li>
+								{% if not forloop.counter|divisibleby:'10'  %}
+							
+									<li>
+										<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+									</li>
+							
+								{% endif %}
 							</ul>
+							
+							{% if forloop.counter|divisibleby:'10'  %}
+							<ul>
+								<li>
+									<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+								</li>
+							</ul>
+							{% endif %}
 						</li>
 						{% else %}
 								<li>
