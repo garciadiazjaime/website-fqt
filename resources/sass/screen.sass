@@ -40,6 +40,7 @@
 
 /* ****************** GENERAL ************** */
 body
+	@include filter-gradient(#a6ecf1, #57a194, horizontal)
 	@include background-image(radial-gradient(50% 100%, #a6ecf1 10px, #57a194 100%))
 	color: #535353
 	font: 14px Arial, Verdana, sans-serif
@@ -579,6 +580,7 @@ $firstheight: 1400px
 		position: relative
 		z-index: 110
 #first
+	@include filter-gradient(#a0d7db, #57a194, horizontal)
 	@include background-image(radial-gradient(100% 100%, #a0d7db 10px, #57a194 100%))
 	background-size: $bgsize
 	height: $firstheight
@@ -629,6 +631,7 @@ $firstheight: 1400px
 
 $secondheight:640px
 #second
+	@include filter-gradient(#a0d7db, #57a194, horizontal)
 	@include background-image(radial-gradient(100% 100%, #a0d7db 10px, #57a194 100%))
 	background-size: $bgsize
 	height: $secondheight
@@ -687,6 +690,7 @@ $secondheight:640px
 		
 $thirdheight: 700px
 #third
+	@include filter-gradient(#38adb7, #3bb1ba, horizontal)
 	@include background-image(radial-gradient(100% 100%, #38adb7 10px, #3bb1ba 100%))
 	background-size: $bgsize
 	height: $thirdheight
