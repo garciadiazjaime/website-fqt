@@ -128,11 +128,12 @@ def inversiones_sociales(request, category=''):
 	section 	= "campanas_donantes"
 	main_menu = menu.get_main(section)
 	footer_menu = menu.get_footer()
-	if len(Toner.objects.all()):
+	if Toner.objects.count():
 		toner = Toner.objects.filter()[0]
+		counter = toner.parse_to_span
 	else:
 	 	toner = ''
-	counter = toner.parse_to_span
+		counter = '<span>0</span>'
 	toner = Logos.objects.filter(category=1).order_by('-weight', '-id')
 	aliados = Logos.objects.filter(category=2).order_by('-weight', '-id')
 	universidades = Logos.objects.filter(category=3).order_by('-weight', '-id')
