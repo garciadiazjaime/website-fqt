@@ -162,3 +162,13 @@ LOGGING = {
         },
     }
 }
+
+tinyMCE.init({"relative_urls": false,
+          "spellchecker_languages": "Arabic=ar,Bulgarian=bg,Bengali=bn,Bosnian=bs,Catalan=ca,Czech=cs,Welsh=cy,Danish=da,German=de,Greek=el,+English / British English=en,Spanish / Argentinean Spanish=es,Estonian=et,Basque=eu,Persian=fa,Finnish=fi,French=fr,Frisian=fy,Irish=ga,Galician=gl,Hebrew=he,Hindi=hi,Croatian=hr,Hungarian=hu,Indonesian=id,Icelandic=is,Italian=it,Japanese=ja,Georgian=ka,Khmer=km,Kannada=kn,Korean=ko,Lithuanian=lt,Latvian=lv,Macedonian=mk,Mongolian=mn,Dutch=nl,Norwegian=no,Norwegian Bokmal=nb,Norwegian Nynorsk=nn,Polish=pl,Portuguese / Brazilian Portuguese=pt,Romanian=ro,Russian=ru,Slovak=sk,Slovenian=sl,Albanian=sq,Serbian / Serbian Latin=sr,Swedish=sv,Tamil=ta,Telugu=te,Thai=th,Turkish=tr,Ukrainian=uk,Vietnamese=vi,Simplified Chinese / Traditional Chinese=zh",
+          "elements": "id_Body",
+          "language": "en",
+          "directionality": "ltr",
+          "theme": "simple",
+          "strict_loading_mode": 1,
+          "mode": "exact"
+})
