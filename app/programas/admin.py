@@ -6,8 +6,8 @@ from app.programas.models import Program, Image
 
 from django.contrib.auth.models import User, Group
 
-admin.site.unregister(User)
-admin.site.unregister(Group)
+#admin.site.unregister(User)
+#admin.site.unregister(Group)
 
 
 class ImageInline(admin.StackedInline):
