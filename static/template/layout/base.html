@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es-419">
+<head>
+	<link rel="stylesheet" href="/static/css/jquery.fancybox-1.3.4.css" />
+	<link rel="stylesheet" href="/static/css/bjqs.css" />	
+	<link rel="stylesheet" type="text/css" href="/static/css/screen.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
+
+	{% if section == 'programas' or section == 'ecotips' or section == 'transparencia' or section == 'nosotros' %}
+	<script type="text/javascript" src="/static/js/jquery1-5.min.js"></script>	
+	{% elif section == 'campanas_donantes' %}
+	<script type="text/javascript" src="/static/js/jquery1-8.3.min.js"></script>	
+	<script type="text/javascript" src="/static/js/jquery.scrollTo-min.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.serialScroll-min.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.easing.1.3.js"></script>	
+	{% else %}
+	<script type="text/javascript" src="/static/js/jquery-1.10.1.min.js"></script>	
+	{% endif %}
+
+	{% if section == 'programas' %}
+	<link rel="stylesheet" type="text/css" href="/static/css/fancybox_programas.css" />	
+	{% elif section == 'transparencia' %}
+	<link rel="stylesheet" type="text/css" href="/static/css/fancybox_transparencia.css" />
+	{% endif %}
+
+
+	<script type="text/javascript" src="/static/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+	<script type="text/javascript" src="/static/fancybox/source/jquery.fancybox.js?v=2.1.4"></script>
+	<link rel="stylesheet" type="text/css" href="/static/fancybox/source/jquery.fancybox.css?v=2.1.4" media="screen" />
+
+	<link rel="stylesheet" type="text/css" href="/static/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+	<script type="text/javascript" src="/static/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+	<link rel="stylesheet" type="text/css" href="/static/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+	<script type="text/javascript" src="/static/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+	<script type="text/javascript" src="/static/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.5"></script>
+
+	<link rel="stylesheet" href="/static/css/explorer.css" />
+
+	{% if is_chrome %}
+		<link rel="stylesheet" type="text/css" href="/static/css/chrome.css" />
+	{% endif %}
+	
+	<!-- Custom SELECT and FILE UPLOAD  -->
+	
+	<script type="text/javascript" src="/static/js/select.jquery.js"></script>
+	<script type="text/javascript" src="/static/js/fileupload.jquery.js"></script>
+	
+	<!-- ENDS - Custom SELECT and FILE UPLOAD -->
+	
+	<script type="text/javascript" src="/static/js/jquery.fancybox-1.3.4.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.cycle.all.latest.js"></script>
+	<script type="text/javascript" src="/static/js/bjqs-1.3.js"></script>
+	
+	<script type="text/javascript" src="/static/js/functions.js" ></script>
+	
+	<script type="text/javascript" src="/static/js/parallax/nbw-parallax.js"></script>
+	<script type="text/javascript" src="/static/js/parallax/jquery.localscroll-1.2.7-min.js"></script>
+	<script type="text/javascript" src="/static/js/parallax/jquery.scrollTo-1.4.2-min.js"></script>
+	<script type="text/javascript" src="/static/js/parallax/jquery.inview.js"></script>	
+	
+</head>
+<body>
+	<div id="wrapper" class="{{section}}">
+		<div id="header">
+			{% include 'layout/header.html' %}
+		</div>
+		<div id="content">
+			<div id="brand_social">
+				<div class="container">				
+					{% if section == "inicio" %}
+					<h1 id="logo">Fundación que transforma</h1>
+					{% else %}
+					<p id="logo">Fundación que transforma</p>
+					{% endif %}					
+					<ul id="social">
+						<li id="facebook"><a href="https://www.facebook.com/FQTransforma " title="Visítanos en Facebook" target="_blank">Facebook</a></li><li id="twitter"><a href="https://twitter.com/fqtransforma" title="Visítanos en Twitter" target="_blank">Twitter</a></li><li id="blogger"><a href="http://fqtransforma.blogspot.com.es/" title="Visítanos en Blogger" target="_blank">Blogger</a></li><li id="youtube"><a href="http://www.youtube.com/user/FQTransforma" title="Visítanos en Youtube" target="_blank">Youtube</a></li><li id="instagram"><a href="#" title="Visítanos en Instagram" target="_blank">Instagram</a></li>
+					</ul>
+				</div>
+			</div> <!-- #brand_social -->			
+			{% block site_wrapper %}{% endblock %} 
+		</div>
+		<div class="footer_top"></div>
+		<div id="footer">
+			{% include 'layout/footer.html' %}
+		</div>
+		<a href="/campanas_donantes/tipos-donativos" title="Ir a donativos" id="boton_donativos">Donar</a>
+	</div>
+</body>
+</html>

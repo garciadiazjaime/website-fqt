@@ -32,11 +32,11 @@ DATABASES = {
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'America/Tijuana'
+TIME_ZONE = 'America/Los_Angeles'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'mx-es'
+LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
 
@@ -75,7 +75,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(SITE_ROOT, '../resources'),
+    os.path.join(SITE_ROOT, '../static'),
 )
 
 # List of finder classes that know how to find static files in
@@ -163,12 +163,3 @@ LOGGING = {
     }
 }
 
-tinyMCE.init({"relative_urls": false,
-          "spellchecker_languages": "Arabic=ar,Bulgarian=bg,Bengali=bn,Bosnian=bs,Catalan=ca,Czech=cs,Welsh=cy,Danish=da,German=de,Greek=el,+English / British English=en,Spanish / Argentinean Spanish=es,Estonian=et,Basque=eu,Persian=fa,Finnish=fi,French=fr,Frisian=fy,Irish=ga,Galician=gl,Hebrew=he,Hindi=hi,Croatian=hr,Hungarian=hu,Indonesian=id,Icelandic=is,Italian=it,Japanese=ja,Georgian=ka,Khmer=km,Kannada=kn,Korean=ko,Lithuanian=lt,Latvian=lv,Macedonian=mk,Mongolian=mn,Dutch=nl,Norwegian=no,Norwegian Bokmal=nb,Norwegian Nynorsk=nn,Polish=pl,Portuguese / Brazilian Portuguese=pt,Romanian=ro,Russian=ru,Slovak=sk,Slovenian=sl,Albanian=sq,Serbian / Serbian Latin=sr,Swedish=sv,Tamil=ta,Telugu=te,Thai=th,Turkish=tr,Ukrainian=uk,Vietnamese=vi,Simplified Chinese / Traditional Chinese=zh",
-          "elements": "id_Body",
-          "language": "en",
-          "directionality": "ltr",
-          "theme": "simple",
-          "strict_loading_mode": 1,
-          "mode": "exact"
-})
