@@ -18,14 +18,20 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {
+<<<<<<< HEAD
    'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'fqt.sqlite3',                      # Or path to database file if using sqlite3.
+=======
+ #  'default': {
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'fqt',                      # Or path to database file if using sqlite3.
+>>>>>>> 465bf90edd0237a0f014d2008b5e0a9b4a8faafd
         'USER': 'fqt_user',                      # Not used with sqlite3.
         'PASSWORD': 'fqt_pssw',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }	
+   }	
 }
 
 # Local time zone for this installation. Choices can be found here:

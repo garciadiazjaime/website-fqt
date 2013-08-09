@@ -14,9 +14,9 @@
 		<ul id="lista_descargables_talleristas">
 			{% for row in downloads %}
 			{% if not forloop.counter|divisibleby:"1" %}
-			<li class="half column first"><a href="/static/media/{{row.source}}" title="{{row.title}}" target="_blank">{{row.title}}</a></li>
+			<li class="half column first"><a href="/media/{{row.source}}" title="{{row.title}}" target="_blank">{{row.title}}</a></li>
 			{% else %}
-			<li class="half column"><a href="/static/media/{{row.source}}" title="{{row.title}}" target="_blank">{{row.title}}</a></li>
+			<li class="half column"><a href="/media/{{row.source}}" title="{{row.title}}" target="_blank">{{row.title}}</a></li>
 			{% endif %}
 			{% endfor %}
 		</ul><span id="quieres_ser_voluntario"></span>	
