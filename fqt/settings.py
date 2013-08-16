@@ -19,8 +19,13 @@ MANAGERS = ADMINS
 
 DATABASES = {
    'default': {
+<<<<<<< HEAD
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'fqt.sqlite',                      # Or path to database file if using sqlite3.
+=======
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'fqt',                      # Or path to database file if using sqlite3.
+>>>>>>> cb851c2caa8676a8a703f19c73a1a5ba9a40f8c5
         'USER': 'fqt_user',                      # Not used with sqlite3.
         'PASSWORD': 'fqt_pssw',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
