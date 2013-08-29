@@ -14,16 +14,16 @@
 
 # HTTP paths
 http_path = '/'
-http_stylesheets_path = 'resources/css'
-http_images_path = 'resources/images'
-http_javascripts_path = 'resources/js'
+http_stylesheets_path = 'static/css'
+http_images_path = 'static/images'
+http_javascripts_path = 'static/js'
 
 # File system locations
-sass_dir = 'resources/sass'
-css_dir = 'resources/css'
-images_dir = 'resources/images'
-javascripts_dir = 'resources/js'
-fonts_dir = "resources/fonts"
+sass_dir = 'static/sass'
+css_dir = 'static/css'
+images_dir = 'static/images'
+javascripts_dir = 'static/js'
+fonts_dir = "static/fonts"
 
 
 # CSS output style - :nested, :expanded, :compact, or :compressed

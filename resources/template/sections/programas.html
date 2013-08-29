@@ -38,7 +38,7 @@
 						{% if row.info.where_gallery == 1 %}
 						<div class="{% if forloop.counter|divisibleby:'2' %}slideshow_right{% else %} slideshow_left {% endif %}">
 				        	{% for img in row.images %}
-				        		<img src="/media/{{img.image}}" {% if img.alt|length %}alt="{{img.alt}}" {% endif %} {% if not forloop.first %}class="hide"{% endif %} />
+				        		<img src="/static/media/{{img.image}}" {% if img.alt|length %}alt="{{img.alt}}" {% endif %} {% if not forloop.first %}class="hide"{% endif %} />
 				        	{% endfor %}					          							  
 						</div>
 						{% endif %}
@@ -50,7 +50,7 @@
 						{% if row.info.where_gallery == 2 %}
 						<div class="{% if forloop.counter|divisibleby:'2' %}slideshow_right{% else %} slideshow_left {% endif %}">							
 				        	{% for img in row.images %}
-				        		<img src="/media/{{img.image}}" alt="{{img.alt}}" {% if not forloop.first %}class="hide"{% endif %} />
+				        		<img src="/static/media/{{img.image}}" alt="{{img.alt}}" {% if not forloop.first %}class="hide"{% endif %} />
 				        	{% endfor %}					          							  
 						</div>
 						{% endif %}
