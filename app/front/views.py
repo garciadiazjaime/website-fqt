@@ -76,10 +76,36 @@ def inscripcion(request, form=''):
 @csrf_exempt
 def programa_inscribite(request):
 	data = ''
-	for key, value in request.POST.iteritems():
-		data += key + ': ' + value + "\n"
-	#send_mail('Programa Inscripción', data, 'info@fqt.com', ['info@fqt.com'])
-	return HttpResponse('true')
+	c = {}
+	c.update(csrf(request))
+	if request.is_ajax():
+		response = 'error'
+		email_msg = ''
+		
+		for key, value in request.POST.iteritems():
+			data += key + ': ' + value + "\n"
+
+		'''
+		if name == '' or email == '' or message == '': response = 'empty_data'
+		else:
+		email_msg = """
+			Name: <b>""" + str(name)  + """</b><br/>
+			Email: <b>""" + str(email)  + """</b><br />
+			Message: <b>""" + str(message)  + """</b><br />
+		"""
+		'''
+		try:
+			text_content = 'Mensaje enviado desde la forma de contacto'
+			html_content = data #email_msg
+			msg = EmailMultiAlternatives('Contact Form', text_content, email, ['info.mintitmedia@gmail.com', 'voluntarios@fqt.org.mx ',])
+			msg.attach_alternative(html_content, "text/html")
+			msg.send()
+			response = "success"
+		except:
+			response = "Unexpected error:", sys.exc_info()
+		return HttpResponse(response, c)
+	else:
+		return HttpResponse(status=400)
 
 def ecotips(request, category='', slug=''):
 	is_chrome = True if 'Chrome' in request.META['HTTP_USER_AGENT'] else False

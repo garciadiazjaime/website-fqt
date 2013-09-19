@@ -231,11 +231,11 @@ $(window).load(function() {
 			})			
 	}
 		 
-	if($('#gmap').length)
-		load_gmap()
+	if($('#gmap').length) load_gmap()
 
-	if($('#form_contact').length)
-		load_contact_form()
+	if($('#form_contact').length) load_contact_form()
+		
+
 	/*
 		$('.logo_slideshow').serialScroll({		
 			items:'li',
@@ -350,8 +350,13 @@ function load_fancy_program()
 			$('#msg_ins').text('...enviando datos')
 			fields = $(this).serialize()
 			$.post("programa_inscribite", $(this).serialize(), function(data){
-				$('#form_wrapper').html('<b>Mensaje enviado, gracias.</b>')
-				$('#msg_ins').text('')
+				if(data == 'success')
+				{
+					$('#form_wrapper').html('<b>Mensaje enviado, gracias.</b>')
+					$('#msg_ins').text(''); 
+					clear_form('forma_inscripcion');
+				}
+				else $('#msg_ins').text('Lo sentimos, intentar m\xE1s tarde.');
 			});
 		}
 		return false

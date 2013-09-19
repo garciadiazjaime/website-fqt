@@ -3,6 +3,7 @@
 	<p>Por favor, llena la siguiente forma y en breve nos pondremos
 	en contacto contigo.  Gracias!!</p>
 	<form method="post" action="#" id="forma_inscripcion">
+		{% csrf_token %}
 		<label class="small">Nombre* <span></span></label><input type="text" id="nombre" name="nombre" lang="es" class="custom_textbox required large" />
 		<label  class="small">Correo* <span></span></label><input type="email" id="email" name="email" lang="es" class="custom_textbox required large" />
 		<label class="small">Teléfono <span></span></label><input type="tel" id="tel" name="tel" lang="es" class="custom_textbox required large" />
