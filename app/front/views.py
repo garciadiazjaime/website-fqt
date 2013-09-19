@@ -78,10 +78,12 @@ def programa_inscribite(request):
 	data = ''
 	c = {}
 	c.update(csrf(request))
+	email = ''
 	if request.is_ajax():
 		response = 'error'
 		email_msg = ''
 		
+		email = request.POST.get('email', '')
 		for key, value in request.POST.iteritems():
 			data += key + ': ' + value + "\n"
 
