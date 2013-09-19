@@ -234,7 +234,7 @@ $(window).load(function() {
 	if($('#gmap').length)
 		load_gmap()
 
-	if($('#forma_contacto').length)
+	if($('#form_contact').length)
 		load_contact_form()
 	/*
 		$('.logo_slideshow').serialScroll({		
@@ -256,41 +256,55 @@ $(window).load(function() {
 
 function load_contact_form()
 {
-	$("#forma_contacto").submit(function() {		
+	var lang = 0;
+	var msg_fill_fields = new Array('Favor de llenar campos marcados en rojo', 'Plase fill all fields in red');
+	var msg_valid_email = new Array('Favor de captura un email correcto.', 'Please put a valid email.');
+	var msg_sending = new Array('Enviando mensaje, Favor espera...', 'Sending message, please waite...');
+	var msg_success = new Array('Mensaje enviado correctamente, gracias.', 'Your message has been sent, thank you.');
+	var msg_error = new Array('Lo sentimos el mensaje no se pudo enviar, favor de intetar mas tarde.', 'We are sorry, the message could not been sent, please try later.');
+	$("#form_contact").submit(function() {		
 		$('#message').html('')
 		flag = true
 		if($('#name').val() == '')
 		{
-			$('#name').prev().addClass('required')
-			flag = false
+			$('#name').prev().addClass('required');
+			flag = false;
 		}
 		else
-			$('#name').prev().removeClass('required')		
+			$('#name').prev().removeClass('required');
 
 		if($('#email').val() == '')
 		{
-			$('#email').prev().addClass('required')
-			flag = false
+			$('#email').prev().addClass('required');
+			flag = false;
 		}
 		else
-			$('#email').prev().removeClass('required')
+			$('#email').prev().removeClass('required');
 
-		if($('#mensaje').val() == '')
+		if($('#message').val() == '')
 		{
-			$('#mensaje').prev().addClass('required')
-			flag = false
+			$('#message').prev().addClass('required');
+			flag = false;
 		}
 		else
-			$('#mensaje').prev().removeClass('required')
+			$('#message').prev().removeClass('required');
 
 		if(!flag)
-			$('#message').html('Favor de llenar los campos marcados')
+			$('#msg').html('Favor de llenar los campos marcados');
 		else
 		{
-			$('#message').html('Enviando datos, por favor espera...')
-			//Tu mensaje ha sido enviado. Nos contactaremos a la brevedad
+			$('#msg').html('Enviando datos, por favor espera...');
+			$.post("send_mail_form", $("#form_contact").serialize(), function(data){
+				if(data == 'success')
+				{
+					$('#msg').text(msg_success[lang]); 
+					clear_form('form_contact');
+				}
+				else if(data == 'empty_data') $('#msg').text(msg_fill_fields[lang]);
+				else $('#msg').text(msg_error[lang]);
+			})
 		}
-		event.preventDefault()
+		return false;
 	});
 }
 

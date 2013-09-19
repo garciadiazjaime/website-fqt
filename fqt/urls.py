@@ -39,6 +39,8 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^tinymce/', include('tinymce.urls')),
+
+    url(r'^send_mail_form$', 'app.front.views.send_mail_form', name="send_mail" ),
 )
 
 urlpatterns += staticfiles_urlpatterns()

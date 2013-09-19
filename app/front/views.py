@@ -15,6 +15,11 @@ import re
 import unidecode
 
 
+from django.core.context_processors import csrf
+import sys
+from django.core.mail import EmailMultiAlternatives
+
+
 
 
 menu = Menu()
@@ -160,3 +165,34 @@ def test(request):
 def slugify(str):
     str = unidecode.unidecode(str).lower()
     return re.sub(r'\W+','-',str)
+
+@csrf_exempt
+def send_mail_form(request):
+	c = {}
+	c.update(csrf(request))
+	if request.is_ajax():
+		response = 'error'
+		email_msg = ''
+		name = request.POST.get('name', '')
+		email = request.POST.get('email', '')
+		message = request.POST.get('message', '')
+		if name == '' or email == '' or message == '':
+			response = 'empty_data'
+		else:
+			email_msg = """
+				Name: <b>""" + str(name)  + """</b><br/>
+				Email: <b>""" + str(email)  + """</b><br />
+				Message: <b>""" + str(message)  + """</b><br />
+			"""
+			try:
+				text_content = 'Mensaje enviado desde la forma de contacto'
+				html_content = email_msg
+				msg = EmailMultiAlternatives('Contact Form', text_content, email, ['contacto@fqt.org.mx ', 'info.mintitmedia@gmail.com',])
+				msg.attach_alternative(html_content, "text/html")
+				msg.send()
+				response = "success"
+			except:
+				response = "Unexpected error:", sys.exc_info()
+		return HttpResponse(response, c)
+	else:
+		return HttpResponse(status=400)

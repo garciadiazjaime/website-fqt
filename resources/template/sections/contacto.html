@@ -9,13 +9,14 @@
 		</div><div class="half column"></div>
 		<div class="half column first">
 			<hr>
-			<form method="post" action="#" id="forma_contacto">
+			<form method="post" action="#" id="form_contact">
+				{% csrf_token %}
 				<label>Nombre <span></span></label><input type="text" id="name" name="name" lang="es" class="custom_textbox required" />
 				<label>Email <span></span></label><input type="email" id="email" name="email" lang="es" class="custom_textbox required" />
-				<label>Comentario <span></span></label><textarea id="mensaje" name="mensaje" class="required"></textarea>
+				<label>Comentario <span></span></label><textarea id="message" name="message" class="required"></textarea>
 				<input type="submit"  class="custom_submit" value="Enviar" />
 				
-				<p id="message"></p>
+				<p id="msg"></p>
 			</form>
 			<br><br><br>
 			<p><strong>Dirección</strong> Niños Héroes #1024  Zona Centro, Tijuana B.C.,C.P. 22000</p>
