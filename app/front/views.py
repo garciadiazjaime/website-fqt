@@ -85,7 +85,7 @@ def programa_inscribite(request):
 		
 		email = request.POST.get('email', '')
 		for key, value in request.POST.iteritems():
-			data += key + ': ' + value + "\n"
+			data += key + ': ' + value + "<br /><br />"
 
 		'''
 		if name == '' or email == '' or message == '': response = 'empty_data'
