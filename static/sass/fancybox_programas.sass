@@ -45,8 +45,10 @@
 	label.small
 		width: 85px
 
-	label.medium
+	label.medium	
+		position: relative
 		width: 160px
+		z-index: 5
 
 	label.large
 		width: 200px
@@ -68,13 +70,17 @@
 		padding: 3px 5px
 	
 	.custom_textbox.small	
-		width: 170px
+		width: 160px
 	
 	.custom_textbox.medium, .fake_select
-		width: 210px
+		width: 200px
+		z-index: 1
+		
+	.fake_select
+		width: 209px
 		
 	.custom_textbox.large, .custom_textarea.large
-		width: 285px
+		width: 275px
 		
 	.fake_select
 		display: inline-block
