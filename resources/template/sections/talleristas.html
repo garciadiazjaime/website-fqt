@@ -25,7 +25,10 @@
 		<div class="half column first">
 			<p>Si ya descargaste y llenaste tu ficha de registro, adjúntala completando la siguiente forma.</p>
 		</div><div class="half column"></div>
-		<form method="post" action="#" id="forma_voluntarios" enctype="multipart/form-data">
+		<span id="voluntarios"></span>
+		{{post_data}}
+		<form method="post" action="/talleristas/voluntarios" id="forma_voluntarios" enctype="multipart/form-data">
+			{% csrf_token %}
 			<div class="half column first">
 				<label>Nombre <span></span></label><input type="text" id="name" name="name" lang="es" class="custom_textbox required" />
 				<label>Edad <span></span></label><input type="text" id="edad" name="edad" lang="es" class="custom_textbox required" />
@@ -34,7 +37,7 @@
 				<label class="full_width">¿De qué forma deseas apoyarnos?</label>
 				<div class="the_select">
 					<select class="mySelectBoxClass" id="select_apoyo" name="select_apoyo">
-						<option>Forestaciones / Huertos Escolares</option>
+						<option selected="selected">Forestaciones / Huertos Escolares</option>
 						<option>Talleres</option>
 						<option>Eventos</option>
 						<option>Actividades Operativas</option>

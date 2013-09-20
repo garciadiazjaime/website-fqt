@@ -136,59 +136,8 @@ $(window).load(function() {
 		}
 	);
 
-	$("#forma_voluntarios").submit(function() {
-		console.log('gere')
-		flag = true
-		if($('#name').val() == '')
-		{
-			$('#name').prev().addClass('required')
-			flag = false
-		}
-		else
-			$('#name').prev().removeClass('required')
-
-		if($('#edad').val() == '')
-		{
-			$('#edad').prev().addClass('required')
-			flag = false
-		}
-		else
-			$('#edad').prev().removeClass('required')
-
-		if($('#email').val() == '')
-		{
-			$('#email').prev().addClass('required')
-			flag = false
-		}
-		else
-			$('#email').prev().removeClass('required')
-
-		if($('#ocupacion').val() == '')
-		{
-			$('#ocupacion').prev().addClass('required')
-			flag = false
-		}
-		else
-			$('#ocupacion').prev().removeClass('required')
-
-		if($('#select_apoyo').val() == '')
-		{
-			$('#select_apoyo').prev().addClass('required')
-			flag = false
-		}
-		else
-			$('#select_apoyo').prev().removeClass('required')
-
-		if(!flag)
-			$('#msg').html('Favor de llenar los campos marcados')
-		else
-		{
-			$('#msg').html('Enviando datos, por favor espera...')
-		}
-		return false;
-	});
-
-	
+	if($('#forma_voluntarios').length) load_forma_voluntarios();
+		
 	if($('.logo_slideshow').length)
 	{
 		//each li 940
@@ -253,6 +202,42 @@ $(window).load(function() {
 		});
 	*/
 });
+
+function load_forma_voluntarios()
+{
+	$("#forma_voluntarios").submit(function() {
+		console.log('gere');
+		flag = true;
+		var tag = new Array('name', 'edad', 'email', 'ocupacion')
+		for(i=0; i<tag.length; i++)
+		{
+			if($('#'+tag[i]).val() == '')
+			{
+				$('#'+tag[i]).prev().addClass('required')
+				flag = false
+			}
+			else
+				$('#'+tag[i]).prev().removeClass('required')	
+		}
+		if($('#select_apoyo').find(":selected").text() == '')
+		{
+			$('#select_apoyo').prev().addClass('required')
+			flag = false
+		}
+		else
+			$('#select_apoyo').prev().removeClass('required')
+
+		if(!flag)
+			$('#msg').html('Favor de llenar los campos marcados')
+		else
+		{
+			//$('#msg').html('Enviando datos, por favor espera...')
+			return true;
+		}
+		return false;
+	});
+
+}
 
 function load_contact_form()
 {

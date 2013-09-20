@@ -139,6 +139,7 @@ def transparencia(request, category=''):
 
 	return render_to_response('sections/transparencia.html', locals())
 
+@csrf_exempt
 def talleristas(request, category=''):
 	is_chrome = True if 'Chrome' in request.META['HTTP_USER_AGENT'] else False
 	page_title  = "Fundaci&oacute;n que transforma."
@@ -149,6 +150,8 @@ def talleristas(request, category=''):
 	main_menu = menu.get_main(section)
 	footer_menu = menu.get_footer()
 	downloads = Download.objects.all()
+
+	post_data = request.POST
 
 	return render_to_response('sections/talleristas.html', locals())
 

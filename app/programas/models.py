@@ -63,3 +63,9 @@ class Image(models.Model):
 
 	def __unicode__(self):
 		return self.image.name
+
+class TalleristasForm(forms.Form):
+	name = forms.CharField(max_length=140)
+	edad = forms.CharField(max_length=140)
+	email = forms.EmailField(max_length=140)
+	ocupacion = forms.CharField(max_length=140)
