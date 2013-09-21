@@ -1,6 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 from django.shortcuts import get_object_or_404, render_to_response, render, HttpResponse
+from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from django.template import RequestContext
 from app.front.menu import Menu
@@ -87,19 +88,9 @@ def programa_inscribite(request):
 		email = request.POST.get('email', '')
 		for key, value in request.POST.iteritems():
 			data += key + ': ' + value + "<br /><br />"
-
-		'''
-		if name == '' or email == '' or message == '': response = 'empty_data'
-		else:
-		email_msg = """
-			Name: <b>""" + str(name)  + """</b><br/>
-			Email: <b>""" + str(email)  + """</b><br />
-			Message: <b>""" + str(message)  + """</b><br />
-		"""
-		'''
 		try:
 			text_content = 'Mensaje enviado desde la forma de contacto'
-			html_content = data #email_msg
+			html_content = data
 			msg = EmailMultiAlternatives('Contact Form', text_content, email, ['info.mintitmedia@gmail.com', 'voluntarios@fqt.org.mx ',])
 			msg.attach_alternative(html_content, "text/html")
 			msg.send()
@@ -166,7 +157,7 @@ def talleristas(request, category='', flag=0):
 				mensaje: <b>""" + str(request.POST['mensaje'])  + """</b><br />
 				ficha: <b> http://""" + str(request.META['HTTP_HOST']) + "/media/talleristas/" + str(datetime.date.today().year) + "/" + str(datetime.date.today().strftime('%m')) + "/" + str(request.FILES['ficha'])  + """</b><br />
 			"""
-			tmp = mint_send_mail('tst', ['info.mintitmedia@gmail.com'], 'form@fqt.org.mx', content)
+			tmp = mint_send_mail('tst', ['info.mintitmedia@gmail.com', 'talleres@fqt.org.mx'], 'form@fqt.org.mx', content)
 			return HttpResponseRedirect('/talleristas/gracias')
 	else:
 		form = TalleristasForm() # An unbound form
