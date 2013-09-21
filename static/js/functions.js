@@ -136,7 +136,7 @@ $(window).load(function() {
 		}
 	);
 
-	//if($('#forma_voluntarios').length) load_forma_voluntarios();
+	if($('#forma_voluntarios').length) load_forma_voluntarios();
 		
 	if($('.logo_slideshow').length)
 	{
@@ -206,9 +206,8 @@ $(window).load(function() {
 function load_forma_voluntarios()
 {
 	$("#forma_voluntarios").submit(function() {
-		console.log('gere');
 		flag = true;
-		var tag = new Array('name', 'edad', 'email', 'ocupacion')
+		var tag = new Array('id_nombre', 'id_edad', 'id_email', 'id_ocupacion')
 		for(i=0; i<tag.length; i++)
 		{
 			if($('#'+tag[i]).val() == '')
@@ -219,19 +218,19 @@ function load_forma_voluntarios()
 			else
 				$('#'+tag[i]).prev().removeClass('required')	
 		}
-		if($('#select_apoyo').find(":selected").text() == '')
+		console.log('1' + flag)
+		if($('#id_select_apoyo').find(":selected").text() == '')
 		{
-			$('#select_apoyo').prev().addClass('required')
+			$('#id_select_apoyo').prev().addClass('required')
 			flag = false
 		}
 		else
-			$('#select_apoyo').prev().removeClass('required')
-
+			$('#id_select_apoyo').prev().removeClass('required')
+		console.log(flag)
 		if(!flag)
 			$('#msg').html('Favor de llenar los campos marcados')
 		else
 		{
-			//$('#msg').html('Enviando datos, por favor espera...')
 			return true;
 		}
 		return false;

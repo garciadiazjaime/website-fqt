@@ -141,7 +141,7 @@ def transparencia(request, category=''):
 	return render_to_response('sections/transparencia.html', locals())
 
 @csrf_exempt
-def talleristas(request, category=''):
+def talleristas(request, category='', flag=0):
 	tmp = ''
 	if request.method == 'POST':
 		form = TalleristasForm(request.POST, request.FILES)
@@ -156,7 +156,6 @@ def talleristas(request, category=''):
 				ficha = request.FILES['ficha'],
 				)
 			t.save()
-			#return HttpResponseRedirect('/thanks/') # Redirect after POST
 
 			content = """
 				nombre: <b>""" + str(request.POST['nombre'])  + """</b><br/>
@@ -168,7 +167,7 @@ def talleristas(request, category=''):
 				ficha: <b> http://""" + str(request.META['HTTP_HOST']) + "/media/talleristas/" + str(datetime.date.today().year) + "/" + str(datetime.date.today().strftime('%m')) + "/" + str(request.FILES['ficha'])  + """</b><br />
 			"""
 			tmp = mint_send_mail('tst', ['info.mintitmedia@gmail.com'], 'form@fqt.org.mx', content)
-			#tmp = content
+			return HttpResponseRedirect('/talleristas/gracias')
 	else:
 		form = TalleristasForm() # An unbound form
 

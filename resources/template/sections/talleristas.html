@@ -21,69 +21,33 @@
 			{% endif %}
 			{% endfor %}
 		</ul><span id="quieres_ser_voluntario"></span>	
+		{% if flag == 0 %}
 		<h2>¿Quieres ser  tallerista voluntario?</h2>
 		<div class="half column first">
 			<p>Si ya descargaste y llenaste tu ficha de registro, adjúntala completando la siguiente forma.</p>
 		</div><div class="half column"></div>
 		<span id="voluntarios"></span>
-		<!--
-		<form method="post" action="/talleristas/voluntarios" id="forma_voluntarios" enctype="multipart/form-data">
-			{% csrf_token %}
-			<div class="half column first">
-				<label>Nombre <span></span></label><input type="text" id="name" name="name" lang="es" class="custom_textbox required" />
-				<label>Edad <span></span></label><input type="text" id="edad" name="edad" lang="es" class="custom_textbox required" />
-				<label>Email <span></span></label><input type="email" id="email" name="email" lang="es" class="custom_textbox required" />
-				<label>Ocupación <span></span></label><input type="text" id="ocupacion" name="ocupacion" lang="es" class="custom_textbox required" />
-				<label class="full_width">¿De qué forma deseas apoyarnos?</label>
-				<div class="the_select">
-					<select class="mySelectBoxClass" id="select_apoyo" name="select_apoyo">
-						<option selected="selected">Forestaciones / Huertos Escolares</option>
-						<option>Talleres</option>
-						<option>Eventos</option>
-						<option>Actividades Operativas</option>
-						<option>Experiencia Profesional</option>
-					</select>
-				</div>
-				
-			</div><div class="half column">
-				<label class="full_width">Mensaje</label>
-				<textarea id="mensaje" name="mensaje"></textarea>
-
-				<label class="full_width">Adjuntar ficha de registro</label>
-				<div id="FileUpload">
-				    <input type="file" size="24" id="BrowserHidden" onchange="getElementById('FileField').value = getElementById('BrowserHidden').value;" name="file" />
-				    <div id="BrowserVisible"><input type="text" id="FileField" /></div>
-				</div>
-				<br />
-				<div class="column two_third first">
-					<p><span id="msg" class="required">*Campos requeridos</span></p>
-				</div><div class="column third">
-					<input type="submit"  class="custom_submit" value="Enviar" />
-				</div>							
-			</div>
-		</form>
-		-->
 
 		<form method="post" action="/talleristas/voluntarios" id="forma_voluntarios" enctype="multipart/form-data">{% csrf_token %}
-
+		{{ form.non_field_errors }}
 		<div class="half column first">
 			
-			<label id="id_nombre">Nombre <span></span></label>{{ form.nombre }}
+			<label for="nombre">Nombre <span></span></label>{{ form.nombre }}
 
-			<label id="id_edad">Edad <span></span></label>{{ form.edad }}
+			<label for="edad">Edad <span></span></label>{{ form.edad }}
 
-			<label id="id_email">Email <span></span></label>{{ form.email }}
+			<label for="email">Email <span></span></label>{{ form.email }}
 
-			<label id="id_ocupacion">Ocupación <span></span></label>{{ form.ocupacion }}
+			<label for="ocupacion">Ocupación <span></span></label>{{ form.ocupacion }}
 
 			<label class="full_width">¿De qué forma deseas apoyarnos?</label>
 			<div class="the_select">
 				{{ form.select_apoyo }}
 			</div>
 		</div><div class="half column">
-				<label class="full_width">Mensaje</label>{{ form.mensaje }}
+				<label class="full_width" for="mensaje">Mensaje</label>{{ form.mensaje }}
 				
-				<label class="full_width">Adjuntar ficha de registro</label>
+				<label class="full_width" for="ficha">Adjuntar ficha de registro</label>
 				<div id="FileUpload">
 					{{ form.ficha }}
 					<div id="BrowserVisible"><input type="text" id="FileField" /></div>
@@ -98,6 +62,13 @@
 			</div>
 
 		</form>
-			{{tmp}}
+		{% else %}
+		<div class="thanks">
+			<span id="gracias"></span>
+			<h3>Gracias, tus datos han sido enviados</h3>
+			<a href="/talleristas" title="talleristas">enviar otros datos</a>
+			<br /><br />
+		</div>
+		{% endif %}
 	</div>
 {% endblock %}
