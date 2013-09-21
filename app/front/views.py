@@ -13,6 +13,7 @@ from app.inversiones.models import Logos
 from django.core.mail import send_mail
 import re
 import unidecode
+import datetime
 
 
 from django.core.context_processors import csrf
@@ -156,7 +157,18 @@ def talleristas(request, category=''):
 				)
 			t.save()
 			#return HttpResponseRedirect('/thanks/') # Redirect after POST
-			tmp = mint_send_mail('tst', ['info.mintitmedia@gmail.com'], 'form@fqt.org.mx', '<b>nice</b>')
+
+			content = """
+				nombre: <b>""" + str(request.POST['nombre'])  + """</b><br/>
+				edad: <b>""" + str(request.POST['edad'])  + """</b><br />
+				email: <b>""" + str(request.POST['email'])  + """</b><br />
+				ocupacion: <b>""" + str(request.POST['ocupacion'])  + """</b><br />
+				select_apoyo: <b>""" + str(request.POST['select_apoyo'])  + """</b><br />
+				mensaje: <b>""" + str(request.POST['mensaje'])  + """</b><br />
+				ficha: <b> http://""" + str(request.META['HTTP_HOST']) + "/media/talleristas/" + str(datetime.date.today().year) + "/" + str(datetime.date.today().strftime('%m')) + "/" + str(request.FILES['ficha'])  + """</b><br />
+			"""
+			tmp = mint_send_mail('tst', ['info.mintitmedia@gmail.com'], 'form@fqt.org.mx', content)
+			#tmp = content
 	else:
 		form = TalleristasForm() # An unbound form
 
