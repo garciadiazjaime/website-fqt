@@ -127,7 +127,7 @@ def transparencia(request, category=''):
 	section 	= "transparencia"
 	main_menu = menu.get_main(section)
 	footer_menu = menu.get_footer()
-	infographic = Infographic.objects.all()
+	infographic = Infographic.objects.all().order_by('-id')
 
 	return render_to_response('sections/transparencia.html', locals())
 

@@ -11,8 +11,8 @@
 		
 		{% for row in infographic %}
 		{% if row.alt|length %}<h2 class="sideoverflow purple_text">{{row.title}}</h2>{% endif %}
-		<a href="/static/media/{{row.big_image}}" title="{{row.title}}" id="transparencia_fancybox">
-			<img src="/static/media/{{row.image}}" alt="{{row.alt}}" id="imagen_proyectos"/>
+		<a href="/media/{{row.big_image}}" title="{{row.title}}" class="transparencia_fancybox">
+			<img src="/media/{{row.image}}" alt="{{row.alt}}" id="imagen_proyectos"/>
 		</a>
 		{% endfor %}
 		

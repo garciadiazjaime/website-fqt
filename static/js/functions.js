@@ -113,8 +113,9 @@ $(window).load(function() {
 			},
 		})
 
-	if($('#transparencia_fancybox').length)
-		$('#transparencia_fancybox').fancybox(
+	if($('.transparencia_fancybox').length)
+	{
+		$('.transparencia_fancybox').fancybox(
 			{
 				autoScale : false,
 				height: 400,
@@ -124,6 +125,8 @@ $(window).load(function() {
 				width: 1045,
 			}
 		)
+	}
+		
 	
 	
 	
