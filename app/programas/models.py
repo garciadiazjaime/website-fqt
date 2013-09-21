@@ -4,6 +4,8 @@ from django.db import models
 from tinymce.models import HTMLField
 from django.core.urlresolvers import reverse 
 import datetime
+from django import forms
+#from datetime import date
 
 class ProgramManager(models.Manager):
 	def get_programs(self):
@@ -64,8 +66,52 @@ class Image(models.Model):
 	def __unicode__(self):
 		return self.image.name
 
+class Talleristas(models.Model):
+	CHOICES = (
+			('Forestaciones / Huertos Escolares', 'Forestaciones / Huertos Escolares'), 
+			('Talleres', 'Talleres'),
+			('Eventos', 'Eventos'),
+			('Actividades Operativas', 'Actividades Operativas'),
+			('Experiencia Profesional', 'Experiencia Profesional'),
+	)
+	nombre = models.CharField(max_length=140)
+	edad = models.CharField(max_length=140)
+	email = models.EmailField(max_length=140)
+	ocupacion = models.CharField(max_length=140)
+	select_apoyo = models.CharField(choices=CHOICES,  max_length=140)	
+	mensaje = models.CharField(max_length=500)
+	ficha = models.FileField(upload_to='talleristas/%Y/%m')	
+	reg_date = models.DateField(auto_now_add=True)
+
+	def __unicode__(self):
+		return self.nombre
+
 class TalleristasForm(forms.Form):
-	name = forms.CharField(max_length=140)
+	CHOICES = (
+			('Forestaciones / Huertos Escolares', 'Forestaciones / Huertos Escolares'), 
+			('Talleres', 'Talleres'),
+			('Eventos', 'Eventos'),
+			('Actividades Operativas', 'Actividades Operativas'),
+			('Experiencia Profesional', 'Experiencia Profesional'),
+	)
+	nombre = forms.CharField()
 	edad = forms.CharField(max_length=140)
 	email = forms.EmailField(max_length=140)
 	ocupacion = forms.CharField(max_length=140)
+	select_apoyo = forms.ChoiceField(choices=CHOICES)	
+	mensaje = forms.CharField(widget=forms.Textarea)
+	ficha = forms.FileField()
+
+	def __init__(self, *args, **kwargs):
+		super(TalleristasForm, self).__init__(*args, **kwargs)
+		for row in ['nombre', 'edad', 'email', 'ocupacion']:
+			self.fields[row].widget.attrs.update({'class' : 'custom_textbox required'})
+		
+		self.fields['select_apoyo'].widget.attrs.update({'class' : 'mySelectBoxClass'})
+		self.fields['mensaje'].widget.attrs.update({'rows' : '5'})
+		self.fields['ficha'].widget.attrs.update({'id' : 'BrowserHidden', 'onchange':"getElementById('FileField').value = getElementById('BrowserHidden').value;"})
+
+
+
+
+

@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404, render_to_response, render, Http
 from django.views.decorators.csrf import csrf_exempt
 from django.template import RequestContext
 from app.front.menu import Menu
-from app.programas.models import Program
+from app.programas.models import Program, TalleristasForm, Talleristas
 from app.transparencia.models import Infographic
 from app.downloads.models import Download
 from app.inversiones.models import Toner
@@ -141,6 +141,26 @@ def transparencia(request, category=''):
 
 @csrf_exempt
 def talleristas(request, category=''):
+	tmp = ''
+	if request.method == 'POST':
+		form = TalleristasForm(request.POST, request.FILES)
+		if form.is_valid():
+			t = Talleristas(
+				nombre = request.POST['nombre'],
+				edad = request.POST['edad'],
+				email = request.POST['email'],
+				ocupacion = request.POST['ocupacion'],
+				select_apoyo = request.POST['select_apoyo'],
+				mensaje = request.POST['mensaje'],
+				ficha = request.FILES['ficha'],
+				)
+			t.save()
+			#return HttpResponseRedirect('/thanks/') # Redirect after POST
+			tmp = mint_send_mail('tst', ['info.mintitmedia@gmail.com'], 'form@fqt.org.mx', '<b>nice</b>')
+	else:
+		form = TalleristasForm() # An unbound form
+
+
 	is_chrome = True if 'Chrome' in request.META['HTTP_USER_AGENT'] else False
 	page_title  = "Fundaci&oacute;n que transforma."
 	keywords 	= "fundaci&oacute;n transforma"
@@ -150,8 +170,6 @@ def talleristas(request, category=''):
 	main_menu = menu.get_main(section)
 	footer_menu = menu.get_footer()
 	downloads = Download.objects.all()
-
-	post_data = request.POST
 
 	return render_to_response('sections/talleristas.html', locals())
 
@@ -227,3 +245,28 @@ def send_mail_form(request):
 		return HttpResponse(response, c)
 	else:
 		return HttpResponse(status=400)
+
+@csrf_exempt
+def mint_send_mail(title, to, email_from, content):
+	'''
+	custome function to sent emais
+
+	params
+		title 		-- email title
+		to 			-- array of receipents
+		email_from	-- sender email
+		content 	-- email body, it could contain HTML
+	'''
+	status = False
+	description = ''
+	try:
+		text_content = 'Mensaje enviado desde la forma de contacto'
+		msg = EmailMultiAlternatives(title, text_content, email_from, to)
+		msg.attach_alternative(content, "text/html")
+		msg.send()
+		status = True
+		description = 'mail sent'
+	except Exception, e:
+		description = e
+	return {'status':status, 'description':description}
+	

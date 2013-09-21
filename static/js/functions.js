@@ -136,7 +136,7 @@ $(window).load(function() {
 		}
 	);
 
-	if($('#forma_voluntarios').length) load_forma_voluntarios();
+	//if($('#forma_voluntarios').length) load_forma_voluntarios();
 		
 	if($('.logo_slideshow').length)
 	{

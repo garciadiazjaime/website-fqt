@@ -133,6 +133,7 @@ INSTALLED_APPS = (
     'app.downloads',
     'app.inversiones',
     'app.transparencia',
+    'south',
 )
 
 # A sample logging configuration. The only tangible logging

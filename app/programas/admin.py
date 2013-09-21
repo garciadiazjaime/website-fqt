@@ -2,7 +2,7 @@
 
 from django.contrib import admin
 
-from app.programas.models import Program, Image
+from app.programas.models import Program, Image, Talleristas
 
 from django.contrib.auth.models import User, Group
 
@@ -24,5 +24,13 @@ class ProgramAdmin(admin.ModelAdmin):
 	list_display = ('title', 'description_left', 'description_right', 'has_contact_form', 'reg_date')
 	list_filter = ['has_contact_form', 'reg_date']	
 
+class TalleristasAdmin(admin.ModelAdmin):
+	list_display = ('nombre', 'edad', 'email', 'ocupacion', 'select_apoyo', 'mensaje', 'ficha', 'reg_date')
+	search_fields = ['nombre', 'edad', 'email', 'ocupacion', 'select_apoyo', 'mensaje', 'ficha']
+	list_filter = ['select_apoyo', 'reg_date']
+
+
 admin.site.register(Program, ProgramAdmin)
+admin.site.register(Talleristas, TalleristasAdmin)
+
 
