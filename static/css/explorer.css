@@ -1,3 +1,7 @@
 #BrowserHidden{
 	filter: alpha(opacity: 0);
 }
+.container{
+	width: 958px;
+}
+	
