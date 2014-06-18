@@ -289,7 +289,7 @@ function load_contact_form()
 }
 
 function clear_form(id){
-	$('#'+id).find("input[type=text], textarea").val("");
+	$('#'+id).find("input[type=text], input[type=email], textarea").val("");
 }
 
 function load_gmap()

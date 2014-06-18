@@ -231,16 +231,12 @@ def send_mail_form(request):
 		if name == '' or email == '' or message == '':
 			response = 'empty_data'
 		else:
-			email_msg = """
-				Name: """ + str(name)  + """\n
-				Email: """ + str(email)  + """\n
-				Message: """ + str(message)  + """
-			"""
+			email_msg = "Name: " + str(name)  + "\nEmail: " + str(email)  + "\nMessage: " + str(message)
 			try:
-				#msg = EmailMultiAlternatives('Contact Form', text_content, email, ['contacto@fqt.org.mx ', 'info.mintitmedia@gmail.com',])
 				msg = EmailMultiAlternatives('Contact Form', email_msg, email, ['test@fqt.org.mx '])
 				msg.send()
 				response = "success"
+				EmailMultiAlternatives('Contact Form', email_msg, email, ['info@mintitmedia.com'])
 			except:
 				response = "Unexpected error:", sys.exc_info()
 		return HttpResponse(response, c)
