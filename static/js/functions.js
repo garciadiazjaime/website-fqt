@@ -9,8 +9,6 @@ $(window).load(function() {
 		if(page.indexOf('programas') !== -1)
 		{
 			gotoTop(last_item, '', '450')
-			//console.log('here: ' + $('#'+last_item).top)
-			//$.scrollTo('#'+last_item, 800);
 		}		
 		else			
 			gotoTop(last_item)				
@@ -21,14 +19,9 @@ $(window).load(function() {
 
 	
 	// CUSTOM FORM ELEMENTS
-	if($('.mySelectBoxClass').length)
+	if($('.mySelectBoxClass').length){
 		$('.mySelectBoxClass').customSelect();
-/*	$("input[type=file]").filestyle({ 
-	     image: "static/media/grey.gif",
-	     imageheight : 22,
-	     imagewidth : 82,
-	     width : 300
-	 }); */
+	}
 	
 	$('#wrapper').animate({
 		'opacity': '1'

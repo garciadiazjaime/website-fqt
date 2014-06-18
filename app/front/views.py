@@ -91,7 +91,8 @@ def programa_inscribite(request):
 		try:
 			text_content = 'Mensaje enviado desde la forma de contacto'
 			html_content = data
-			msg = EmailMultiAlternatives('Contact Form', text_content, email, ['info.mintitmedia@gmail.com', 'voluntarios@fqt.org.mx ',])
+			#msg = EmailMultiAlternatives('Contact Form', text_content, email, ['info.mintitmedia@gmail.com', 'voluntarios@fqt.org.mx ',])
+			msg = EmailMultiAlternatives('Contact Form', text_content, email, ['jaime@mintitmedia.com',])
 			msg.attach_alternative(html_content, "text/html")
 			msg.send()
 			response = "success"
