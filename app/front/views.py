@@ -233,11 +233,11 @@ def send_mail_form(request):
 		else:
 			email_msg = "Name: " + unicode(name)  + "\nEmail: " + unicode(email)  + "\nMessage: " + unicode(message)
 			try:
-				#contacto@fqt.org.mx
-				msg = EmailMultiAlternatives('Contact Form FQT', email_msg, email, ['test@fqt.org.mx '])
+				msg = EmailMultiAlternatives('Contact Form FQT', email_msg, email, ['contacto@fqt.org.mx'])
 				msg.send()
 				response = "success"
-				EmailMultiAlternatives('Contact Form FQT', email_msg, email, ['jaime@mintitmedia.com'])
+				msg2 = EmailMultiAlternatives('Contact Form FQT', email_msg, email, ['info@mintitmedia.com'])
+				msg.send()
 			except:
 				response = "Unexpected error:", sys.exc_info()
 		return HttpResponse(response, c)
