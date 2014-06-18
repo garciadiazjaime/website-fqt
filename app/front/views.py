@@ -232,16 +232,13 @@ def send_mail_form(request):
 			response = 'empty_data'
 		else:
 			email_msg = """
-				Name: <b>""" + str(name)  + """</b><br/>
-				Email: <b>""" + str(email)  + """</b><br />
-				Message: <b>""" + str(message)  + """</b><br />
+				Name: """ + str(name)  + """\n
+				Email: """ + str(email)  + """\n
+				Message: """ + str(message)  + """
 			"""
 			try:
-				text_content = 'Mensaje enviado desde la forma de contacto'
-				html_content = email_msg
 				#msg = EmailMultiAlternatives('Contact Form', text_content, email, ['contacto@fqt.org.mx ', 'info.mintitmedia@gmail.com',])
 				msg = EmailMultiAlternatives('Contact Form', email_msg, email, ['test@fqt.org.mx '])
-				msg.attach_alternative(html_content, "text/html")
 				msg.send()
 				response = "success"
 			except:

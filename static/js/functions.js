@@ -22,7 +22,7 @@ $(window).load(function() {
 	if($('.mySelectBoxClass').length){
 		$('.mySelectBoxClass').customSelect();
 	}
-	
+
 	$('#wrapper').animate({
 		'opacity': '1'
 	},  'slow', function(){
@@ -286,6 +286,10 @@ function load_contact_form()
 		}
 		return false;
 	});
+}
+
+function clear_form(id){
+	$('#'+id).find("input[type=text], textarea").val("");
 }
 
 function load_gmap()
