@@ -239,7 +239,8 @@ def send_mail_form(request):
 			try:
 				text_content = 'Mensaje enviado desde la forma de contacto'
 				html_content = email_msg
-				msg = EmailMultiAlternatives('Contact Form', text_content, email, ['contacto@fqt.org.mx ', 'info.mintitmedia@gmail.com',])
+				#msg = EmailMultiAlternatives('Contact Form', text_content, email, ['contacto@fqt.org.mx ', 'info.mintitmedia@gmail.com',])
+				msg = EmailMultiAlternatives('Contact Form', text_content, email, ['test@fqt.org.mx '])
 				msg.attach_alternative(html_content, "text/html")
 				msg.send()
 				response = "success"
