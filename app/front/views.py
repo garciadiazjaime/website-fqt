@@ -237,7 +237,7 @@ def send_mail_form(request):
 				msg.send()
 				response = "success"
 				msg2 = EmailMultiAlternatives('Contact Form FQT', email_msg, email, ['info@mintitmedia.com'])
-				msg.send()
+				msg2.send()
 			except:
 				response = "Unexpected error:", sys.exc_info()
 		return HttpResponse(response, c)
