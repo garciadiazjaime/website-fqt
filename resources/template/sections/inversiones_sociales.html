@@ -1,0 +1,463 @@
+ {% extends "layout/base.html" %}
+
+{% block site_wrapper %}
+	<div class="container" id="campanas">
+		<h1>Inversiones Sociales</h1>
+		<h2>Campañas</h2>
+	</div>
+	<div id="aqua_background">
+			<div  class="container">
+			<div class="half column first">
+				<h3 id="toner">Tu tóner <span class="small_text">transforma escuelas</span></h3>
+				<p>Tu tóner transforma escuelas, ¡Dónalos!</p>
+
+				<p>Fundación Que Transforma, en alianza con la empresa Baja Sky S.A. de C.V., anunciaron de manera oficial el arranque de la campaña “Tu tóner transforma escuelas, ¡Dónalo!” en el mes de julio del 2012.</p>
+
+				<p>El objetivo de la campaña es invitar a empresas, maquiladoras, instituciones y población en general a realiza una correcta disposición de los cartuchos de tinta y tóner.</p>
+
+				<p>Los recursos obtenidos del reciclaje serán destinados a la operación de los programas activos de Fundación Que Transforma, con el fin de seguir realizando actividades que promuevan y fomenten una cultura urbana proactiva, enfocada al medio ambiente, de forma lúdica en escuelas públicas y casas hogar.</p>
+				<br /><br /><br /><br /><br />
+				<img src="/static/media/inversionistas_soc/toner.jpg" alt="Tu tóner transforma escuelas" />
+			
+				<h4>Procedimiento</h4>
+				<p>Una vez que los cartuchos estén vacíos y listos para remplazarse por unos nuevos, estos no deberán depositarse en el contenedor de basura, por el contrario, deberán ser separados y conservados. </p>
+				<h4>¿Y Después?</h4>
+				<p>Para empresas, maquiladoras, instituciones: Fundación Que Transforma programará, con la empresa participante, una fecha de recolección.</p> 
+
+				<p>Se les entregará un recibo que avale el donativo y posteriormente un manifiesto, proporcionado por Baja Sky S.A. de C.V., empresa autorizada por el gobierno del estado a disponer correctamente de los residuos, que garantiza la correcta disposición de los residuos. El Registro Estatal es: PS-TIJ-059/11.</p>
+
+				<p>Para población en general: Deberán acudir a depositar los residuos a uno de los centros de acopio colocados en diferentes puntos de la ciudad de Tijuana.</p>
+			</div><div class="half column">
+				<h4 id="title_count">¡Forma parte de la campaña!<br/> <strong>Hasta el momento se han reciclado:</strong></h4>
+				<div id="toner_count">
+					<p>Cartuchos de tinta y tóner reciclados</p>
+					<p id="toner_text">{% autoescape off %}{{counter}}{% endautoescape %}</p>
+				</div>
+				<hr />
+				<h4 class="beneficios">Beneficios</h4>
+				<div class="benefit_wrapper">
+					<ul class="dashed_bullet">
+						<li>Reconoceremos tu compromiso con el medio ambiente incorporando tú logotipo o nombre en nuestra página de internet como empresa registrada en la campaña.</li>
+						<li>Publicaremos una nota informativa en redes sociales de Fundación Que Transforma.</li>
+					</ul>
+				</div>
+				<div class="benefit_wrapper">
+					<h4>Ubicaciones</h4>	
+					<ol>
+						<li> Fundación Que Transforma: Zona Centro, Calle Niños Héroes, entre calle 6ta y 7ma #1024 Teléfono: 685 4342</li>
+						<li>Baja Sky: Zona Otay, Blvd. Industrial 7-A Colonia Fovisssste 1 C.P. 22510 Teléfono: 623 8888</li>
+						<li>El Trompo Museo Interactivo: Lib. Los Insurgentes SN Río Tijuana, 3era Etapa Baja California, 22226</li>
+						<li> Agencia Mercallianz, S.C.: Blvd. Sánchez Taboada 10488 703 Col. Zona Urbana Río Tijuana 22010 Tijuana Baja California</li>
+					</ol>
+				</div>
+			</div>
+			<h3 id="empresas_participantes" class="sideoverflow">Empresas Participantes</h3>			
+			<div class="screen_logos">
+				<div class="buttons">
+					{% if toner|length > 10 %}
+					<a class="prev" href="#">Previous</a>
+					<a class="next" href="#">Next</a>
+					<br class="clear">
+					{% endif %}
+				</div>
+				<div class="logo_slideshow">
+					<ul id="ul_toner">
+						{% for row in toner %}
+						{% if forloop.first %}
+						<li>
+        					<ul>
+        						<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank"  {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+						{% elif forloop.counter|divisibleby:'10' and not forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+							</ul>
+						</li>
+						<li>
+        					<ul>
+						{% elif forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+								{% if not forloop.counter|divisibleby:'10'  %}
+									<li>
+										<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/static/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+									</li>
+								{% endif %}
+							</ul>
+							{% if forloop.counter|divisibleby:'10'  %}
+							<ul>
+								<li>
+									<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/static/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+								</li>
+							</ul>
+							{% endif %}
+						</li>
+						{% else %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>							
+						{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="slide_texture"></div>
+			</div>
+
+		
+			<h3 class="half column first no_padding_bottom" id="reciempresa">Reciempresa</h3><div class="half column no_padding_bottom"></div>
+			<div class="half column first">
+				<p>Se invita a las empresas a ser socialmente responsables con el medio ambiente y conscientes, de una forma sencilla, apoyando con la donación de desechos sólidos no tóxicos que pueden ser reutilizados y/o reciclados.  Estos pueden ser: residuos de papelería, plástico, aluminio, cartón, etc. Los recursos obtenidos con esta actividad se destinan a fortalecer los programas operados por Fundación Que Transforma.</p>
+			</div><div class="half column">	
+				<h4 class="beneficios  negative_margin_top">Beneficios</h4>
+				<div class="benefit_wrapper">
+					<p>Reconoceremos tu compromiso con el medio ambiente incorporando tú logotipo o nombre en nuestra página de internet como empresa registrada en la campaña.</p>
+					<ul class="dashed_bullet">
+						<li>Publicaremos una nota informativa en redes sociales de Fundación Que Transforma.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div id="underwater_nature"></div>
+	</div>
+	
+	<div class="light_gray" id="tipos-donativos">
+		<div class="container" id="donativos">
+			<h2>Donativos</h2>
+			<p class="slogan">Programas de Responsabilidad Social Corporativa</p>
+			
+			<div class="half column first" id="ecoproducciones">
+				<h3>Eco <br/> Producciones</h3>
+				<p>Producción de material didáctico audiovisual. Estas producciones tienen  como objetivo la difusión  de contenidos informativos y educativos  de primer nivel siendo incluyentes con la población con discapacidad auditiva. </p>
+			
+				<h4 class="beneficios ">Beneficios</h4>
+				<div class="benefit_wrapper">
+					<ul class="dashed_bullet">
+						<li>Tu apoyo será reconocido dentro de los créditos de estas cápsulas, mismas que serán vistas por los más de 15,000 niños atendidos en Tijuana, Mexicali y Ensenada anualmente y publicadas en el canal de youtube con acceso libre.</li>
+						<li>Pondremos tu logo en la página de Fundación Que Transforma como una empresa comprometida con la educación ambiental y la cultura urbana.
+						</li>
+					</ul>
+				</div>
+				<h4 class="aportacion ">Aportación</h4>
+				<div class="benefit_wrapper">
+					<p class="strong_big_paragraph">$10,000 pesos por cápsula</p>
+				</div>
+			</div><div class="half column" id="reciclases-jardin">
+				<h3>Reciclases en <br/> tu jardín</h3>
+				<p>Dona árboles de sombra o frutales a una escuela o casa hogar.  Tu aportación  llevaremos a una escuela árboles, tierra y fertilizante. Con tu apoyo niños y jóvenes vivirán la experiencia de plantar y cuidar el árbol que les proveerá de  sombra y fruto.  Mejorarás su entorno  y su  alimentación.    </p>
+				
+			
+				<h4 class="beneficios ">Beneficios</h4>
+				<div class="benefit_wrapper">
+					<ul class="dashed_bullet">
+						<li>Reconoceremos tu compromiso con los jóvenes y la educación incorporando tú logotipo o nombre en nuestro apartado de donantes.</li>
+						<li>Publicaremos una nota informativa en redes sociales de Fundación Que Transforma.</li>
+					</ul>
+				</div>
+				<h4 class="aportacion ">Aportación</h4>
+				<div class="benefit_wrapper">
+					<p class="strong_big_paragraph">$4,000 pesos por escuela (25 árboles)</p>
+				</div>
+			</div>
+			<br />
+			<div class="half column first" id="proyecto-semilla">
+				<h3>Proyecto <br/> Semilla</h3>
+				<p>Ayúdanos a transformar una escuela o casa hogar. Proyecto semilla es un programa integral que  promueve una cultura urbana proactiva en niños y jóvenes a través de una curricula educativa que contiene talleres de medio ambiente, realización de huerto, composta, forestaciones y creación de bancos de semillas.</p>
+			
+				<h4 class="beneficios">Beneficios</h4>
+				<div class="benefit_wrapper">
+					<ul class="dashed_bullet">
+						<li>En reconocimiento por tu compromiso con la sociedad incorporando tu logotipo o nombre en nuestro apartado de donantes.</li>
+						<li>Pondremos tu logo o nombre en el uniforme del tallerista, con la leyenda: “Gracias al donativo de (NOMBRE DE LA EMPRESA O PERSONA) seguimos formando Ciudadanos Conscientes”.</li>
+						<li>Haremos una presentación formal en rueda de prensa o boletín.</li>
+						<li> Publicaremos una nota informativa en redes sociales de Fundación Que Transforma.</li>
+					</ul>
+				</div>
+				<h4 class="aportacion">Aportación</h4>
+				<div class="benefit_wrapper">
+					<p class="strong_big_paragraph">$3,500 pesos al mes durante 10 meses</p>
+				</div>
+			</div><div class="half column" id="beca-tallerista">
+				<h3>Beca a un<br/> Tallerista</h3>
+				<p>Tu donativo permitirá otorgar un incentivo económico a un estudiante universitario que realiza sus prácticas profesionales promoviendo una cultura urbana proactiva en escuelas, centros comunitarios o en casas hogar, además podremos proveerle del uniforme que lo identificará como parte de Fundación Que Transforma.</p>
+				<h4 class="beneficios">Beneficios</h4>
+				<div class="benefit_wrapper">
+					<ul class="dashed_bullet">
+						<li>Reconoceremos tu compromiso con los jóvenes y la educación incorporando tú logotipo o nombre en nuestro apartado de donantes.</li>
+						<li>Pondremos tu logo o nombre en el uniforme del tallerista, con la leyenda: “Gracias al donativo de (NOMBRE DE LA EMPRESA O PERSONA) seguimos formando ciudadanos conscientes”.</li>
+						<li>Publicaremos una nota informativa en redes sociales de Fundación Que Transforma.</li>
+					</ul>
+				</div>
+				<h4 class="aportacion">Aportación</h4>
+				<div class="benefit_wrapper">
+					<p class="strong_big_paragraph">$1,500 pesos mensuales x 6 meses
+			 </p>
+				</div>
+			</div>
+			<div id="paypal_wrapper">
+				<hr />
+				<div>
+					<p class="first">Donaciones y apoyos son por medio de: <span class="hidden">Paypal</span></p><p class="second">Para proceder con 
+					tu donación, hacer click 
+					en el siguiente botón.</p>
+					<div class=" third">
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_target" id="form_donar">
+							<input type="hidden" name="cmd" value="_s-xclick">
+							<input type="hidden" name="hosted_button_id" value="4J83CBH4545GW">
+							<!--
+							<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+							<img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">-->
+							<a href="donar" title="Quiero donar" class="shadow_button" id="btn_donar"><span>Quiero Donar</span></a>
+						</form>
+						
+					</div>
+				</div>
+				<hr class="bottom" />
+			</div>
+		</div>
+		<hr class="gradient_line">
+	</div>
+	<div class="dark_gray">
+		<div class="container" id="inversionistas-sociales">
+			<h2>Inversionistas sociales</h2>
+			
+			<h3>Aliados estratégicos</h3>			
+			<div class="screen_logos">
+				<div class="buttons">
+					{% if aliados|length > 10 %}
+					<a class="prev" href="#">Previous</a>
+					<a class="next" href="#">Next</a>
+					<br class="clear">
+					{% endif %}
+				</div>
+				<div class="logo_slideshow">
+					<ul>						
+						{% for row in aliados %}
+						{% if forloop.first %}
+						<li>
+        					<ul>
+        						<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank"{% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+						{% elif forloop.counter|divisibleby:'10' and not forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+							</ul>
+						</li>
+						<li>
+        					<ul>
+						{% elif forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+								{% if not forloop.counter|divisibleby:'10'  %}
+							
+									<li>
+										<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/static/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+									</li>
+							
+								{% endif %}
+							</ul>
+							{% if forloop.counter|divisibleby:'10'  %}
+							<ul>
+								<li>
+									<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/static/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+								</li>
+							</ul>
+							{% endif %}
+						</li>
+						{% else %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>							
+						{% endif %}
+						{% endfor %}
+						<!--<li id="al_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>-->
+					</ul>
+				</div>
+				<div class="slide_texture"></div>
+			</div>
+
+
+			<h3>Universidades</h3>			
+			<div class="screen_logos">
+				<div class="buttons">
+					{% if universidades|length > 10 %}
+					<a class="prev" href="#">Previous</a>
+					<a class="next" href="#">Next</a>
+					<br class="clear">
+					{% endif %}
+				</div>
+				<div class="logo_slideshow">
+					<ul>
+						{% for row in universidades %}
+						{% if forloop.first %}
+						<li>
+	    					<ul>
+	    						<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+						{% elif forloop.counter|divisibleby:'10' and not forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+							</ul>
+						</li>
+						<li>
+	    					<ul>
+						{% elif forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+								{% if not forloop.counter|divisibleby:'10'  %}
+							
+									<li>
+										<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/static/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+									</li>
+							
+								{% endif %}
+							</ul>
+							{% if forloop.counter|divisibleby:'10'  %}
+							<ul>
+								<li>
+									<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/static/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+								</li>
+							</ul>
+							{% endif %}
+						</li>
+						{% else %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>							
+						{% endif %}
+						{% endfor %}
+						<!--<li id="uni_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>-->
+					</ul>	
+				</div>
+				<div class="slide_texture"></div>
+			</div>
+
+			<h3>Inversionistas Sociales</h3>
+			<div class="screen_logos">
+				<div class="buttons">
+					{% if inversionistas|length > 10 %}
+					<a class="prev" href="#">Previous</a>
+					<a class="next" href="#">Next</a>
+					<br class="clear">
+					{% endif %}
+				</div>
+				<div class="logo_slideshow">
+					<ul>
+						{% for row in inversionistas %}
+						{% if forloop.first %}
+						<li>
+	    					<ul>
+	    						<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+						{% elif forloop.counter|divisibleby:'10' and not forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+							</ul>
+						</li>
+						<li>
+	    					<ul>
+						{% elif forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+								{% if not forloop.counter|divisibleby:'10'  %}
+							
+									<li>
+										<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/static/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+									</li>
+							
+								{% endif %}
+							</ul>
+							
+							{% if forloop.counter|divisibleby:'10'  %}
+							<ul>
+								<li>
+									<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/static/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+								</li>
+							</ul>
+							{% endif %}
+						</li>
+						{% else %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>							
+						{% endif %}
+						{% endfor %}
+						<!--<li id="inv_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>-->
+					</ul>
+				</div>
+				<div class="slide_texture"></div>
+			</div>
+
+			<h3>Especie</h3>			
+			<div class="screen_logos">
+				<div class="buttons">
+					{% if especie|length > 10 %}
+					<a class="prev" href="#">Previous</a>
+					<a class="next" href="#">Next</a>
+					<br class="clear">
+					{% endif %}
+				</div>
+				<div class="logo_slideshow">
+					<ul>
+						{% for row in especie %}
+						{% if forloop.first %}
+						<li>
+	    					<ul>
+	    						<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+						{% elif forloop.counter|divisibleby:'10' and not forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+							</ul>
+						</li>
+						<li>
+	    					<ul>
+						{% elif forloop.last %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>
+								{% if not forloop.counter|divisibleby:'10'  %}
+							
+									<li>
+										<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/static/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+									</li>
+							
+								{% endif %}
+							</ul>
+							
+							{% if forloop.counter|divisibleby:'10'  %}
+							<ul>
+								<li>
+									<a href="#" title="Sólo faltas tú" target="_blank" class="no_link"><img src="/static/media/faltas_tu.png" alt="Sólo faltas tú"></a>	
+								</li>
+							</ul>
+							{% endif %}
+						</li>
+						{% else %}
+								<li>
+									<a href="{% if row.link|length %}{{row.link}}{% endif %}" title="{{row.alt}}" target="_blank" {% if not row.link|length %}class="no_link"{% endif %}><img src="/static/media/{{row.image}}" alt="{{row.alt}}"></a>	
+								</li>							
+						{% endif %}
+						{% endfor %}
+						<li id="esp_faltas"><a href="/contacto" title="¡Faltas Tú!">¡Faltas Tú!</a></li>
+					</ul>	
+				</div>	
+				<div class="slide_texture"></div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
