@@ -294,7 +294,10 @@ function clear_form(id){
 
 function load_gmap()
 {
-	$('#gmap').html('<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=+32.529906,-117.0395&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=61.153041,129.550781&amp;ie=UTF8&amp;ll=32.529906,-117.0395&amp;spn=0.002031,0.003954&amp;t=m&amp;z=17&amp;output=embed"></iframe><p id="big_map"><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=+32.529906,-117.0395&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=61.153041,129.550781&amp;ie=UTF8&amp;ll=32.529906,-117.0395&amp;spn=0.002031,0.003954&amp;t=m&amp;z=14" target="_blank">Ver mapa más grande</a></p>')
+	var mapSource = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3363.786219199305!2d-117.02278128508082!3d32.531856181046635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d9487c0e9fb6b3%3A0x1c8b1a91f5d5d8d5!2sV%C3%ADa+de+la+Juventud+Ote%2C+Zona+Urbana+Rio+Tijuana%2C+Tijuana%2C+B.C.%2C+Mexico!5e0!3m2!1sen!2sus!4v1447258056379';
+	var mapURL = 'https://www.google.com/maps/place/V%C3%ADa+de+la+Juventud+Ote,+Zona+Urbana+Rio+Tijuana,+Tijuana,+B.C.,+Mexico/@32.5318562,-117.0227813,17z/data=!3m1!4b1!4m2!3m1!1s0x80d9487c0e9fb6b3:0x1c8b1a91f5d5d8d5';
+	$('#gmap').html('<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' + mapSource + '"></iframe><p id="big_map"><a href="' + mapURL  + '" target="_blank">Ver mapa más grande</a></p>');
+	console.log('nice');
 }
 
 function load_fancy_program()

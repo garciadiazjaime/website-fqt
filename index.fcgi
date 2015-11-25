@@ -2,10 +2,10 @@
 import sys, os, user
 
 # Add a custom Python path. (optional)
-sys.path.insert(0, "/var/www/vhosts/fqt.org.mx/httpdocs")
+sys.path.insert(0, "/var/www/vhosts/fqt.org.mx/httpdocs/project")
 
 # Switch to the directory of your project.
-os.chdir("/var/www/vhosts/fqt.org.mx/httpdocs")
+os.chdir("/var/www/vhosts/fqt.org.mx/httpdocs/project")
 
 # Set the DJANGO_SETTINGS_MODULE environment variable.
 os.environ['DJANGO_SETTINGS_MODULE'] = "fqt.settings"
