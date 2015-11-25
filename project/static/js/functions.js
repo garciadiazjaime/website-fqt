@@ -60,12 +60,10 @@ $(window).load(function() {
 		  });
 	*/
 	$('.block_programas a.prev').click(function(){
-		console.log('pref')
 		return false
 	})
 
 	$('.block_programas a.next').click(function(){
-		console.log('next')
 		return false
 	})
 
@@ -139,7 +137,6 @@ $(window).load(function() {
 		//each li 940
 		$('.buttons a').click(function(){
 			dir = $(this).attr('class')
-			console.log(dir)		
 			sign = (dir == 'next') ? '-':'+'
 			ul = $(this).parent().next().children()
 			howmany_children = ul.children().length
@@ -147,11 +144,6 @@ $(window).load(function() {
 			margin_left = $(ul).css('margin-left').replace('px', '')			
 			can_right = margin_left > limit_right ? true : false
 			can_left = margin_left < 0 ? true : false
-
-			console.log(margin_left + " " + limit_right)
-			console.log("can_right: " + can_right)
-			console.log("can_left: " + can_left)
-			
 
 			if( (dir == 'next' && can_right)
 				|| (dir == 'prev' && can_left)
@@ -214,7 +206,6 @@ function load_forma_voluntarios()
 			else
 				$('#'+tag[i]).prev().removeClass('required')	
 		}
-		console.log('1' + flag)
 		if($('#id_select_apoyo').find(":selected").text() == '')
 		{
 			$('#id_select_apoyo').prev().addClass('required')
@@ -222,7 +213,6 @@ function load_forma_voluntarios()
 		}
 		else
 			$('#id_select_apoyo').prev().removeClass('required')
-		console.log(flag)
 		if(!flag)
 			$('#msg').html('Favor de llenar los campos marcados')
 		else
@@ -297,13 +287,11 @@ function load_gmap()
 	var mapSource = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3363.786219199305!2d-117.02278128508082!3d32.531856181046635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d9487c0e9fb6b3%3A0x1c8b1a91f5d5d8d5!2sV%C3%ADa+de+la+Juventud+Ote%2C+Zona+Urbana+Rio+Tijuana%2C+Tijuana%2C+B.C.%2C+Mexico!5e0!3m2!1sen!2sus!4v1447258056379';
 	var mapURL = 'https://www.google.com/maps/place/V%C3%ADa+de+la+Juventud+Ote,+Zona+Urbana+Rio+Tijuana,+Tijuana,+B.C.,+Mexico/@32.5318562,-117.0227813,17z/data=!3m1!4b1!4m2!3m1!1s0x80d9487c0e9fb6b3:0x1c8b1a91f5d5d8d5';
 	$('#gmap').html('<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' + mapSource + '"></iframe><p id="big_map"><a href="' + mapURL  + '" target="_blank">Ver mapa más grande</a></p>');
-	console.log('nice');
 }
 
 function load_fancy_program()
 {
 	$('#forma_inscripcion').submit(function(){
-		console.log('here')
 		flag = true
 		$('#msg_ins').text('')
 		if($('#nombre').val() == '')
@@ -372,7 +360,6 @@ function get_currentpage(){
 }
 
 function gotoTop(id, speed , more){
-	console.log('gototop')
 	if(isNaN(speed))
 		speed = 1250
 	if(isNaN(more))
