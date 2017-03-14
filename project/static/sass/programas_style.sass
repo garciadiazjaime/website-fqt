@@ -1,0 +1,263 @@
+#block_programas
+	background: #423427 url(../media/background_texture_dark_bck.png) repeat
+	color: #ffffff
+	font-size: 14px
+	margin: 0 0 -10px
+	
+	
+	.half
+		margin-bottom: 125px
+		padding-bottom: 0
+	
+	.slideshow
+		margin-top: 17px
+		max-width: 100%
+		overflow: hidden
+		
+		img
+			max-width: 100%
+	
+	em
+		color: #e3dc1a
+		font-style: normal
+	
+	.pattern
+		background: url(../media/three_pattern.png) right 7px no-repeat
+		margin: 0 -110px 0 0
+		
+	h2
+		border-bottom: 1px dashed #e2dc1a
+		color: #e3dc1a
+		font-size: 41px
+		margin: 0 0 10px
+		padding: 30px 0 2px
+		width: 434px
+	
+	.big_paragraph
+		font-size: 140%
+		letter-spacing: .03em
+		
+	
+	.big_paragraph.montserrat_font
+		font: 18px montserrat_regular, Arial,Verdana,sans-serif
+
+	.yellow_list
+	
+		span
+			color: #ffffff
+		
+	h3
+		color: #e3dc1a
+		margin-top: 10px
+		text-transform: none
+		
+	p
+		letter-spacing: 0.05em
+
+#laboratorio_vivo
+	padding: 0  0 100px
+	
+#slideshow_reciclases, #slideshow_reciclases_jardin, #slideshow_proyecto_semilla
+	padding: 15px 0 0
+	
+.programas
+	
+	
+	hr
+		border: none
+		border-bottom: 1px dashed #E2DC1A
+	
+	.three_fourth.first
+		width: 54%
+	
+	h1
+		background: url(../media/pleca_header.png) left top no-repeat
+		color: #5f8424
+		height: 25px
+		margin: 0 0 5px -80px
+		padding: 10px 110px 25px 95px
+		width: 300px
+	
+	#first_content_block
+		background: url(../media/background_programas_ground.jpg) bottom repeat-x
+		height: 605px
+		position: relative
+		min-width: 952px
+		
+		p
+			margin: 15px 0 30px
+			width: 415px
+		
+		ul
+			list-style-type: none
+			margin: 0
+			padding: 0
+			
+			li
+				border-bottom: 1px dashed #808080
+				font-size: 16px
+				height: 25px
+				letter-spacing: 0.05em
+				margin: 0 0 5px
+		
+			a
+				background: url(../media/sprite_programa.png) right -69px no-repeat
+				color: #ffffff
+				display: block
+				font-family: montserrat_bold, Verdana, sans-serif
+				height: 100%
+				padding: 0 30px 0 0
+				
+				&:hover
+					background-position: right top
+					color: #6a9129
+			
+		.container
+			position: relative
+			z-index: 50
+
+	#background_tree
+		background: url(../media/background_programas_naturaleza.png) center 10px no-repeat
+		bottom: 65px
+		display: block
+		height: 100%
+		left: 0
+		position: absolute
+		width: 100%
+	
+		
+	#content
+		background: transparent
+	
+	a.button
+		background: #e2dc1a
+		@include border-radius()
+		@include box-shadow(#2c231a 2px 2px 5px) 
+		color: #3d3124
+		display: inline-block
+		font: 18px montserrat_bold, Verdana, sans-serif
+		letter-spacing: .03em
+		margin: 0
+		padding: 10px 25px
+		text-transform: uppercase
+		
+		&:hover
+			background: lighten(#e2dc1a, 15)
+			
+			
+
+#fancybox-content, #fancybox-outer
+	background: transparent
+	border: none
+	color: #ffffff
+	position: relative
+
+	h2
+		display: none
+
+	label
+		background: #75a142
+		@include border-radius()
+		display: inline-block
+		margin: 0 4px 10px 0
+		padding: 5px 10px
+		position: relative
+		vertical-align: top
+
+		span
+			background: url(../media/label_decor.png) 0 0 no-repeat
+			display: inline-block
+			height: 17px
+			position: absolute
+			right: -8px
+			width: 8px
+
+	label.small
+		width: 85px
+
+	label.medium
+		width: 160px
+		z-index: 5
+
+	label.large
+		width: 200px
+	
+	
+	.custom_textarea, .custom_textbox, select	
+		font: 13px Arial,Verdana,sans-serif	
+	
+	.custom_textarea
+		@include border-radius()
+		border: none
+		height: 130px
+		padding: 7px 5px
+		
+	.custom_textbox
+		@include border-radius()
+		border: none
+		height: 28px
+		padding: 3px 5px
+	
+	.custom_textbox.small	
+		width: 160px
+	
+	.custom_textbox.medium, .fake_select
+		width: 200px
+		
+	.fake_select
+		width: 209px
+		
+	.custom_textbox.large, .custom_textarea.large
+		width: 275px
+		
+	.fake_select
+		display: inline-block
+		height: 30px
+		overflow: hidden
+		position: relative
+		vertical-align: top
+		
+		select
+			background: transparent
+			border: none
+			height: 30px
+			padding: 5px 0 5px 2px
+			position: relative
+			width: 110%
+			z-index: 10
+				
+		.select_decor
+			background: #ffffff url(../media/select_sprite.png) right 10px no-repeat
+			@include border-radius()
+			height: 30px
+			left: 0
+			position: absolute
+			top: 0
+			width: 100%
+			z-index: 5
+			
+		&:hover
+			.select_decor
+				background-position: right -112px
+		
+	.custom_submit
+		background: #e2dc1a
+		border: none
+		@include border-radius()
+		color: #000000
+		display: block
+		font-size: 15px
+		text-align: center
+		margin:  10px 0 0 auto
+		padding: 10px 15px
+		text-transform: uppercase
+		width: 120px
+		
+		&:hover
+			background: lighten(#e2dc1a, 10)
+
+input[type="text"]:disabled
+	color: #000000
+	
+.required, label.required
+	color: #8e2e2e
