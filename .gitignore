@@ -1,2 +1,5 @@
+node_modules
 *.DS_Store
-*.pyc
+bower_components
+npm-debug.log
+.sass-cache
