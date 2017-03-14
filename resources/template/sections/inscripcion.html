@@ -1,0 +1,33 @@
+<h2>Inscripción</h2>
+<div id="form_wrapper">
+	<p>Por favor, llena la siguiente forma y en breve nos pondremos
+	en contacto contigo.  Gracias!!</p>
+	<form method="post" action="#" id="forma_inscripcion">
+		{% csrf_token %}
+		<label class="small">Nombre* <span></span></label><input type="text" id="nombre" name="nombre" lang="es" class="custom_textbox required large" />
+		<label  class="small">Correo* <span></span></label><input type="email" id="email" name="email" lang="es" class="custom_textbox required large" />
+		<label class="small">Teléfono <span></span></label><input type="tel" id="tel" name="tel" lang="es" class="custom_textbox required large" />
+		<label  class="large">Centro de estudios / Trabajo <span></span></label><input type="text" id="centro_estudios" name="centro_estudios" lang="es" class="custom_textbox required small" />
+		<br />
+		<label  class="medium">Programas de interés <span></span></label><div class="fake_select"><!--<input type="text" id="programa_ins" name="programa_ins" lang="es" value="{{form}}" class="custom_textbox medium" readonly>-->
+		{% autoescape off %}
+		<select name="programa_interes" id="programa_interes">
+			{{select}}
+		</select>
+		{% endautoescape %}
+		<div class="select_decor"></div>	
+		</div>
+		<label  class="medium">Tipo de apoyo <span></span></label><input type="text" id="tipo_apoyo" name="tipo_apoyo" lang="es" value="Voluntario" class="custom_textbox medium" readonly>
+		
+		<!--<div class="fake_select">
+			<select>
+				<option>Voluntario </option>
+			</select>
+			<div class="select_decor"></div>	
+		</div>-->
+		<br />
+		<label  class="small">Mensaje* <span></span></label><textarea name="mensaje" id="mensaje" class="custom_textarea large"></textarea>
+		<input type="submit"  class="custom_submit" value="Enviar" />
+	</form>
+</div>
+<span id="msg_ins"></span>
