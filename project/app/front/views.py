@@ -50,7 +50,7 @@ def nosotros(request, category=''):
 
 	return render_to_response('sections/nosotros.html', locals())
 
-def programas(request, category=''):	
+def programas(request, category=''):
 	is_chrome = True if 'Chrome' in request.META['HTTP_USER_AGENT'] else False
 	page_title  = "Fundaci&oacute;n que transforma."
 	keywords 	= "fundaci&oacute;n transforma"
@@ -59,7 +59,7 @@ def programas(request, category=''):
 	section 	= "programas"
 	main_menu = menu.get_main(section)
 	list_programs = Program.objects_a.get_list_programs()
-	programs = Program.objects_a.get_programs()	
+	programs = Program.objects_a.get_programs()
 	footer_menu = menu.get_footer()
 
 	return render_to_response('sections/programas.html', locals())
@@ -84,7 +84,7 @@ def programa_inscribite(request):
 	if request.is_ajax():
 		response = 'error'
 		email_msg = ''
-		
+
 		email = request.POST.get('email', '')
 		for key, value in request.POST.iteritems():
 			data += key + ': ' + value + "<br /><br />"
@@ -267,4 +267,3 @@ def mint_send_mail(title, to, email_from, content):
 	except Exception, e:
 		description = e
 	return {'status':status, 'description':description}
-	
