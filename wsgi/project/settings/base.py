@@ -2,6 +2,7 @@ import os
 import django
 # calculated paths for django and the site
 # used as starting points for various other paths
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
@@ -21,7 +22,7 @@ DATABASES = {
    'default': {
 
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'fqt.sqlite',                      # Or path to database file if using sqlite3.
+        'NAME': os.path.join(BASE_DIR, 'fqt.sqlite'),                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
