@@ -17,16 +17,7 @@ setup(
     url='http://www.python.org/sigs/distutils-sig/',
     # GETTING-STARTED: define required django version:
     install_requires=[
-        'appdirs==1.4.3',
         'Django==1.4.6',
-        'django-tinymce==2.0.5',
-        'gdata==2.0.18',
-        'packaging==16.8',
-        'pyparsing==2.2.0',
-        'python-slugify==1.1.4',
-        'six==1.10.0',
-        'South==1.0.2',
-        'Unidecode==0.4.18'
     ],
     dependency_links=[
         'https://pypi.python.org/simple/django/'
