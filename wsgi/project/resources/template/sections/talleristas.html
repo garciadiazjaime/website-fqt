@@ -17,10 +17,10 @@
 			{% if not forloop.counter|divisibleby:"1" %}
 			<li class="half column first"><a href="/media/{{row.source}}" title="{{row.title}}" target="_blank">{{row.title}}</a></li>
 			{% else %}
-			<li class="half column"><a href="/media/{{row.source}}" title="{{row.title}}" target="_blank">{{row.title}}</a></li>
+			<li class="half column"><a href="https://docs.google.com/a/fqt.org.mx/forms/d/e/1FAIpQLSfrJdyx0GQ_AhC0LGixpsLxAa4P43WIGD2ASWzJJA6p8AOiOA/viewanalytics" title="{{row.title}}" target="_blank">{{row.title}}</a></li>
 			{% endif %}
 			{% endfor %}
-		</ul><span id="quieres_ser_voluntario"></span>	
+		</ul><span id="quieres_ser_voluntario"></span>
 		{% if flag == 0 %}
 		<h2>¿Quieres ser  tallerista voluntario?</h2>
 		<div class="half column first">
@@ -31,7 +31,7 @@
 		<form method="post" action="/talleristas/voluntarios" id="forma_voluntarios" enctype="multipart/form-data">{% csrf_token %}
 		{{ form.non_field_errors }}
 		<div class="half column first">
-			
+
 			<label for="nombre">Nombre <span></span></label>{{ form.nombre }}
 
 			<label for="edad">Edad <span></span></label>{{ form.edad }}
@@ -46,7 +46,7 @@
 			</div>
 		</div><div class="half column">
 				<label class="full_width" for="mensaje">Mensaje</label>{{ form.mensaje }}
-				
+
 				<label class="full_width" for="ficha">Adjuntar ficha de registro</label>
 				<div id="FileUpload">
 					{{ form.ficha }}
