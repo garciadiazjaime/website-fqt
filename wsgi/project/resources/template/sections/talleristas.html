@@ -13,13 +13,8 @@
 		</div>
 		<h3 id="descargables">Descargables Para Talleristas</h3>
 		<ul id="lista_descargables_talleristas">
-			{% for row in downloads %}
-			{% if not forloop.counter|divisibleby:"1" %}
-			<li class="half column first"><a href="/media/{{row.source}}" title="{{row.title}}" target="_blank">{{row.title}}</a></li>
-			{% else %}
-			<li class="half column"><a href="https://docs.google.com/a/fqt.org.mx/forms/d/e/1FAIpQLSfrJdyx0GQ_AhC0LGixpsLxAa4P43WIGD2ASWzJJA6p8AOiOA/viewanalytics" title="{{row.title}}" target="_blank">{{row.title}}</a></li>
-			{% endif %}
-			{% endfor %}
+			<li class="half column"><a href="https://docs.google.com/forms/d/e/1FAIpQLScgAczSrmi3F-WlXA-byXsLR7gj1reepLuNLWyLVe6y5ldzwg/viewform?c=0&w=1&includes_info_params=true" title="Bitácora" target="_blank">Bitácora</a></li>
+      <li class="half column"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfrJdyx0GQ_AhC0LGixpsLxAa4P43WIGD2ASWzJJA6p8AOiOA/viewform?c=0&w=1&includes_info_params=true" title="Ficha de Registro" target="_blank">Ficha de Registro</a></li>
 		</ul><span id="quieres_ser_voluntario"></span>
 		{% if flag == 0 %}
 		<h2>¿Quieres ser  tallerista voluntario?</h2>
