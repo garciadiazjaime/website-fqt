@@ -9,15 +9,15 @@ $(window).load(function() {
 		if(page.indexOf('programas') !== -1)
 		{
 			gotoTop(last_item, '', '450')
-		}		
-		else			
-			gotoTop(last_item)				
+		}
+		else
+			gotoTop(last_item)
 	}else if(page.indexOf('ecocapsulas') !== -1)
 	{
 		gotoTop('ecocapsulas')
 	}
 
-	
+
 	// CUSTOM FORM ELEMENTS
 	if($('.mySelectBoxClass').length){
 		$('.mySelectBoxClass').customSelect();
@@ -27,11 +27,11 @@ $(window).load(function() {
 		'opacity': '1'
 	},  'slow', function(){
 	});
-		
-	$('.goto_top').click(function(){ 
+
+	$('.goto_top').click(function(){
 		var item = $(this).attr('href');
-		id = getLastItem(item)			
-		gotoTop(id, '', '-100')				
+		id = getLastItem(item)
+		gotoTop(id, '', '-100')
 		window.history.pushState( id, id, item);
 		return false;
 	});
@@ -40,17 +40,17 @@ $(window).load(function() {
 
 	if($('.slideshow_right').length)
 		$('.slideshow_right').cycle({
-			fx: 'scrollRight', // choose your transition type, ex: fade, scrollUp, shuffle, etc...	    
+			fx: 'scrollRight', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
 		});
 
 	if($('.slideshow_left').length)
 		$('.slideshow_left').cycle({
-			fx: 'scrollLeft', // choose your transition type, ex: fade, scrollUp, shuffle, etc...	    
+			fx: 'scrollLeft', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
 		});
 
 	if($('#slideshow_nosotros').length)
 		$('#slideshow_nosotros').cycle({
-			fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...	    
+			fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
 		});
 	/*
 		$('#slideshow_nosotros').bjqs({
@@ -82,7 +82,7 @@ $(window).load(function() {
 				'wmode'		: 'transparent',
 				'allowfullscreen'	: 'true'
 			},
-			overlayColor: '#000000', 
+			overlayColor: '#000000',
 			overlayOpacity:'.6',
 		});
 		return false
@@ -93,9 +93,9 @@ $(window).load(function() {
 			ajax : {
 			    type	: "POST",
 			    data	: 'mydata=test',
-				
+
 			},
-			overlayColor: '#000000', 
+			overlayColor: '#000000',
 			overlayOpacity:'.6',
 			autoScale : false,
 			width : 395,
@@ -110,17 +110,17 @@ $(window).load(function() {
 			{
 				autoScale : false,
 				height: 400,
-				overlayColor: '#000000', 
+				overlayColor: '#000000',
 				overlayOpacity:'.6',
 			    responsive  : false,
 				width: 1045,
 			}
 		)
 	}
-		
-	
-	
-	
+
+
+
+
 
 	// *********************** ECOTIPS *********************************
 	$('#ecotips_list li').click(function(){
@@ -131,7 +131,7 @@ $(window).load(function() {
 	);
 
 	if($('#forma_voluntarios').length) load_forma_voluntarios();
-		
+
 	if($('.logo_slideshow').length)
 	{
 		//each li 940
@@ -141,7 +141,7 @@ $(window).load(function() {
 			ul = $(this).parent().next().children()
 			howmany_children = ul.children().length
 			limit_right = (howmany_children-1) * 850 * -1
-			margin_left = $(ul).css('margin-left').replace('px', '')			
+			margin_left = $(ul).css('margin-left').replace('px', '')
 			can_right = margin_left > limit_right ? true : false
 			can_left = margin_left < 0 ? true : false
 
@@ -154,7 +154,7 @@ $(window).load(function() {
 		        	},
 		        	600
 		        )
-		    return false			
+		    return false
 		})
 
 		$('.no_link').click(function(){
@@ -165,16 +165,16 @@ $(window).load(function() {
 			$('#btn_donar').click(function(){
 				$('#form_donar').submit()
 				return false
-			})			
+			})
 	}
-		 
+
 	if($('#gmap').length) load_gmap()
 
 	if($('#form_contact').length) load_contact_form()
-		
+
 
 	/*
-		$('.logo_slideshow').serialScroll({		
+		$('.logo_slideshow').serialScroll({
 			items:'li',
 			prev:'.screen_logos a.prev',
 			next:'.screen_logos a.next',
@@ -186,7 +186,7 @@ $(window).load(function() {
 			lock:false,
 			cycle:true, //don't pull back once you reach the end
 			//easing:'easeOutQuart', //use this easing equation for a funny effect
-			jump: true //click on the images to scroll to them			
+			jump: true //click on the images to scroll to them
 		});
 	*/
 });
@@ -204,7 +204,7 @@ function load_forma_voluntarios()
 				flag = false
 			}
 			else
-				$('#'+tag[i]).prev().removeClass('required')	
+				$('#'+tag[i]).prev().removeClass('required')
 		}
 		if($('#id_select_apoyo').find(":selected").text() == '')
 		{
@@ -232,7 +232,7 @@ function load_contact_form()
 	var msg_sending = new Array('Enviando mensaje, Favor espera...', 'Sending message, please waite...');
 	var msg_success = new Array('Mensaje enviado correctamente, gracias.', 'Your message has been sent, thank you.');
 	var msg_error = new Array('Lo sentimos el mensaje no se pudo enviar, favor de intetar mas tarde.', 'We are sorry, the message could not been sent, please try later.');
-	$("#form_contact").submit(function() {		
+	$("#form_contact").submit(function() {
 		$('#message').html('')
 		flag = true
 		if($('#name').val() == '')
@@ -267,7 +267,7 @@ function load_contact_form()
 			$.post("send_mail_form", $("#form_contact").serialize(), function(data){
 				if(data == 'success')
 				{
-					$('#msg').text(msg_success[lang]); 
+					$('#msg').text(msg_success[lang]);
 					clear_form('form_contact');
 				}
 				else if(data == 'empty_data') $('#msg').text(msg_fill_fields[lang]);
@@ -284,8 +284,8 @@ function clear_form(id){
 
 function load_gmap()
 {
-	var mapSource = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3363.786219199305!2d-117.02278128508082!3d32.531856181046635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d9487c0e9fb6b3%3A0x1c8b1a91f5d5d8d5!2sV%C3%ADa+de+la+Juventud+Ote%2C+Zona+Urbana+Rio+Tijuana%2C+Tijuana%2C+B.C.%2C+Mexico!5e0!3m2!1sen!2sus!4v1447258056379';
-	var mapURL = 'https://www.google.com/maps/place/V%C3%ADa+de+la+Juventud+Ote,+Zona+Urbana+Rio+Tijuana,+Tijuana,+B.C.,+Mexico/@32.5318562,-117.0227813,17z/data=!3m1!4b1!4m2!3m1!1s0x80d9487c0e9fb6b3:0x1c8b1a91f5d5d8d5';
+	var mapSource = 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3363.5767459247813!2d-117.0335907!3d32.5374495!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d948ffb357535d%3A0x1cad090cbc75ece4!2sFundaci%C3%B3n+Que+Transforma!5e0!3m2!1sen!2smx!4v1501033510976';
+	var mapURL = 'https://www.google.com.mx/maps/place/Fundaci%C3%B3n+Que+Transforma/@32.5374495,-117.0335907,17z/data=!4m5!3m4!1s0x80d948ffb357535d:0x1cad090cbc75ece4!8m2!3d32.5384037!4d-117.0304686';
 	$('#gmap').html('<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' + mapSource + '"></iframe><p id="big_map"><a href="' + mapURL  + '" target="_blank">Ver mapa más grande</a></p>');
 }
 
@@ -328,7 +328,7 @@ function load_fancy_program()
 				if(data == 'success')
 				{
 					$('#form_wrapper').html('<b>Mensaje enviado, gracias.</b>')
-					$('#msg_ins').text(''); 
+					$('#msg_ins').text('');
 					clear_form('forma_inscripcion');
 				}
 				else $('#msg_ins').text('Lo sentimos, intentar m\xE1s tarde.');
@@ -337,11 +337,11 @@ function load_fancy_program()
 		return false
 	})
 }
-(function($) { 
+(function($) {
          // slideTo function for nivo-slider
         $.slideTo = function(idx) {
             $('#slider').data('nivo:vars').currentSlide = idx - 1;
-            $("#slider a.nivo-nextNav").trigger('click'); 
+            $("#slider a.nivo-nextNav").trigger('click');
         }
   })(jQuery);
 
@@ -441,12 +441,12 @@ function get_server_path(){
 
 
 function showDivEcotips(id)
-{	
-	if(id){	
+{
+	if(id){
 		$('.ecotip_wrapper').hide();
     	$('.ecotip_wrapper').stop().animate({ opacity: 0 }, 300);
-		$('#'+id+'_sld').show();	
-    	$('#'+id+'_sld').stop().animate({ opacity: 1 }, 300);	
+		$('#'+id+'_sld').show();
+    	$('#'+id+'_sld').stop().animate({ opacity: 1 }, 300);
 	}
 }
 
